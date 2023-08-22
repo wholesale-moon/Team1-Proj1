@@ -18,15 +18,27 @@ public class MainMenu : MonoBehaviour
     }
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(1);
     }
     public void QuitGame()
     {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
         Application.Quit();
-        Debug.Log("Quit");
     }
     public void Credits()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        SceneManager.LoadScene(3);
+    }
+    public void Tutorial()
+    {
+        SceneManager.LoadScene(2);
+    }
+    public void BackButton()
+    {
+        SceneManager.LoadScene(0);
     }
 }

@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb2d;
     private Vector2 moveInput;
     int health = 100;
+    public GameObject theCamera;
 
     // Start is called before the first frame update
     void Start()
@@ -39,12 +40,24 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         if (collision.gameObject.tag == "House")
-        {
-            Debug.Log("House is not enterable yet");
+        { //X -2.5  y -24.5
+            theCamera.transform.position = new Vector3(-2.5f, -24.5f, -10);
+            rb2d.transform.position = new Vector3(-2.5f, -26.7f, -2);
         }
         if (collision.gameObject.tag == "Barn")
+        {//x 18.5  y -24.5
+            theCamera.transform.position = new Vector3(18.5f, -24.5f, -10);
+            rb2d.transform.position = new Vector3(18.7f, -26.7f, -2);
+        }
+        if (collision.gameObject.tag == "Field")
         {
-            Debug.Log("Barn is not enterable yet");
+            theCamera.transform.position = new Vector3(0f, 0f, -10);
+            rb2d.transform.position = new Vector3(4.5f, 1.8f, -2);
+        }
+        if (collision.gameObject.tag == "Field2")
+        {
+            theCamera.transform.position = new Vector3(0f, 0f, -10);
+            rb2d.transform.position = new Vector3(-4.5f, 2.5f, -2);
         }
     }
 }
