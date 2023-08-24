@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+
+    [SerializeField] AudioSource audioplayer;
+    [SerializeField] AudioClip[] audioSources;
     // Start is called before the first frame update
     void Start()
     {
