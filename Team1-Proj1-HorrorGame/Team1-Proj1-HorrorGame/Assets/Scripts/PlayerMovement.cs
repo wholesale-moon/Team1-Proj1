@@ -25,6 +25,23 @@ public class PlayerMovement : MonoBehaviour
         moveInput.Normalize();
 
         rb2d.velocity = moveInput * moveSpeed;
+
+        if (transform.position.y >= 4)
+        {
+            transform.position = new Vector3(transform.position.x, 4, 0);
+        }
+        else if (transform.position.y <= -14f)
+        {
+            transform.position = new Vector3(transform.position.x, -14f, 0);
+        }
+        else if  (transform.position.x >= 8.5f)
+        {
+            transform.position = new Vector3(8.5f, transform.position.y, 0);
+        }
+        else if (transform.position.x <= -26.45f)
+        {
+            transform.position = new Vector3(-26.45f, transform.position.y, 0);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
