@@ -5,10 +5,13 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     float moveSpeed = 5;
-    public Rigidbody2D rb2d;
-    private Vector2 moveInput;
+    public Rigidbody2D rb2d; // you can use [SerializeField] private xxx to make it so you can see it in the inspector
+    private Vector2 moveInput; // but not public for other scripts to accidentally use.
     int health = 100;
     public GameObject theCamera;
+
+    //Animations stuff
+    [SerializeField] private Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +24,11 @@ public class PlayerMovement : MonoBehaviour
     {
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
+
+        // Setting animation bools to determine which animation should play
+        animator.SetFloat("Horizontal", moveInput.x);
+        animator.SetFloat("Vertical", moveInput.y);
+        animator.SetFloat("Speed", moveInput.sqrMagnitude);
 
         moveInput.Normalize();
 
