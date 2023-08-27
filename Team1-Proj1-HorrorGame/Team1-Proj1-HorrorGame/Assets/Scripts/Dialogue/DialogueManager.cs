@@ -6,13 +6,16 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
+    [Header("Dialogue Objects")]
+    public GameObject DialogueBox;
     public Queue<string> sentences;
     public TMP_Text nameText;
     public TMP_Text dialogueText;
-    public GameObject DialogueBox;
 
     [SerializeField] private TMP_Text contText;
-    [SerializeField] private GameObject cutsceneManager;
+
+    [Header("Scene Manager")]
+    [SerializeField] private GameObject SceneManager;
 
     void Awake()
     {
@@ -62,7 +65,7 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         DialogueBox.SetActive(false);
-        cutsceneManager.GetComponent<TriggerCutscene>().EndCutscene();
+        SceneManager.GetComponent<TriggerCutscene>().EndCutscene();
     }
 
 }
