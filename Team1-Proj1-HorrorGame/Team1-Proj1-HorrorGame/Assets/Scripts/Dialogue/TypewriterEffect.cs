@@ -6,6 +6,7 @@ using TMPro;
 
 public class TypewriterEffect : MonoBehaviour
 {
+    [SerializeField] Text text;
 	[SerializeField] TMP_Text tmpProText;
 	string writer;
 	[SerializeField] private Coroutine coroutine;
@@ -17,12 +18,16 @@ public class TypewriterEffect : MonoBehaviour
 	[Space(10)] [SerializeField] private bool startOnEnable = false;
 
 	[SerializeField] Button contButton;
-	[SerializeField] AudioSource aud;
+	[SerializeField] AudioSource audio;
 
 	// is there a way to ignore rich text tags?
 	
 	void Awake()
 	{
+		if(text != null)
+		{
+			writer = text.text;
+		}
 		
 		if (tmpProText != null)
 		{
@@ -33,6 +38,11 @@ public class TypewriterEffect : MonoBehaviour
 	void Start()
 	{
 		// if (!clearAtStart ) return;
+		if(text != null)
+		{
+			text.text = "";
+		}
+		
 		if (tmpProText != null)
 		{
 			tmpProText.text = "";
@@ -41,6 +51,11 @@ public class TypewriterEffect : MonoBehaviour
 
 	private void OnEnable()
 	{
+		if(text != null)
+		{
+			writer = text.text;
+		}
+		
 		if (tmpProText != null)
 		{
 			writer = tmpProText.text;
@@ -53,6 +68,13 @@ public class TypewriterEffect : MonoBehaviour
 	private void StartTypewriter()
 	{
 		StopAllCoroutines();
+
+		if(text != null)
+		{
+			text.text = "";
+
+			StartCoroutine("TypeWriterText");
+		}
 		
 		if (tmpProText != null)
 		{
@@ -65,6 +87,31 @@ public class TypewriterEffect : MonoBehaviour
 	private void OnDisable()
 	{
 		StopAllCoroutines();
+	}
+
+	IEnumerator TypeWriterText()
+	{
+		text.text = leadingCharBeforeDelay ? leadingChar : "";
+
+		yield return new WaitForSeconds(delayBeforeStart);
+
+		foreach (char c in writer)
+		{
+			if (text.text.Length > 0)
+			{
+				text.text = text.text.Substring(0, text.text.Length - leadingChar.Length);
+			}
+			text.text += c;
+			text.text += leadingChar;
+			yield return new WaitForSeconds(timeBtwChars);
+		}
+
+		if(leadingChar != "")
+        {
+			text.text = text.text.Substring(0, text.text.Length - leadingChar.Length);
+		}
+
+		yield return null;
 	}
 
 	IEnumerator TypeWriterTMP()
@@ -81,7 +128,7 @@ public class TypewriterEffect : MonoBehaviour
 			}
 			tmpProText.text += c;
 			tmpProText.text += leadingChar;
-			aud.Play();
+			audio.Play();
 			yield return new WaitForSeconds(timeBtwChars);
 		}
 

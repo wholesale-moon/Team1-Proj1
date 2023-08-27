@@ -11,10 +11,7 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text dialogueText;
     public GameObject DialogueBox;
 
-    [SerializeField] private TMP_Text contText;
-    [SerializeField] private GameObject cutsceneManager;
-
-    void Awake()
+    void Start()
     {
         sentences = new Queue<string>();
     }
@@ -27,13 +24,6 @@ public class DialogueManager : MonoBehaviour
         foreach (string sentence in dialogue.sentences)
         {
             sentences.Enqueue(sentence);
-        }
-
-        if (sentences.Count > 1)
-        {
-            contText.text = "CONTINUE >>";
-        } else {
-            contText.text = "<< END DIALOGUE >>";
         }
 
         DialogueBox.SetActive(true);
@@ -52,17 +42,11 @@ public class DialogueManager : MonoBehaviour
         string sentence = sentences.Dequeue();
         dialogueText.text = sentence;
         dialogueText.gameObject.SetActive(true);
-
-        if(sentences.Count == 0)
-        {
-            contText.text = "<< END DIALOGUE >>";
-        }
     }
 
     void EndDialogue()
     {
         DialogueBox.SetActive(false);
-        cutsceneManager.GetComponent<TriggerCutscene>().EndCutscene();
     }
 
 }
