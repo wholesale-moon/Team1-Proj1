@@ -9,6 +9,11 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveInput; // but not public for other scripts to accidentally use.
     int health = 100;
     public GameObject theCamera;
+    public GameObject houseCamera;
+    public AudioSource walkSound;
+    public AudioSource fieldTheme;
+    public AudioSource houseTheme;
+    bool isMoving = false;
 
     //Animations stuff
     [SerializeField] private Animator animator;
@@ -16,11 +21,18 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        walkSound = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
+    {
+        OnMove();
+
+        
+    }
+
+    void OnMove()
     {
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
@@ -34,24 +46,26 @@ public class PlayerMovement : MonoBehaviour
 
         rb2d.velocity = moveInput * moveSpeed;
 
-        if (transform.position.y >= 4)
+        
+        if (rb2d.velocity.x != 0 || rb2d.velocity.y != 0)
         {
-            transform.position = new Vector3(transform.position.x, 4, 0);
-        }
-        else if (transform.position.y <= -14f)
-        {
-            transform.position = new Vector3(transform.position.x, -14f, 0);
-        }
-        else if  (transform.position.x >= 8.5f)
-        {
-            transform.position = new Vector3(8.5f, transform.position.y, 0);
-        }
-        else if (transform.position.x <= -26.45f)
-        {
-            transform.position = new Vector3(-26.45f, transform.position.y, 0);
-        }
-    }
 
+            isMoving = true;
+
+            if (isMoving)
+            {
+                if (!walkSound.isPlaying)
+                {
+
+                    walkSound.Play();
+                }                
+            }
+            else
+            {
+                walkSound.Stop();
+            }
+        }        
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Scarecrow")
@@ -66,8 +80,11 @@ public class PlayerMovement : MonoBehaviour
         }
         if (collision.gameObject.tag == "House")
         { //X -2.5  y -24.5
-            theCamera.transform.position = new Vector3(-2.5f, -24.5f, -10);
-            rb2d.transform.position = new Vector3(-2.5f, -26.7f, -2);
+            theCamera.SetActive(false);
+            houseCamera.SetActive(true);
+            rb2d.transform.position = new Vector3(-2.45f, -43.15f, 0);
+            fieldTheme.Stop();
+            houseTheme.Play();
         }
         if (collision.gameObject.tag == "Barn")
         {//x 18.5  y -24.5
@@ -76,8 +93,11 @@ public class PlayerMovement : MonoBehaviour
         }
         if (collision.gameObject.tag == "Field")
         {
-            theCamera.transform.position = new Vector3(0f, 0f, -10);
+            theCamera.SetActive(true);
+            houseCamera.SetActive(false);
             rb2d.transform.position = new Vector3(4.5f, 1.8f, -2);
+            houseTheme.Stop();
+            fieldTheme.Play();
         }
         if (collision.gameObject.tag == "Field2")
         {
