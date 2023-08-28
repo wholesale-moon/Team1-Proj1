@@ -104,5 +104,10 @@ public class PlayerMovement : MonoBehaviour
             theCamera.transform.position = new Vector3(0f, 0f, -10);
             rb2d.transform.position = new Vector3(-4.5f, 2.5f, -2);
         }
+        if (collision.gameObject.tag == "Flashlight")
+        {
+            Destroy(collision.gameObject);
+            Debug.Log("You picked up a flashlight!");
+        }
     }
 }

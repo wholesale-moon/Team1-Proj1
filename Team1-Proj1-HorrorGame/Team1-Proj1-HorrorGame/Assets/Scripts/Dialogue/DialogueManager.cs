@@ -65,7 +65,6 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         DialogueBox.SetActive(false);
-        SceneManager.GetComponent<TriggerCutscene>().EndCutscene();
+        //SceneManager.GetComponent<TriggerCutscene>().EndCutscene();
     }
-
 }
