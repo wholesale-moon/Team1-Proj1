@@ -12,21 +12,23 @@ public class UIManager : MonoBehaviour
     [SerializeField] AudioSource speaker;
     [SerializeField] AudioClip[] audios;
 
-    private bool isPaused = false;
-    private bool isHelp = false;
+    [SerializeField] private bool isPaused = false;
+    [SerializeField] private bool isHelp = false;
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown("escape"))
         {
             isPaused = !isPaused;
             if(isHelp & isPaused)
             {
-                isHelp = !isHelp;
+                isHelp = false;
                 HelpScreen.SetActive(isHelp);
             }
 
             PauseScreen.SetActive(isPaused);
+
+            Debug.Log("I pressed escape");
         }
     }
 

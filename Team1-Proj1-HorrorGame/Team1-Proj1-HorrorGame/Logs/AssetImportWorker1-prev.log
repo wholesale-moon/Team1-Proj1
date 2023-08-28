@@ -15,7 +15,7 @@ D:/SGD212/Team1-Proj1/Team1-Proj1-HorrorGame/Team1-Proj1-HorrorGame
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-55055
+55447
 Successfully changed project path to: D:/SGD212/Team1-Proj1/Team1-Proj1-HorrorGame/Team1-Proj1-HorrorGame
 D:/SGD212/Team1-Proj1/Team1-Proj1-HorrorGame/Team1-Proj1-HorrorGame
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,11 +49,11 @@ D:/SGD212/Team1-Proj1/Team1-Proj1-HorrorGame/Team1-Proj1-HorrorGame
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [29520] Host "[IP] 192.168.68.114 [Port] 0 [Flags] 2 [Guid] 2471395700 [EditorId] 2471395700 [Version] 1048832 [Id] WindowsEditor(7,thebigboy) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [22348] Host "[IP] 192.168.68.114 [Port] 0 [Flags] 2 [Guid] 4015785057 [EditorId] 4015785057 [Version] 1048832 [Id] WindowsEditor(7,thebigboy) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [29520] Host "[IP] 192.168.68.114 [Port] 0 [Flags] 2 [Guid] 2471395700 [EditorId] 2471395700 [Version] 1048832 [Id] WindowsEditor(7,thebigboy) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [22348] Host "[IP] 192.168.68.114 [Port] 0 [Flags] 2 [Guid] 4015785057 [EditorId] 4015785057 [Version] 1048832 [Id] WindowsEditor(7,thebigboy) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
-Refreshing native plugins compatible for Editor in 1367.91 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 12.26 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.5f1 (9674261d40ee)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity 2022.3.5f1/Editor/Data/Resources/UnitySubsystems
@@ -69,44 +69,44 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity 2022.3.5f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity 2022.3.5f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity 2022.3.5f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56652
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56340
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity 2022.3.5f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.095682 seconds.
-- Loaded All Assemblies, in  5.819 seconds
+Registered in 0.010358 seconds.
+- Loaded All Assemblies, in  0.374 seconds
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.277 seconds
-Domain Reload Profiling: 6093ms
-	BeginReloadAssembly (4385ms)
+- Finished resetting the current domain, in  0.270 seconds
+Domain Reload Profiling: 642ms
+	BeginReloadAssembly (100ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (364ms)
-	RebuildNativeTypeToScriptingClass (14ms)
-	initialDomainReloadingComplete (154ms)
-	LoadAllAssembliesAndSetupDomain (899ms)
-		LoadAssemblies (4382ms)
+	RebuildCommonClasses (37ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (68ms)
+	LoadAllAssembliesAndSetupDomain (154ms)
+		LoadAssemblies (97ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (891ms)
-			TypeCache.Refresh (889ms)
-				TypeCache.ScanAssembly (666ms)
+		AnalyzeDomain (145ms)
+			TypeCache.Refresh (144ms)
+				TypeCache.ScanAssembly (132ms)
 			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (1ms)
-	FinalizeReload (277ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (271ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (217ms)
+		SetupLoadedEditorAssemblies (211ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (8ms)
-			SetLoadedEditorAssemblies (7ms)
+			InitializePlatformSupportModulesInManaged (10ms)
+			SetLoadedEditorAssemblies (8ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (2ms)
-			ProcessInitializeOnLoadAttributes (145ms)
-			ProcessInitializeOnLoadMethodAttributes (53ms)
+			ProcessInitializeOnLoadAttributes (141ms)
+			ProcessInitializeOnLoadMethodAttributes (50ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -116,51 +116,51 @@ Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\SGD212\Team1-Proj1\Team1-Proj1-HorrorGame\Team1-Proj1-HorrorGame\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\SGD212\Team1-Proj1\Team1-Proj1-HorrorGame\Team1-Proj1-HorrorGame\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-- Loaded All Assemblies, in  8.509 seconds
-Refreshing native plugins compatible for Editor in 4.85 ms, found 4 plugins.
+- Loaded All Assemblies, in  0.971 seconds
+Refreshing native plugins compatible for Editor in 4.96 ms, found 4 plugins.
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.759 seconds
-Domain Reload Profiling: 9259ms
-	BeginReloadAssembly (135ms)
+- Finished resetting the current domain, in  0.803 seconds
+Domain Reload Profiling: 1767ms
+	BeginReloadAssembly (153ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (5ms)
+		DisableScriptedObjects (7ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (22ms)
-	RebuildCommonClasses (35ms)
-	RebuildNativeTypeToScriptingClass (11ms)
-	initialDomainReloadingComplete (48ms)
-	LoadAllAssembliesAndSetupDomain (8271ms)
-		LoadAssemblies (7789ms)
+		CreateAndSetChildDomain (25ms)
+	RebuildCommonClasses (39ms)
+	RebuildNativeTypeToScriptingClass (13ms)
+	initialDomainReloadingComplete (50ms)
+	LoadAllAssembliesAndSetupDomain (710ms)
+		LoadAssemblies (408ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (543ms)
-			TypeCache.Refresh (501ms)
-				TypeCache.ScanAssembly (446ms)
-			ScanForSourceGeneratedMonoScriptInfo (28ms)
-			ResolveRequiredComponents (13ms)
-	FinalizeReload (759ms)
+		AnalyzeDomain (363ms)
+			TypeCache.Refresh (323ms)
+				TypeCache.ScanAssembly (309ms)
+			ScanForSourceGeneratedMonoScriptInfo (30ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (803ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (572ms)
+		SetupLoadedEditorAssemblies (610ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (7ms)
-			SetLoadedEditorAssemblies (6ms)
+			InitializePlatformSupportModulesInManaged (6ms)
+			SetLoadedEditorAssemblies (5ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (137ms)
-			ProcessInitializeOnLoadAttributes (326ms)
-			ProcessInitializeOnLoadMethodAttributes (85ms)
-			AfterProcessingInitializeOnLoad (10ms)
+			BeforeProcessingInitializeOnLoad (164ms)
+			ProcessInitializeOnLoadAttributes (319ms)
+			ProcessInitializeOnLoadMethodAttributes (104ms)
+			AfterProcessingInitializeOnLoad (11ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (6ms)
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 5.46 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 4.11 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 5813 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 97 unused Assets / (421.9 KB). Loaded Objects now: 6274.
-Memory consumption went from 223.6 MB to 223.1 MB.
-Total: 4.281300 ms (FindLiveObjects: 0.544900 ms CreateObjectMapping: 0.165100 ms MarkObjects: 3.281400 ms  DeleteObjects: 0.288500 ms)
+Memory consumption went from 223.6 MB to 223.2 MB.
+Total: 4.224800 ms (FindLiveObjects: 0.569900 ms CreateObjectMapping: 0.147900 ms MarkObjects: 3.245400 ms  DeleteObjects: 0.260600 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -174,13 +174,149 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
+Received Import Request.
+  Time since last request: 204896.340084 seconds.
+  path: Assets/Scenes/SampleScene.unity
+  artifactKey: Guid(2cda990e2423bbf4892e6590ba056729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/SampleScene.unity using Guid(2cda990e2423bbf4892e6590ba056729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8183974c4fdaa3161e49cf60412a5b29') in 0.002377 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 16.223668 seconds.
+  path: Assets/Art Assets/barn doors open.png
+  artifactKey: Guid(eb48ff5d31e4bc840b07b9d27d2b711d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/barn doors open.png using Guid(eb48ff5d31e4bc840b07b9d27d2b711d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '91e4f7dcd65333f7c943407113c3ede3') in 0.004956 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Art Assets/MainMenu2.png
+  artifactKey: Guid(4535fc322e0c8874c96d980c28ce4178) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/MainMenu2.png using Guid(4535fc322e0c8874c96d980c28ce4178) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03d18799747e87e5f905f5bc061d1e6e') in 0.003818 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Art Assets/UIHEART.2.1.png
+  artifactKey: Guid(16b4694261f0979459986bbef04a3f57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/UIHEART.2.1.png using Guid(16b4694261f0979459986bbef04a3f57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8553db2cd62a3e52ab4a785df81740c4') in 0.001672 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Art Assets/housesmool.png
+  artifactKey: Guid(5dd6b135510b5be4d9286fabb92d1499) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/housesmool.png using Guid(5dd6b135510b5be4d9286fabb92d1499) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd57c207edf6c20f1936f485a897be4c3') in 0.001476 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Art Assets/barntile.png
+  artifactKey: Guid(047308a903fad8b4691c0b69e64c2776) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/barntile.png using Guid(047308a903fad8b4691c0b69e64c2776) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e585366eca4a9051206c953bc3308055') in 0.002605 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Art Assets/flashlightpattern.png
+  artifactKey: Guid(05aab33cd8d1c794cb7c8ec85a8df27c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/flashlightpattern.png using Guid(05aab33cd8d1c794cb7c8ec85a8df27c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b541c464f5c820e9f77e1ad0ce58f49') in 0.004698 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 2.775093 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_02_up.png
+  artifactKey: Guid(e5410632bd220dc43b47a0c3d9563572) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_02_up.png using Guid(e5410632bd220dc43b47a0c3d9563572) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'facc8e36f5a56cf489120fd29ebbd20a') in 0.001683 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_Multi_02_up.png
+  artifactKey: Guid(8d83d31be7f755646bcec2bb90daaf93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_Multi_02_up.png using Guid(8d83d31be7f755646bcec2bb90daaf93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6bcd88cfaa2d02386b8b3578951cab13') in 0.002061 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_White_up.png
+  artifactKey: Guid(b4a2104c7b57793409dd5cf99fa94fe6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_White_up.png using Guid(b4a2104c7b57793409dd5cf99fa94fe6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd815fbe6866e9f727d122cf79a57594') in 0.001937 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_Right_End_up.png
+  artifactKey: Guid(12da3e01329800549947e8fbfe8332f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_Right_End_up.png using Guid(12da3e01329800549947e8fbfe8332f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '93887c10b7a76b03f6a6b03804d61fc3') in 0.001675 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_Bare_Wire_up.png
+  artifactKey: Guid(45c5555ff9ff74f45a124439d8262921) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_Bare_Wire_up.png using Guid(45c5555ff9ff74f45a124439d8262921) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '05c590a78c4fe62384735a4a9217df34') in 0.001662 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_BLU_up.png
+  artifactKey: Guid(02e99a31b17f9ad4fa44afaadb6d701a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_BLU_up.png using Guid(02e99a31b17f9ad4fa44afaadb6d701a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2b2cdb88a59caf4ca977a8399bc90d0') in 0.001780 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_Multi_01_up.png
+  artifactKey: Guid(7a942dadeb560024a959e13a2c366674) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_Multi_01_up.png using Guid(7a942dadeb560024a959e13a2c366674) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c194ca4bffc425de58b7a25629fe0981') in 0.001442 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_Top_up.png
+  artifactKey: Guid(ca4634f6a36d3624e89bf133e53c353f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_Top_up.png using Guid(ca4634f6a36d3624e89bf133e53c353f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4bbf87fae704794492651b0e93305a0') in 0.001794 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_Short_Right_End.png
+  artifactKey: Guid(ad99fb6164003914eb6931eb4c123778) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_Short_Right_End.png using Guid(ad99fb6164003914eb6931eb4c123778) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8c301a0f89ffd8a198191c43f340a1f') in 0.001545 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_Short_Left_End_up.png
+  artifactKey: Guid(5da30c0acb8b7ef4cb132e0e437be72a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_Short_Left_End_up.png using Guid(5da30c0acb8b7ef4cb132e0e437be72a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a33c012f43d00c3769691a84c8ba65be') in 0.001491 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
 Received Prepare
-Refreshing native plugins compatible for Editor in 4.92 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 6.44 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 3 unused Assets / (364.1 KB). Loaded Objects now: 6274.
-Memory consumption went from 107.0 MB to 106.7 MB.
-Total: 3.821800 ms (FindLiveObjects: 0.532000 ms CreateObjectMapping: 0.168700 ms MarkObjects: 3.002400 ms  DeleteObjects: 0.117700 ms)
+Unloading 3 unused Assets / (364.1 KB). Loaded Objects now: 6275.
+Memory consumption went from 106.2 MB to 105.9 MB.
+Total: 4.749900 ms (FindLiveObjects: 0.617300 ms CreateObjectMapping: 0.162500 ms MarkObjects: 3.849900 ms  DeleteObjects: 0.119400 ms)
 
 Prepare: number of updated asset objects reloaded= 0
 AssetImportParameters requested are different than current active one (requested -> active):
@@ -197,9 +333,205 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 203922.441088 seconds.
-  path: Assets/Scripts/PlayerMovement.cs
-  artifactKey: Guid(4a2a706a70aa9e244a102c8c947d8f65) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/PlayerMovement.cs using Guid(4a2a706a70aa9e244a102c8c947d8f65) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e843d01c5d4bae53aab1ed1f2e68dbd') in 0.007078 seconds
+  Time since last request: 17.984338 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_Top.png
+  artifactKey: Guid(51c0ec4fa569a424eba9bfdacd0eddb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_Top.png using Guid(51c0ec4fa569a424eba9bfdacd0eddb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9628fdd1acbff8ea39f06edda506555b') in 0.007797 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_Multi_02_up.png
+  artifactKey: Guid(8d83d31be7f755646bcec2bb90daaf93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_Multi_02_up.png using Guid(8d83d31be7f755646bcec2bb90daaf93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8420187bbf523803bee38fc6ec29d1bd') in 0.001582 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_White_up.png
+  artifactKey: Guid(b4a2104c7b57793409dd5cf99fa94fe6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_White_up.png using Guid(b4a2104c7b57793409dd5cf99fa94fe6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2fd358cb26656aff23c557f5e72eee14') in 0.001950 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_GRN_up.png
+  artifactKey: Guid(e9ac9a23af1f0ca4d83c0518401c9398) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_GRN_up.png using Guid(e9ac9a23af1f0ca4d83c0518401c9398) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b1dfd698b4761202d9c7e4716d09e4d6') in 0.001589 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_Bare_Wire_up.png
+  artifactKey: Guid(45c5555ff9ff74f45a124439d8262921) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_Bare_Wire_up.png using Guid(45c5555ff9ff74f45a124439d8262921) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81b3ec37b10335c8dcabf8b0233a8b54') in 0.001332 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_Multi_03_up.png
+  artifactKey: Guid(cc92d15a454487f47944e772acc6030b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_Multi_03_up.png using Guid(cc92d15a454487f47944e772acc6030b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd956e48929269c5744e515161612a549') in 0.001872 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_Multi_01_up.png
+  artifactKey: Guid(7a942dadeb560024a959e13a2c366674) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_Multi_01_up.png using Guid(7a942dadeb560024a959e13a2c366674) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '24421eb7326edfe784d02c3437afa724') in 0.001851 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_02_up.png
+  artifactKey: Guid(e5410632bd220dc43b47a0c3d9563572) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_02_up.png using Guid(e5410632bd220dc43b47a0c3d9563572) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0740b610026a72d54e6a7684f9a92164') in 0.003616 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_Short_Left_End_up.png
+  artifactKey: Guid(5da30c0acb8b7ef4cb132e0e437be72a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/HighRes/String_Light_Short_Left_End_up.png using Guid(5da30c0acb8b7ef4cb132e0e437be72a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf170a2d527c6ca294694f8034f66cc4') in 0.001360 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 67.212802 seconds.
+  path: Assets/Art Assets/Palettes/Palette Assets/String_Light_Short_Right_End_up.asset
+  artifactKey: Guid(c1b97846162b3434ba531a11c57b24db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Palettes/Palette Assets/String_Light_Short_Right_End_up.asset using Guid(c1b97846162b3434ba531a11c57b24db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96f3cc60ca6de96bb81bb403e362cbe7') in 0.002517 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 55.411329 seconds.
+  path: Assets/Art Assets/Palettes/Palette Assets/String_Light_White_up.asset
+  artifactKey: Guid(b59229dee246e1846ab60d22be5c47f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Palettes/Palette Assets/String_Light_White_up.asset using Guid(b59229dee246e1846ab60d22be5c47f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '572ad0d1b2012aedb7208ec6c2041fc9') in 0.001617 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 419.653404 seconds.
+  path: Assets/SFX/CalmingLong.mp3
+  artifactKey: Guid(b3503ccb394a43643b9009d022c01cf6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SFX/CalmingLong.mp3 using Guid(b3503ccb394a43643b9009d022c01cf6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c17d65c906ed73b4824698ee45e2e0f') in 0.001469 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.004374 seconds.
+  path: Assets/SFX/HouseTheme.mp3
+  artifactKey: Guid(0248581d6353d4649ac7fb72dd7df6bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SFX/HouseTheme.mp3 using Guid(0248581d6353d4649ac7fb72dd7df6bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b21330a766d19cda6aef42d08f8aa747') in 0.001032 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/SFX/MenuThemeLong.mp3
+  artifactKey: Guid(f18ef7c63a0cb8642bbe3281329856ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SFX/MenuThemeLong.mp3 using Guid(f18ef7c63a0cb8642bbe3281329856ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '95605e7afd5c609272d5f8870ad031aa') in 0.001122 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/SFX/MenuTheme.mp3
+  artifactKey: Guid(206dff101da1c9e4f99ab9ba01797985) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SFX/MenuTheme.mp3 using Guid(206dff101da1c9e4f99ab9ba01797985) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '479014fb64bbf8e399148da977fbacef') in 0.001364 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000051 seconds.
+  path: Assets/SFX/WalkingDirt2.mp3
+  artifactKey: Guid(75ae8ac27bb5de94591d11729dd251b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SFX/WalkingDirt2.mp3 using Guid(75ae8ac27bb5de94591d11729dd251b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e97ccc07dfcf8c3354c6acc156e1b031') in 0.000959 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/SFX/CrowCaw.mp3
+  artifactKey: Guid(f56a074d11055b747a4d22459c54137e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SFX/CrowCaw.mp3 using Guid(f56a074d11055b747a4d22459c54137e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c7cd9ca0acfe7ba0a9359ae1f4f11fb') in 0.001241 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\SGD212\Team1-Proj1\Team1-Proj1-HorrorGame\Team1-Proj1-HorrorGame\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\SGD212\Team1-Proj1\Team1-Proj1-HorrorGame\Team1-Proj1-HorrorGame\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+- Loaded All Assemblies, in  0.964 seconds
+Refreshing native plugins compatible for Editor in 6.25 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.465 seconds
+Domain Reload Profiling: 2416ms
+	BeginReloadAssembly (184ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (12ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (49ms)
+	RebuildCommonClasses (38ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (36ms)
+	LoadAllAssembliesAndSetupDomain (680ms)
+		LoadAssemblies (433ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (316ms)
+			TypeCache.Refresh (302ms)
+				TypeCache.ScanAssembly (288ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (14ms)
+	FinalizeReload (1466ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (617ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (7ms)
+			SetLoadedEditorAssemblies (5ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (156ms)
+			ProcessInitializeOnLoadAttributes (349ms)
+			ProcessInitializeOnLoadMethodAttributes (89ms)
+			AfterProcessingInitializeOnLoad (11ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (17ms)
+Refreshing native plugins compatible for Editor in 5.79 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5646 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 48 unused Assets / (391.6 KB). Loaded Objects now: 6293.
+Memory consumption went from 193.7 MB to 193.3 MB.
+Total: 4.738900 ms (FindLiveObjects: 0.568900 ms CreateObjectMapping: 0.225800 ms MarkObjects: 3.785700 ms  DeleteObjects: 0.157400 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: The I/O operation has been aborted because of either a thread exit or an application request.
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

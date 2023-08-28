@@ -9,4 +9,11 @@ public class Dialogue
     
     [TextArea(3,10)]
     public string[] sentences;
+
+    [Space(10)]
+    public string quest;
+
+    [Space(10)]
+    public bool isScreenText;
+    public bool doesEndCutscene;
 }
