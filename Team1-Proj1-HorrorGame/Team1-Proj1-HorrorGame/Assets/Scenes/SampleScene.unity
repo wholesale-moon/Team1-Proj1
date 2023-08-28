@@ -199,7 +199,7 @@ PlayableDirector:
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: -2509325244624902860, guid: 3db2edc21d9e5924fb1716c5628d58bd, type: 2}
-    value: {fileID: 918311162}
+    value: {fileID: 0}
   - key: {fileID: -1522745399758794894, guid: 3db2edc21d9e5924fb1716c5628d58bd, type: 2}
     value: {fileID: 486770753}
   m_ExposedReferences:
@@ -216,15 +216,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1da8d740a9d56bd4c9e09e96c7f8a007, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DialogueBox: {fileID: 486770753}
-  isOneTime: 1
-  isOnAwake: 1
-  isOnEnable: 0
-  isOnTriggerEnter: 0
   dialogue:
     name: Practice
     sentences:
     - This is some text to practice freezing the character on an awake cut scene.
+  DialogueBox: {fileID: 486770753}
 --- !u!114 &161643494 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4391744036574877431, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
@@ -912,16 +908,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &918311161 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1977808753150925598, guid: 8084559939fb3f145a31ffc3fece7e80, type: 3}
-  m_PrefabInstance: {fileID: 1514843028}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &918311162 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7303332183531428991, guid: 8084559939fb3f145a31ffc3fece7e80, type: 3}
-  m_PrefabInstance: {fileID: 1514843028}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &923670535
 GameObject:
   m_ObjectHideFlags: 0
@@ -1543,103 +1529,6 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 986901121126542070, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
   m_PrefabInstance: {fileID: 2176335289981951018}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1514843028
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 944978299291469133, guid: 8084559939fb3f145a31ffc3fece7e80, type: 3}
-      propertyPath: m_LocalBounds.m_Center.x
-      value: -0.0033499599
-      objectReference: {fileID: 0}
-    - target: {fileID: 944978299291469133, guid: 8084559939fb3f145a31ffc3fece7e80, type: 3}
-      propertyPath: m_LocalBounds.m_Center.y
-      value: -0.00014999509
-      objectReference: {fileID: 0}
-    - target: {fileID: 944978299291469133, guid: 8084559939fb3f145a31ffc3fece7e80, type: 3}
-      propertyPath: m_LocalBounds.m_Extent.x
-      value: 1.0064499
-      objectReference: {fileID: 0}
-    - target: {fileID: 944978299291469133, guid: 8084559939fb3f145a31ffc3fece7e80, type: 3}
-      propertyPath: m_LocalBounds.m_Extent.y
-      value: 0.99755
-      objectReference: {fileID: 0}
-    - target: {fileID: 1346958409969736688, guid: 8084559939fb3f145a31ffc3fece7e80, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1977808753150925598, guid: 8084559939fb3f145a31ffc3fece7e80, type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5776359571779051445, guid: 8084559939fb3f145a31ffc3fece7e80, type: 3}
-      propertyPath: theCamera
-      value: 
-      objectReference: {fileID: 519420028}
-    - target: {fileID: 6059290693675698725, guid: 8084559939fb3f145a31ffc3fece7e80, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 6059290693675698725, guid: 8084559939fb3f145a31ffc3fece7e80, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 6059290693675698725, guid: 8084559939fb3f145a31ffc3fece7e80, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6059290693675698725, guid: 8084559939fb3f145a31ffc3fece7e80, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 7.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 6059290693675698725, guid: 8084559939fb3f145a31ffc3fece7e80, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.76
-      objectReference: {fileID: 0}
-    - target: {fileID: 6059290693675698725, guid: 8084559939fb3f145a31ffc3fece7e80, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6059290693675698725, guid: 8084559939fb3f145a31ffc3fece7e80, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6059290693675698725, guid: 8084559939fb3f145a31ffc3fece7e80, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6059290693675698725, guid: 8084559939fb3f145a31ffc3fece7e80, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6059290693675698725, guid: 8084559939fb3f145a31ffc3fece7e80, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6059290693675698725, guid: 8084559939fb3f145a31ffc3fece7e80, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6059290693675698725, guid: 8084559939fb3f145a31ffc3fece7e80, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6059290693675698725, guid: 8084559939fb3f145a31ffc3fece7e80, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7979032454943038571, guid: 8084559939fb3f145a31ffc3fece7e80, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8084559939fb3f145a31ffc3fece7e80, type: 3}
 --- !u!1 &1516716318
 GameObject:
   m_ObjectHideFlags: 0
@@ -1974,16 +1863,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1da8d740a9d56bd4c9e09e96c7f8a007, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DialogueBox: {fileID: 486770753}
-  isOneTime: 1
-  isOnAwake: 0
-  isOnEnable: 0
-  isOnTriggerEnter: 1
   dialogue:
     name: Testing! Testing!
     sentences:
     - We want to pause everything when we enter a dialogue state.
     - 'Currently: That''s not working. But it''s fine.'
+  DialogueBox: {fileID: 486770753}
 --- !u!1001 &2176335289981951018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2160,7 +2045,7 @@ PrefabInstance:
     - target: {fileID: 6672500418129828037, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 918311161}
+      objectReference: {fileID: 0}
     - target: {fileID: 6672500418129828037, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
       propertyPath: cutscene
       value: 
@@ -2371,6 +2256,5 @@ SceneRoots:
   - {fileID: 865601870}
   - {fileID: 519420032}
   - {fileID: 839825225}
-  - {fileID: 1514843028}
   - {fileID: 1806084540}
   - {fileID: 923670540}

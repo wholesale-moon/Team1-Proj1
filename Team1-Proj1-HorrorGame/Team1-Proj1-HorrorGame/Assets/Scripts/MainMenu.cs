@@ -22,13 +22,13 @@ public class MainMenu : MonoBehaviour
 
     public void Tutorial()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(4);
     }
     
     public void Credits()
     {
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(5);
     }
     
     public void BackButton()
