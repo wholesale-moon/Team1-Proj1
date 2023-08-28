@@ -90,14 +90,15 @@ public class PlayerMovement : MonoBehaviour
             houseCamera.SetActive(true);
             rb2d.transform.position = new Vector3(-8.2f, -41.14f, 0);
             speaker.clip = audio[1];
-            //walkSound.clip = audio[?];
-            speaker.Play();
+            walkSound.clip = audio[5];
+            //speaker.Play();
         }
         if (collision.gameObject.tag == "Barn")
         {//x 18.5  y -24.5
             theCamera.transform.position = new Vector3(18.5f, -24.5f, -10);
             rb2d.transform.position = new Vector3(18.7f, -26.7f, -2);
             speaker.clip = audio[1];
+            walkSound.clip = audio[5];
             speaker.Play();
         }
         if (collision.gameObject.tag == "Field")
@@ -130,6 +131,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (obj.gameObject.tag == "Grass")
+        {
+            walkSound.clip = audio[4];
+        }
+        if (obj.gameObject.tag == "Dirt")
         {
             walkSound.clip = audio[2];
         }
