@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -26,6 +27,9 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip[] audio;
     bool isMoving = false;
 
+    public GameObject flashlight;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        OnMove();        
+        OnMove();
     }
 
     void OnMove()
@@ -116,9 +120,10 @@ public class PlayerMovement : MonoBehaviour
             speaker.clip = audio[0];
             speaker.Play();
         }
-        if (collision.gameObject.tag == "Flashlight")
+        if (collision.gameObject.tag == "FlashlightPickup")
         {
             Destroy(collision.gameObject);
+            flashlight.SetActive(true);
             UpdateActionText("Flashlight");
         }
     }
@@ -139,7 +144,7 @@ public class PlayerMovement : MonoBehaviour
             walkSound.clip = audio[2];
         }
 
-        if (obj.gameObject.tag == "Flashlight")
+        if (obj.gameObject.tag == "FlashlightPickup")
         {
             Destroy(obj.gameObject);
             UpdateActionText("Flashlight");
@@ -155,8 +160,15 @@ public class PlayerMovement : MonoBehaviour
             Destroy(obj.gameObject);
             UpdateActionText("Medicine");
         }
+        if (obj.gameObject.tag == "TV")
+        {
+            
+            SceneManager.LoadScene(2);
+            walkSound.clip = audio[5];
+            
+        }        
     }
-
+    
     private void UpdateActionText(string pickup)
     {
         actionText.text = "You picked up <color=red>" + pickup + "</color>.";
