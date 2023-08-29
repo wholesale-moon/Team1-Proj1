@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,9 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator animator;
     private Vector2 moveInput;
     float moveSpeed = 5;
-    [SerializeField] int health = 4;
-    [SerializeField] int numOfHearts = 4;
-    [SerializeField] Image[] hearts;
+    int health = 100;
 
     [Header("Action Text")]
     [SerializeField] private TMP_Text actionText;
@@ -28,6 +27,9 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip[] audio;
     bool isMoving = false;
 
+    public GameObject flashlight;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,23 +40,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         OnMove();
-
-        if (health > numOfHearts)
-        {
-            health = numOfHearts;
-        }
-
-        for (int i = 0; i < hearts.Length; i++)
-        {
-            if (i < health && i < numOfHearts)
-            {
-                hearts[i].enabled = true;
-            }
-            else
-            {
-                hearts[i].enabled = false;
-            }
-        }
     }
 
     void OnMove()
@@ -93,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        /*if (collision.gameObject.tag == "Scarecrow")
+        if (collision.gameObject.tag == "Scarecrow")
         {
             health -= 10;
             Debug.Log("You have taken 10 damage!");
@@ -102,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
                 health = 0;
                 Debug.Log("You have lost all of your health!");
             }
-        }*/
+        }
         if (collision.gameObject.tag == "House")
         { //X -2.5  y -24.5
             theCamera.SetActive(false);
@@ -135,9 +120,10 @@ public class PlayerMovement : MonoBehaviour
             speaker.clip = audio[0];
             speaker.Play();
         }
-        if (collision.gameObject.tag == "Flashlight")
+        if (collision.gameObject.tag == "FlashlightPickup")
         {
             Destroy(collision.gameObject);
+            flashlight.SetActive(true);
             UpdateActionText("Flashlight");
         }
     }
@@ -153,13 +139,12 @@ public class PlayerMovement : MonoBehaviour
         {
             walkSound.clip = audio[4];
         }
-
         if (obj.gameObject.tag == "Dirt")
         {
             walkSound.clip = audio[2];
         }
 
-        if (obj.gameObject.tag == "Flashlight")
+        if (obj.gameObject.tag == "FlashlightPickup")
         {
             Destroy(obj.gameObject);
             UpdateActionText("Flashlight");
@@ -175,20 +160,15 @@ public class PlayerMovement : MonoBehaviour
             Destroy(obj.gameObject);
             UpdateActionText("Medicine");
         }
-
-        if (obj.gameObject.tag == "Sludge")
+        if (obj.gameObject.tag == "TV")
         {
-            health -= 1;
-            numOfHearts -= 1;
-            if (health <= 0 && numOfHearts <= 0)
-            {
-                health = 0;
-                numOfHearts = 0;
-                Debug.Log("You have lost all of your health!");
-            }
-        }
+            
+            SceneManager.LoadScene(2);
+            walkSound.clip = audio[5];
+            
+        }        
     }
-
+    
     private void UpdateActionText(string pickup)
     {
         actionText.text = "You picked up <color=red>" + pickup + "</color>.";
