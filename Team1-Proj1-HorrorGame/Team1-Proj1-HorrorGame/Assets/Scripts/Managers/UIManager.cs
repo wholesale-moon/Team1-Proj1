@@ -7,13 +7,11 @@ public class UIManager : MonoBehaviour
     [Header("Menu Objects")]
     [SerializeField] private GameObject PauseScreen;
     [SerializeField] private GameObject HelpScreen;
+    [SerializeField] private GameObject OptionsScreen;
 
-    [Header("Audio")]
-    [SerializeField] AudioSource speaker;
-    [SerializeField] AudioClip[] audios;
-
-    [SerializeField] private bool isPaused = false;
-    [SerializeField] private bool isHelp = false;
+    private bool isPaused = false;
+    private bool isHelp = false;
+    private bool isOptions = false;
 
     private void Update()
     {
@@ -24,18 +22,26 @@ public class UIManager : MonoBehaviour
             {
                 isHelp = false;
                 HelpScreen.SetActive(isHelp);
+            } else if (isOptions & isPaused)
+            {
+                isOptions = false;
+                OptionsScreen.SetActive(isOptions);
             }
 
             PauseScreen.SetActive(isPaused);
+        }
 
-            Debug.Log("I pressed escape");
+        if (isPaused)
+        {
+            Time.timeScale = 0.0f;
+        } else {
+            Time.timeScale = 1.0f;
         }
     }
 
     public void OnButtonHighlight()
     {
-        speaker.clip = audios[0];
-        speaker.Play();
+        gameObject.GetComponent<SoundManager>().PlayClipByName("Button Highlight");
     }
 
     public void OnButtonClick()
@@ -56,6 +62,21 @@ public class UIManager : MonoBehaviour
         
         isHelp = true;
         HelpScreen.SetActive(isHelp);
+
+        isOptions = false;
+        OptionsScreen.SetActive(isOptions);
+    }
+
+    public void Options()
+    {
+        isPaused = false;
+        PauseScreen.SetActive(isPaused);
+        
+        isHelp = false;
+        HelpScreen.SetActive(isHelp);
+        
+        isOptions = true;
+        OptionsScreen.SetActive(isOptions);
     }
 
     public void Back()

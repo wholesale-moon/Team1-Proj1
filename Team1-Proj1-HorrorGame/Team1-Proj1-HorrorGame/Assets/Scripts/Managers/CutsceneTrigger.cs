@@ -6,6 +6,7 @@ using UnityEngine.Playables;
 public class CutsceneTrigger : MonoBehaviour
 {
     [Header("Objects")]
+    [SerializeField] private GameSaveData _GameSaveData;
     [SerializeField] private GameObject cutscene;
     [SerializeField] private List<PlayableDirector> playableDirectors;
 
@@ -15,13 +16,17 @@ public class CutsceneTrigger : MonoBehaviour
     [SerializeField] private bool isOnEnable;
     [SerializeField] private bool isOnTriggerEnter;
 
-    [SerializeField] private float endTime;
+    [Header("Save Data")]
+    public int cutsceneNum;
+    public float endTime;
 
     void Awake()
     {
         if(isOnAwake)
         {
             cutscene.gameObject.GetComponent<PlayableDirector>().Play();
+            _GameSaveData._currentCutscene = cutsceneNum;
+
             if(isOneTime)
             {
                 Destroy(gameObject);
@@ -34,6 +39,8 @@ public class CutsceneTrigger : MonoBehaviour
         if(isOnEnable)
         {
             cutscene.gameObject.GetComponent<PlayableDirector>().Play();
+            _GameSaveData._currentCutscene = cutsceneNum;
+
             if(isOneTime)
             {
                 Destroy(gameObject);
@@ -48,6 +55,8 @@ public class CutsceneTrigger : MonoBehaviour
             if(isOnTriggerEnter)
             {
                 cutscene.gameObject.GetComponent<PlayableDirector>().Play();
+                _GameSaveData._currentCutscene = cutsceneNum;
+
                 if(isOneTime)
                 {
                     Destroy(gameObject);
@@ -58,14 +67,13 @@ public class CutsceneTrigger : MonoBehaviour
 
     public void Skip()
     {
-        //Skip to end of cutscene?
+        PlayableDirector director = playableDirectors[_GameSaveData._currentCutscene];
+        director.time = _GameSaveData._cutsceneEndTimes[_GameSaveData._currentCutscene];
     }
 
     public void EndCutscene()
     {
-        foreach (PlayableDirector director in playableDirectors)
-        {
-            director.Stop();
-        }
+        PlayableDirector director = playableDirectors[_GameSaveData._currentCutscene];
+        director.Stop();
     }
 }

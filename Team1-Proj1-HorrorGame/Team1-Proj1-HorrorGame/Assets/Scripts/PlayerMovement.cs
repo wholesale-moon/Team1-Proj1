@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
+using UnityEngine.UI;
+using UnityEngine;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -24,17 +25,20 @@ public class PlayerMovement : MonoBehaviour
     public GameObject houseCamera;
 
     [Header("Audio")]
+    [SerializeField] private AudioMixerGroup soundEffectsMixerGroup;
     public AudioSource walkSound;
-    public AudioSource speaker;
-    public AudioClip[] audio;
+    public AudioClip[] sounds;
     bool isMoving = false;
 
+    [Header("Objects")]
+    [SerializeField] private GameObject _SceneManager;
     public GameObject flashlight;
 
     // Start is called before the first frame update
     void Start()
     {
         walkSound = gameObject.GetComponent<AudioSource>();
+        walkSound.outputAudioMixerGroup = soundEffectsMixerGroup;
     }
 
     // Update is called once per frame
@@ -106,61 +110,62 @@ public class PlayerMovement : MonoBehaviour
                 Debug.Log("You have lost all of your health!");
             }
         }*/
+        
         if (collision.gameObject.tag == "House")
         { //X -2.5  y -24.5
             theCamera.SetActive(false);
             houseCamera.SetActive(true);
             rb2d.transform.position = new Vector3(-8.2f, -41.14f, 0);
-            speaker.clip = audio[1];
-            walkSound.clip = audio[5];
-            //speaker.Play();
+            _SceneManager.GetComponent<SoundManager>().PlayClipByName("House Theme");
+            walkSound.clip = sounds[3];
         }
+        
         if (collision.gameObject.tag == "Barn")
         {//x 18.5  y -24.5
             theCamera.transform.position = new Vector3(18.5f, -24.5f, -10);
             rb2d.transform.position = new Vector3(18.7f, -26.7f, -2);
-            speaker.clip = audio[1];
-            walkSound.clip = audio[5];
-            speaker.Play();
+            _SceneManager.GetComponent<SoundManager>().PlayClipByName("House Theme");
+            walkSound.clip = sounds[3];
         }
+        
         if (collision.gameObject.tag == "Field")
         {
             theCamera.SetActive(true);
             houseCamera.SetActive(false);
             rb2d.transform.position = new Vector3(4.5f, 1.8f, -2);
-            speaker.clip = audio[0];
-            speaker.Play();
+            _SceneManager.GetComponent<SoundManager>().PlayClipByName("Field Theme");
         }
+        
         if (collision.gameObject.tag == "Field2")
         {
             theCamera.transform.position = new Vector3(0f, 0f, -10);
             rb2d.transform.position = new Vector3(-4.5f, 2.5f, -2);
-            speaker.clip = audio[0];
-            speaker.Play();
+            _SceneManager.GetComponent<SoundManager>().PlayClipByName("Field Theme");
         }
-        if (collision.gameObject.tag == "Flashlight")
-        {
-            Destroy(collision.gameObject);
-            flashlight.SetActive(true);
-            UpdateActionText("Flashlight");
-        }
+        
+        // if (collision.gameObject.tag == "Flashlight")
+        // {
+        //     Destroy(collision.gameObject);
+        //     flashlight.SetActive(true);
+        //     UpdateActionText("Flashlight");
+        // }
     }
 
     private void OnTriggerEnter2D(Collider2D obj)
     {
         if (obj.gameObject.tag == "Corn")
         {
-            walkSound.clip = audio[3];
+            walkSound.clip = sounds[1];
         }
 
         if (obj.gameObject.tag == "Grass")
         {
-            walkSound.clip = audio[4];
+            walkSound.clip = sounds[2];
         }
 
         if (obj.gameObject.tag == "Dirt")
         {
-            walkSound.clip = audio[2];
+            walkSound.clip = sounds[0];
         }
 
         if (obj.gameObject.tag == "Flashlight")
@@ -195,7 +200,7 @@ public class PlayerMovement : MonoBehaviour
         {
 
             SceneManager.LoadScene(2);
-            walkSound.clip = audio[5];
+            walkSound.clip = sounds[3];
 
         }
     }

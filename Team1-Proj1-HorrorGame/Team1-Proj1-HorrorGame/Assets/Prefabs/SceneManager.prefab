@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8553388102964357382}
   - component: {fileID: 3139676326336478794}
-  - component: {fileID: 6672500418129828037}
+  - component: {fileID: 5709730193895387958}
   - component: {fileID: 8311669033000115760}
+  - component: {fileID: 10109155785928262}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -50,8 +51,11 @@ MonoBehaviour:
   nameText: {fileID: 0}
   dialogueText: {fileID: 0}
   contText: {fileID: 0}
+  screenText: {fileID: 0}
+  questLog: {fileID: 0}
+  questText: {fileID: 0}
   SceneManager: {fileID: 709193081501427244}
---- !u!114 &6672500418129828037
+--- !u!114 &5709730193895387958
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -60,15 +64,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 709193081501427244}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24b43fa5ce162304dbcef1d4de29c059, type: 3}
+  m_Script: {fileID: 11500000, guid: 060814d4fc8243d41b953a71e21c3299, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cutscene: {fileID: 0}
-  player: {fileID: 0}
+  playableDirectors: []
   isOneTime: 0
   isOnAwake: 0
   isOnEnable: 0
   isOnTriggerEnter: 0
+  endTime: 0
 --- !u!114 &8311669033000115760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,3 +90,20 @@ MonoBehaviour:
   HelpScreen: {fileID: 0}
   speaker: {fileID: 0}
   audios: []
+  isPaused: 0
+  isHelp: 0
+--- !u!114 &10109155785928262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709193081501427244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a9c77a056b899041a723e6a1d0f0647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicMixerGroup: {fileID: 0}
+  soundEffectsMixerGroup: {fileID: 0}
+  sounds: []

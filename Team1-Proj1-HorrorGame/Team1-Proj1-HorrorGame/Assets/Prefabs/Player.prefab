@@ -66,8 +66,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.0022500157, y: -0.00084996223, z: 0}
-    m_Extent: {x: 0.99945, y: 1.00685, z: 0}
+    m_Center: {x: -0.006399989, y: -0.0011000037, z: 0}
+    m_Extent: {x: 1.0005, y: 0.9938, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -287,6 +287,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb2d: {fileID: 8320624081313387721}
   animator: {fileID: 6358013691120154727}
+  health: 4
+  numOfHearts: 4
+  hearts: []
   actionText: {fileID: 0}
   theCamera: {fileID: 0}
   houseCamera: {fileID: 0}
@@ -299,6 +302,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ab5d6ccd6610a7d4a9ba4a193d442f40, type: 3}
   - {fileID: 8300000, guid: bc8c9a76e33bf0544afdc43e055f3aca, type: 3}
   - {fileID: 8300000, guid: 70557f2054aed0c45994b259d849e9aa, type: 3}
+  flashlight: {fileID: 0}
 --- !u!95 &6358013691120154727
 Animator:
   serializedVersion: 5
@@ -432,7 +436,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &888868623912851277
 Transform:
   m_ObjectHideFlags: 0
@@ -508,7 +512,7 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 1
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
+  m_FalloffIntensity: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_LightVolumeIntensity: 1
@@ -527,8 +531,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.33595002, y: -0.002550006, z: 0}
-    m_Extent: {x: 1.33525, y: 0.99815, z: 0}
+    m_Center: {x: -0.3315, y: -0.006649971, z: 0}
+    m_Extent: {x: 1.3399999, y: 0.99815, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

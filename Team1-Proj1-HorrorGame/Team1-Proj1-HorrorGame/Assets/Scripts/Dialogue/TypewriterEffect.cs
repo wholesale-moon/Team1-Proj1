@@ -17,10 +17,11 @@ public class TypewriterEffect : MonoBehaviour
 	[SerializeField] string leadingChar = "";
 	[SerializeField] bool leadingCharBeforeDelay = false;
 	[Space(10)] [SerializeField] private bool startOnEnable = false;
+	[Space(10)] [SerializeField] private bool _isScreenText;
 
 	[Space(10)]
-	[SerializeField] GameObject contButton;
-	[SerializeField] AudioSource audio;
+	[SerializeField] private GameObject SceneManager;
+	[SerializeField] private GameObject contButton;
 
 	// is there a way to ignore rich text tags?
 	
@@ -38,6 +39,15 @@ public class TypewriterEffect : MonoBehaviour
 		if (tmpProText != null)
 		{
 			tmpProText.text = "";
+		}
+	}
+
+	void Update()
+	{
+		if(Input.GetKeyDown(KeyCode.Return))
+		{
+			if (!_isScreenText)
+				SkipDialogue();
 		}
 	}
 
@@ -83,7 +93,7 @@ public class TypewriterEffect : MonoBehaviour
 			}
 			tmpProText.text += c;
 			tmpProText.text += leadingChar;
-			audio.Play();
+			SceneManager.GetComponent<SoundManager>().PlayClipByName("Typewriter");
 			yield return new WaitForSeconds(timeBtwChars);
 		}
 
@@ -92,6 +102,13 @@ public class TypewriterEffect : MonoBehaviour
 			tmpProText.text = tmpProText.text.Substring(0, tmpProText.text.Length - leadingChar.Length);
 		}
 
+		contButton.gameObject.SetActive(true);
+	}
+
+	private void SkipDialogue()
+	{
+		StopAllCoroutines();
+		tmpProText.text = writer;
 		contButton.gameObject.SetActive(true);
 	}
 }
