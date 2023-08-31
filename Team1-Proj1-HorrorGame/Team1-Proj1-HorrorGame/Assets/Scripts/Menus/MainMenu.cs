@@ -2,22 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] AudioSource speaker;
-    [SerializeField] AudioClip[] audios;
+    [SerializeField] GameObject _SceneManager;
+    [SerializeField] AudioMixerGroup musicMixerGroup;
 
+    [SerializeField] private GameObject optionsScreen;
+    
     public void OnButtonHighlight()
     {
-        speaker.clip = audios[0];
-        speaker.Play();
+        _SceneManager.GetComponent<SoundManager>().PlayClipByName("Button Highlight");
     }
     
     public void PlayGame()
     {
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         SceneManager.LoadScene(1);
+    }
+
+    public void OptionsOpen()
+    {
+        optionsScreen.SetActive(true);
+    }
+
+    public void OptionsClose()
+    {
+        optionsScreen.SetActive(false);
     }
 
     public void Tutorial()

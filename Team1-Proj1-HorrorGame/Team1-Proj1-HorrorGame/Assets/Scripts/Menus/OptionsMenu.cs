@@ -5,6 +5,8 @@ using UnityEngine.Audio;
 
 public class OptionsMenu : MonoBehaviour
 {
+    public GameObject _SceneManager;
+    
     public AudioMixer audioMixer;
     public GameSaveData _GameSaveData;
     
@@ -29,5 +31,12 @@ public class OptionsMenu : MonoBehaviour
     public void SetFullScreen(bool isFullScreen)
     {
         Screen.fullScreen = isFullScreen;
+        _SceneManager.GetComponent<SoundManager>().PlayClipByName("Button Highlight");
+    }
+
+    public void SetClownMode(bool isClown)
+    {
+        _GameSaveData._isClown = isClown;
+        _SceneManager.GetComponent<SoundManager>().PlayClipByName("Button Highlight");
     }
 }

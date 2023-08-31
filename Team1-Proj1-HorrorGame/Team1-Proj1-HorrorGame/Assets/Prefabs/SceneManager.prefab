@@ -67,12 +67,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 060814d4fc8243d41b953a71e21c3299, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _GameSaveData: {fileID: 0}
   cutscene: {fileID: 0}
   playableDirectors: []
   isOneTime: 0
   isOnAwake: 0
   isOnEnable: 0
   isOnTriggerEnter: 0
+  cutsceneNum: 0
   endTime: 0
 --- !u!114 &8311669033000115760
 MonoBehaviour:
@@ -88,10 +90,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseScreen: {fileID: 0}
   HelpScreen: {fileID: 0}
-  speaker: {fileID: 0}
-  audios: []
-  isPaused: 0
-  isHelp: 0
+  OptionsScreen: {fileID: 0}
 --- !u!114 &10109155785928262
 MonoBehaviour:
   m_ObjectHideFlags: 0

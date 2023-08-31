@@ -6,13 +6,16 @@ using UnityEngine;
 public class GameSaveData : ScriptableObject
 {
     [Header("Player Data")]
-    public bool hasFlashlight;
-    public bool hasBarnKey;
+    public bool _hasFlashlight;
+    public bool _hasBarnKey;
     
     [Header("Audio Data")]
     public float _masterVolume;
     public float _musicVolume;
     public float _sfxVolume;
+
+    [Space(10)]
+    public bool _isClown;
     
     [Header("Cutscene Data")]
     public int _currentCutscene;

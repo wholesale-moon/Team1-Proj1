@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Cameras")]
     public GameObject theCamera;
     public GameObject houseCamera;
+    public GameObject barnCamera;
 
     [Header("Audio")]
     [SerializeField] private AudioMixerGroup soundEffectsMixerGroup;
@@ -122,8 +123,9 @@ public class PlayerMovement : MonoBehaviour
         
         if (collision.gameObject.tag == "Barn")
         {//x 18.5  y -24.5
-            theCamera.transform.position = new Vector3(18.5f, -24.5f, -10);
-            rb2d.transform.position = new Vector3(18.7f, -26.7f, -2);
+            theCamera.transform.position = new Vector3(39.96f, -41.76f, -10);
+            barnCamera.SetActive(true);
+            rb2d.transform.position = new Vector3(39.96f, -41.76f, -2);
             _SceneManager.GetComponent<SoundManager>().PlayClipByName("House Theme");
             walkSound.clip = sounds[3];
         }
@@ -138,6 +140,7 @@ public class PlayerMovement : MonoBehaviour
         
         if (collision.gameObject.tag == "Field2")
         {
+            barnCamera.SetActive(false);
             theCamera.transform.position = new Vector3(0f, 0f, -10);
             rb2d.transform.position = new Vector3(-4.5f, 2.5f, -2);
             _SceneManager.GetComponent<SoundManager>().PlayClipByName("Field Theme");
