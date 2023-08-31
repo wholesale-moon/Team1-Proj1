@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject theCamera;
     public GameObject houseCamera;
     public GameObject barnCamera;
+    public GameObject shedCamera;
 
     [Header("Audio")]
     [SerializeField] private AudioMixerGroup soundEffectsMixerGroup;
@@ -123,9 +124,18 @@ public class PlayerMovement : MonoBehaviour
         
         if (collision.gameObject.tag == "Barn")
         {//x 18.5  y -24.5
-            theCamera.transform.position = new Vector3(39.96f, -41.76f, -10);
+            theCamera.SetActive(false);
             barnCamera.SetActive(true);
             rb2d.transform.position = new Vector3(39.96f, -41.76f, -2);
+            _SceneManager.GetComponent<SoundManager>().PlayClipByName("House Theme");
+            walkSound.clip = sounds[3];
+        }
+
+        if (collision.gameObject.tag == "Shed")
+        {
+            theCamera.SetActive(false);
+            shedCamera.SetActive(true);
+            rb2d.transform.position = new Vector3(35.58f, -56.99f, -2);
             _SceneManager.GetComponent<SoundManager>().PlayClipByName("House Theme");
             walkSound.clip = sounds[3];
         }
@@ -140,18 +150,21 @@ public class PlayerMovement : MonoBehaviour
         
         if (collision.gameObject.tag == "Field2")
         {
+            theCamera.SetActive(true);
             barnCamera.SetActive(false);
             theCamera.transform.position = new Vector3(0f, 0f, -10);
             rb2d.transform.position = new Vector3(-4.5f, 2.5f, -2);
             _SceneManager.GetComponent<SoundManager>().PlayClipByName("Field Theme");
         }
-        
-        // if (collision.gameObject.tag == "Flashlight")
-        // {
-        //     Destroy(collision.gameObject);
-        //     flashlight.SetActive(true);
-        //     UpdateActionText("Flashlight");
-        // }
+
+        if (collision.gameObject.tag == "Field3")
+        {
+            theCamera.SetActive(true);
+            shedCamera.SetActive(false);
+            theCamera.transform.position = new Vector3(0f, 0f, -10);
+            rb2d.transform.position = new Vector3(-49.55f, 0.07f, -2);
+            _SceneManager.GetComponent<SoundManager>().PlayClipByName("Field Theme");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D obj)
@@ -179,7 +192,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (obj.gameObject.tag == "Medicine")
         {
-            // if (health = max)
+            // if (health != max)
             // {
             //     Destroy(obj.gameObject);
             //     UpdateActionText("Medicine");
