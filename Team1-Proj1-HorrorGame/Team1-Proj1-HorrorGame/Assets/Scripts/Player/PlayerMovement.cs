@@ -9,21 +9,22 @@ using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Player Movement")]
+    #region Variables
+    [Header("Player")]
     public Rigidbody2D rb2d;
     [SerializeField] private Animator animator;
     private Vector2 moveInput;
     float moveSpeed = 5;
 
-    private Vector3 outsideScale = new Vector3(0.5f, 0.5f, 0.5f);
-    private Vector3 insideScale = new Vector3(0.65f, 0.65f, 0.65f);
+    private bool canInteract;
+    private GameObject interactable;
 
-    [Header("Health")]
-    [SerializeField] int health = 4;
-    [SerializeField] int numOfHearts = 4;
-    [SerializeField] Image[] hearts;
+    [Header("HUD")]
+    [SerializeField] GameObject itemHold;
+    [SerializeField] GameObject flashlightHold;
+    [SerializeField] GameObject lanternHold;
 
-    [Header("Action Text")]
+    [Space(10)]
     [SerializeField] private TMP_Text actionText;
 
     [Header("Cameras")]
@@ -39,35 +40,47 @@ public class PlayerMovement : MonoBehaviour
     bool isMoving = false;
 
     [Header("Objects")]
+    [SerializeField] private GameSaveData _GameSaveData;
     [SerializeField] private GameObject _SceneManager;
+    [SerializeField] private GameObject flashlighTutTrigger;
+    [SerializeField] private GameObject blockedDoor;
+
+    [Space(10)]
     public GameObject flashlight;
+    #endregion
 
     // Start is called before the first frame update
     void Start()
     {
         walkSound = gameObject.GetComponent<AudioSource>();
         walkSound.outputAudioMixerGroup = soundEffectsMixerGroup;
+        
+        #if UNITY_EDITOR
+        _GameSaveData._hasFlashlight = false;
+        _GameSaveData._hasBarnKey = false;
+        #endif
     }
 
     // Update is called once per frame
     void Update()
     {
         OnMove();
-
-        if (health > numOfHearts)
+        
+        if (Input.GetKeyDown(KeyCode.E) & canInteract)
         {
-            health = numOfHearts;
-        }
-
-        for (int i = 0; i < hearts.Length; i++)
-        {
-            if (i < health && i < numOfHearts)
+            if (_GameSaveData._hasFlashlight == false)
             {
-                hearts[i].enabled = true;
-            }
-            else
-            {
-                hearts[i].enabled = false;
+                canInteract = false;
+                _GameSaveData._hasFlashlight = true;
+                interactable.SetActive(false);
+                itemHold.SetActive(true);
+                flashlight.SetActive(true);
+                flashlighTutTrigger.SetActive(true);
+                flashlightHold.SetActive(true);
+                blockedDoor.SetActive(false);
+                UpdateActionTextp("Flashlight");
+            } else {
+                //pick up lantern
             }
         }
     }
@@ -106,6 +119,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         /*if (collision.gameObject.tag == "Scarecrow")
@@ -119,6 +133,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }*/
         
+        #region Travel
         if (collision.gameObject.tag == "House")
         {
             StartCoroutine(ToHouse());
@@ -126,7 +141,12 @@ public class PlayerMovement : MonoBehaviour
         
         if (collision.gameObject.tag == "Barn")
         {
-            StartCoroutine(ToBarn());
+            if(_GameSaveData._hasBarnKey == true)
+            {
+                StartCoroutine(ToBarn());
+            } else {
+                UpdateActionTextn("Barn Key");
+            }
         }
 
         if (collision.gameObject.tag == "Shed")
@@ -148,10 +168,22 @@ public class PlayerMovement : MonoBehaviour
         {
             StartCoroutine(ExitShed());
         }
+
+        if (collision.gameObject.tag == "Downstairs")
+        {
+            StartCoroutine(ToUpstairs());
+        }
+
+        if (collision.gameObject.tag == "Upstairs")
+        {
+            StartCoroutine(ToDownstairs());
+        }
+        #endregion
     }
 
     private void OnTriggerEnter2D(Collider2D obj)
     {
+        #region Sound Triggers
         if (obj.gameObject.tag == "Corn")
         {
             walkSound.clip = sounds[1];
@@ -166,51 +198,67 @@ public class PlayerMovement : MonoBehaviour
         {
             walkSound.clip = sounds[0];
         }
+        #endregion
 
-        if (obj.gameObject.tag == "Flashlight")
+        #region Pickups
+        if (obj.gameObject.tag == "FlashlightPickup")
         {
-            Destroy(obj.gameObject);
-            UpdateActionText("Flashlight");
+            interactable = obj.gameObject;
+            canInteract = true;
         }
 
         if (obj.gameObject.tag == "Medicine")
         {
-            // if (health != max)
-            // {
-            //     Destroy(obj.gameObject);
-            //     UpdateActionText("Medicine");
-            // }
-            Destroy(obj.gameObject);
-            UpdateActionText("Medicine");
+            if (transform.GetComponent<PlayerHealth>().currentHealth != transform.GetComponent<PlayerHealth>().maxHealth)
+            {
+                transform.GetComponent<PlayerHealth>().Heal();
+                obj.gameObject.SetActive(false);
+                UpdateActionTextp("Medicine");
+            }
         }
+        #endregion
 
         if (obj.gameObject.tag == "Sludge")
         {
-            health -= 1;
-            numOfHearts -= 1;
-            if (health <= 0 && numOfHearts <= 0)
-            {
-                health = 0;
-                numOfHearts = 0;
-                Debug.Log("You have lost all of your health!");
-            }
+            // health -= 1;
+            // numOfHearts -= 1;
+            // if (health <= 0 && numOfHearts <= 0)
+            // {
+            //     health = 0;
+            //     numOfHearts = 0;
+            //     Debug.Log("You have lost all of your health!");
+            // }
         }
-        // if (obj.gameObject.tag == "TV")
-        // {
 
-        //     SceneManager.LoadScene(2);
-        //     walkSound.clip = sounds[3];
-
-        // }
+        if (obj.gameObject.tag == "BlockedHouseDoor")
+        {
+            UpdateActionTextn("to finish your quest");
+        }
     }
 
-    private void UpdateActionText(string pickup)
+    private void OnTriggerExit2D(Collider2D obj)
+    {
+        if (obj.gameObject.tag == "FlashlightPickup")
+        {
+            canInteract = false;
+        }
+    }
+
+    private void UpdateActionTextp(string pickup) //Update when pickup
     {
         actionText.text = "You picked up <color=red>" + pickup + "</color>.";
         actionText.color = new Color(1, 1, 1, 1);
         StartCoroutine(Wait(10));
         StartCoroutine(FadeText(5));
     }
+
+    private void UpdateActionTextn(string need) //Update when you need something before an action
+    {
+        actionText.text = "You need <color=red>" + need + "</color>.";
+        actionText.color = new Color(1, 1, 1, 1);
+        StartCoroutine(Wait(10));
+        StartCoroutine(FadeText(5));
+    }    
 
     public IEnumerator FadeText(float t)
     {
@@ -228,18 +276,18 @@ public class PlayerMovement : MonoBehaviour
         yield return null;
     }
 
-#region Travel
+    #region Travel
     private IEnumerator ToHouse()
     {
         theCamera.GetComponent<CinemachineBrain>().enabled = false;
         rb2d.transform.position = new Vector3(-8.2f, -41.14f, 0);
-        _SceneManager.GetComponent<SoundManager>().PlayClipByName("House Theme");
+        //_SceneManager.GetComponent<SoundManager>().PlayClipByName("House Theme");
         walkSound.clip = sounds[3];
-        transform.localScale = insideScale;
 
         yield return new WaitForSeconds(0.4f);
         theCamera.SetActive(false);
         houseCamera.SetActive(true);
+        flashlight.GetComponent<FollowMouse>().currentCamera = houseCamera.GetComponent<Camera>();
         yield return null;
     }
 
@@ -247,26 +295,46 @@ public class PlayerMovement : MonoBehaviour
     {
         theCamera.GetComponent<CinemachineBrain>().enabled = false;
         rb2d.transform.position = new Vector3(39.96f, -41.76f, -2);
-        _SceneManager.GetComponent<SoundManager>().PlayClipByName("House Theme");
+        //_SceneManager.GetComponent<SoundManager>().PlayClipByName("House Theme");
         walkSound.clip = sounds[3];
-        transform.localScale = insideScale;
 
         yield return new WaitForSeconds(0.4f);
         theCamera.SetActive(false);
         barnCamera.SetActive(true);
+        flashlight.GetComponent<FollowMouse>().currentCamera = barnCamera.GetComponent<Camera>();
+        yield return null;
     }
 
     private IEnumerator ToShed()
     {
         theCamera.GetComponent<CinemachineBrain>().enabled = false;
         rb2d.transform.position = new Vector3(35.58f, -56.99f, -2);
-        _SceneManager.GetComponent<SoundManager>().PlayClipByName("House Theme");
+        //_SceneManager.GetComponent<SoundManager>().PlayClipByName("House Theme");
         walkSound.clip = sounds[3];
-        transform.localScale = insideScale;
 
         yield return new WaitForSeconds(0.4f);
         theCamera.SetActive(false);
         shedCamera.SetActive(true);
+        flashlight.GetComponent<FollowMouse>().currentCamera = shedCamera.GetComponent<Camera>();
+        yield return null;
+    }
+
+    private IEnumerator ToUpstairs()
+    { // 2.48, -12.7, -10
+        rb2d.transform.position = new Vector3(6.83f, -57.71f, -2f);
+
+        yield return new WaitForSeconds(0.4f);
+        houseCamera.transform.position = new Vector3(1.791583f, -53.71448f, -10f);
+        yield return null;
+    }
+
+    private IEnumerator ToDownstairs()
+    { // 2.48, 1.27, -10
+        rb2d.transform.position = new Vector3(5.553f, -41.489f, -2);
+
+        yield return new WaitForSeconds(0.4f);
+        houseCamera.transform.position = new Vector3(1.791583f, -39.74448f, -10);
+        yield return null;
     }
 
     private IEnumerator ExitHouse()
@@ -274,11 +342,12 @@ public class PlayerMovement : MonoBehaviour
         theCamera.GetComponent<CinemachineBrain>().enabled = true;
         rb2d.transform.position = new Vector3(4.5f, 1.8f, -2);
         _SceneManager.GetComponent<SoundManager>().PlayClipByName("Field Theme");
-        transform.localScale = outsideScale;
 
         yield return new WaitForSeconds(0.4f);
         theCamera.SetActive(true);
         houseCamera.SetActive(false);
+        flashlight.GetComponent<FollowMouse>().currentCamera = theCamera.GetComponent<Camera>();
+        yield return null;
     }
 
     private IEnumerator ExitBarn()
@@ -286,12 +355,13 @@ public class PlayerMovement : MonoBehaviour
         theCamera.GetComponent<CinemachineBrain>().enabled = true;
         theCamera.transform.position = new Vector3(0f, 0f, -10);
         rb2d.transform.position = new Vector3(-4.5f, 2.5f, -2);
-        _SceneManager.GetComponent<SoundManager>().PlayClipByName("Field Theme");
-        transform.localScale = outsideScale;
+        //_SceneManager.GetComponent<SoundManager>().PlayClipByName("Field Theme");
 
         yield return new WaitForSeconds(0.4f);
         theCamera.SetActive(true);
         barnCamera.SetActive(false);
+        //flashlight.GetComponent<FollowMouse>().currentCamera = theCamera.GetComponent<Camera>();
+        yield return null;
     }
 
     private IEnumerator ExitShed()
@@ -299,13 +369,14 @@ public class PlayerMovement : MonoBehaviour
         theCamera.GetComponent<CinemachineBrain>().enabled = true;
         theCamera.transform.position = new Vector3(0f, 0f, -10);
         rb2d.transform.position = new Vector3(-49.55f, 0.07f, -2);
-        _SceneManager.GetComponent<SoundManager>().PlayClipByName("Field Theme");
-        transform.localScale = outsideScale;
+        //_SceneManager.GetComponent<SoundManager>().PlayClipByName("Field Theme");
 
         yield return new WaitForSeconds(0.4f);
         theCamera.SetActive(true);
         shedCamera.SetActive(false);
+        flashlight.GetComponent<FollowMouse>().currentCamera = theCamera.GetComponent<Camera>();
+        yield return null;
     }
 
-#endregion
+    #endregion
 }

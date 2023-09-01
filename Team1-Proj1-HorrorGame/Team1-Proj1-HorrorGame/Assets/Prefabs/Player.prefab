@@ -66,8 +66,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.0067499876, y: 0.001150012, z: 0}
-    m_Extent: {x: 1.00165, y: 1.00495, z: 0}
+    m_Center: {x: 0.006649971, y: 0.0033499897, z: 0}
+    m_Extent: {x: 0.99815, y: 0.99335, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 8320624081313387721}
   - component: {fileID: 1236487626517150811}
   - component: {fileID: 6163812994595470745}
+  - component: {fileID: 4788035796803891172}
   - component: {fileID: 2396183623973199653}
   - component: {fileID: 7734900836336799497}
   m_Layer: 9
@@ -294,6 +295,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  itemHold: {fileID: 0}
+  flashlightHold: {fileID: 0}
+  lanternHold: {fileID: 0}
   actionText: {fileID: 0}
   theCamera: {fileID: 0}
   houseCamera: {fileID: 0}
@@ -306,8 +310,29 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ab5d6ccd6610a7d4a9ba4a193d442f40, type: 3}
   - {fileID: 8300000, guid: bc8c9a76e33bf0544afdc43e055f3aca, type: 3}
   - {fileID: 8300000, guid: 70557f2054aed0c45994b259d849e9aa, type: 3}
+  _GameSaveData: {fileID: 0}
   _SceneManager: {fileID: 0}
+  flashlighTutTrigger: {fileID: 0}
   flashlight: {fileID: 5993422211354082255}
+--- !u!114 &4788035796803891172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3599661399554378357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 773c8a71b9108cf44a776d78923fd73d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 4
+  medBottle: {fileID: 0}
+  hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!82 &2396183623973199653
 AudioSource:
   m_ObjectHideFlags: 0
@@ -470,6 +495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06531ce137499a04fa066e77d1009e52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentCamera: {fileID: 0}
 --- !u!1 &6257816477856324187
 GameObject:
   m_ObjectHideFlags: 0

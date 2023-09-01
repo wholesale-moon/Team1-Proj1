@@ -23,7 +23,8 @@ public class TypewriterEffect : MonoBehaviour
 	[SerializeField] private GameObject SceneManager;
 	[SerializeField] private GameObject contButton;
 
-	[SerializeField] private bool canCont = false;
+	private bool isSkipCooldown = false;
+	private bool isWriting;
 
 	// is there a way to ignore rich text tags?
 	
@@ -48,11 +49,14 @@ public class TypewriterEffect : MonoBehaviour
 	{
 		if(Input.GetKeyDown(KeyCode.Return))
 		{
-			if (canCont)
+			if (!isWriting && !_isScreenText)
+			{
 				SceneManager.GetComponent<DialogueManager>().DisplayNextSentence();
-			
-			if (!_isScreenText)
+			}
+			else if (!isSkipCooldown && isWriting && !_isScreenText)
+			{
 				SkipDialogue();
+			}
 		}
 	}
 
@@ -64,7 +68,6 @@ public class TypewriterEffect : MonoBehaviour
 		}
 
 		contButton.SetActive(false);
-		canCont = false;
 		if(startOnEnable) StartTypewriter();
 	}
 
@@ -87,7 +90,8 @@ public class TypewriterEffect : MonoBehaviour
 
 	IEnumerator TypeWriterTMP()
     {
-	    tmpProText.text = leadingCharBeforeDelay ? leadingChar : "";
+	    isWriting = true;
+		tmpProText.text = leadingCharBeforeDelay ? leadingChar : "";
 
         yield return new WaitForSeconds(delayBeforeStart);
 
@@ -109,7 +113,7 @@ public class TypewriterEffect : MonoBehaviour
 		}
 
 		contButton.gameObject.SetActive(true);
-		canCont = true;
+		isWriting = false;
 	}
 
 	private void SkipDialogue()
@@ -117,6 +121,15 @@ public class TypewriterEffect : MonoBehaviour
 		StopAllCoroutines();
 		tmpProText.text = writer;
 		contButton.gameObject.SetActive(true);
-		canCont = true;
+		isWriting = false;
+		StartCoroutine(SkipCooldown());
+	}
+
+	private IEnumerator SkipCooldown()
+	{
+		isSkipCooldown = true;
+		yield return new WaitForSeconds(0.1f);
+		isSkipCooldown = false;
+		yield return null;
 	}
 }

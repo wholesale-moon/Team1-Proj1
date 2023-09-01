@@ -24,7 +24,6 @@ public class DialogueManager : MonoBehaviour
     [Header("Scene Manager")]
     [SerializeField] private GameObject SceneManager;
 
-    private bool isStartCutscene;
     private bool isEndCutscene;
     private bool IsScreenText;
 
@@ -50,7 +49,6 @@ public class DialogueManager : MonoBehaviour
         }
 
         isEndCutscene = dialogue.doesEndCutscene;
-        isStartCutscene = dialogue.doesEndCutscene;
 
         sentences.Clear();
         foreach (string sentence in dialogue.sentences)
@@ -111,10 +109,5 @@ public class DialogueManager : MonoBehaviour
         {
             SceneManager.GetComponent<CutsceneTrigger>().EndCutscene();
         }
-
-        // if (isStartCutscene)
-        // {
-        //     SceneManager.GetComponent<CutsceneTrigger>().StartCutscene();
-        // }
     }
 }
