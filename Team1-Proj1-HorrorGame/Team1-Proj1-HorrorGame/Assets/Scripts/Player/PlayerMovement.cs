@@ -207,6 +207,18 @@ public class PlayerMovement : MonoBehaviour
             canInteract = true;
         }
 
+        if (obj.gameObject.tag == "Lantern")
+        {
+            interactable = obj.gameObject;
+            canInteract = true;
+        }
+
+        if (obj.gameObject.tag == "BarnKey")
+        {
+            _GameSaveData._hasBarnKey = true;
+            Destroy(obj.gameObject);
+        }
+
         if (obj.gameObject.tag == "Medicine")
         {
             if (transform.GetComponent<PlayerHealth>().currentHealth != transform.GetComponent<PlayerHealth>().maxHealth)
@@ -229,11 +241,6 @@ public class PlayerMovement : MonoBehaviour
             //     Debug.Log("You have lost all of your health!");
             // }
         }
-
-        if (obj.gameObject.tag == "BlockedHouseDoor")
-        {
-            UpdateActionTextn("to finish your quest");
-        }
     }
 
     private void OnTriggerExit2D(Collider2D obj)
@@ -244,6 +251,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    #region Action Text
     private void UpdateActionTextp(string pickup) //Update when pickup
     {
         actionText.text = "You picked up <color=red>" + pickup + "</color>.";
@@ -275,12 +283,13 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         yield return null;
     }
+    #endregion
 
     #region Travel
     private IEnumerator ToHouse()
     {
         theCamera.GetComponent<CinemachineBrain>().enabled = false;
-        rb2d.transform.position = new Vector3(-8.2f, -41.14f, 0);
+        rb2d.transform.position = new Vector3(-6.19f, -41.3f, -2);
         //_SceneManager.GetComponent<SoundManager>().PlayClipByName("House Theme");
         walkSound.clip = sounds[3];
 
@@ -340,7 +349,7 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator ExitHouse()
     {
         theCamera.GetComponent<CinemachineBrain>().enabled = true;
-        rb2d.transform.position = new Vector3(4.5f, 1.8f, -2);
+        rb2d.transform.position = new Vector3(2.98f, 0.68f, -2);
         _SceneManager.GetComponent<SoundManager>().PlayClipByName("Field Theme");
 
         yield return new WaitForSeconds(0.4f);
