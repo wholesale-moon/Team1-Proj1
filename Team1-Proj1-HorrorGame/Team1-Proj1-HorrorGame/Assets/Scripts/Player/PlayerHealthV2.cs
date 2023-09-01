@@ -8,24 +8,35 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth = 4;
     public int currentHealth;
 
+    [Space(10)]
     [SerializeField] private GameObject medBottle;
+    
+    [Space(10)]
+    [SerializeField] private GameObject healthbar;
     [SerializeField] private GameObject[] hearts;
 
-    private void Awake()
+    private bool setHealthPrologue = false;
+
+    private void Start()
     {
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             currentHealth = 3;
-            hearts[0].GetComponent<Animator>().SetBool("isFull", true);
-            hearts[1].GetComponent<Animator>().SetBool("isFull", true);
-            hearts[2].GetComponent<Animator>().SetBool("isFull", true);
-            hearts[3].GetComponent<Animator>().SetBool("isFull", false);
         } else {
             currentHealth = maxHealth;
             foreach (GameObject heart in hearts)
             {
                 heart.GetComponent<Animator>().SetBool("isFull", true);
             }
+        }
+    }
+
+    private void Update()
+    {
+        if(!setHealthPrologue && healthbar.activeSelf && SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            PrologueHealth();
+            setHealthPrologue = true;
         }
     }
     
@@ -51,6 +62,14 @@ public class PlayerHealth : MonoBehaviour
     {
         hearts[currentHealth].GetComponent<Animator>().SetBool("isFull", true);
         currentHealth += 1;
+    }
+
+    public void PrologueHealth()
+    {
+        hearts[0].GetComponent<Animator>().SetBool("isFull", true);
+        hearts[1].GetComponent<Animator>().SetBool("isFull", true);
+        hearts[2].GetComponent<Animator>().SetBool("isFull", true);
+        hearts[3].GetComponent<Animator>().SetBool("isFull", false);
     }
 
     public IEnumerator MedicineSpawn()

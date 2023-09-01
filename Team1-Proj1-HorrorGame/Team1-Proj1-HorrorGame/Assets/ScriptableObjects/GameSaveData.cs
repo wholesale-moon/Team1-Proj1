@@ -9,13 +9,15 @@ public class GameSaveData : ScriptableObject
     public bool _hasFlashlight;
     public bool _hasBarnKey;
     
-    [Header("Audio Data")]
+    [Header("Settings Data")]
     public float _masterVolume;
     public float _musicVolume;
     public float _sfxVolume;
 
     [Space(10)]
     public bool _isClown;
+    public bool _skipPrologue;
+    public bool _hasCompletedPrologue;
     
     [Header("Cutscene Data")]
     public bool isPlayingCutscene;

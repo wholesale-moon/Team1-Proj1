@@ -9,7 +9,17 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject _SceneManager;
     [SerializeField] AudioMixerGroup musicMixerGroup;
 
+    [SerializeField] GameSaveData _GameSaveData;
     [SerializeField] private GameObject optionsScreen;
+    [SerializeField] private GameObject skipPrologueOption;
+    
+    void Start()
+    {
+        if(_GameSaveData._hasCompletedPrologue == true)
+        {
+            skipPrologueOption.SetActive(true);
+        }
+    }
     
     public void OnButtonHighlight()
     {
@@ -18,8 +28,12 @@ public class MainMenu : MonoBehaviour
     
     public void PlayGame()
     {
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        SceneManager.LoadScene(1);
+        if (_GameSaveData._skipPrologue == true)
+        {
+            SceneManager.LoadScene(2);
+        } else {
+            SceneManager.LoadScene(1);
+        }
     }
 
     public void OptionsOpen()
@@ -31,15 +45,9 @@ public class MainMenu : MonoBehaviour
     {
         optionsScreen.SetActive(false);
     }
-
-    public void Tutorial()
-    {
-        SceneManager.LoadScene(4);
-    }
     
     public void Credits()
     {
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
         SceneManager.LoadScene(5);
     }
     
@@ -50,9 +58,9 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
-#if UNITY_EDITOR
+        #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-#endif
+        #endif
         Application.Quit();
     }
 }

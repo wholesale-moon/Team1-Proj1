@@ -70,15 +70,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (_GameSaveData._hasFlashlight == false)
             {
-                canInteract = false;
-                _GameSaveData._hasFlashlight = true;
-                interactable.SetActive(false);
-                itemHold.SetActive(true);
-                flashlight.SetActive(true);
-                flashlighTutTrigger.SetActive(true);
-                flashlightHold.SetActive(true);
-                blockedDoor.SetActive(false);
-                UpdateActionTextp("Flashlight");
+                GainFlashlight();
             } else {
                 //pick up lantern
             }
@@ -118,6 +110,19 @@ public class PlayerMovement : MonoBehaviour
                 walkSound.Stop();
             }
         }
+    }
+
+    void GainFlashlight()
+    {
+        canInteract = false;
+        _GameSaveData._hasFlashlight = true;
+        interactable.SetActive(false);
+        itemHold.SetActive(true);
+        flashlight.SetActive(true);
+        flashlighTutTrigger.SetActive(true);
+        flashlightHold.SetActive(true);
+        blockedDoor.SetActive(false);
+        UpdateActionTextp("Flashlight");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -232,14 +237,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (obj.gameObject.tag == "Sludge")
         {
-            // health -= 1;
-            // numOfHearts -= 1;
-            // if (health <= 0 && numOfHearts <= 0)
-            // {
-            //     health = 0;
-            //     numOfHearts = 0;
-            //     Debug.Log("You have lost all of your health!");
-            // }
+            transform.GetComponent<PlayerHealth>().TakeDamage();
+        }
+
+        if (obj.gameObject.tag == "Lvl1Start")
+        {
+            SceneManager.LoadScene(2);
+            _GameSaveData._hasCompletedPrologue = true;
+            _GameSaveData._currentCutscene = 2;
         }
     }
 
