@@ -15,6 +15,7 @@ public class CutsceneTrigger : MonoBehaviour
     [SerializeField] private bool isOnAwake;
     [SerializeField] private bool isOnEnable;
     [SerializeField] private bool isOnTriggerEnter;
+    [SerializeField] private bool isOnCollision;
 
     [Header("Save Data")]
     public int cutsceneNum;
@@ -22,14 +23,31 @@ public class CutsceneTrigger : MonoBehaviour
 
     void Awake()
     {
+        #if UNITY_EDITOR
+        _GameSaveData._currentCutscene = 0;
+        _GameSaveData.isPlayingCutscene = true;
+        #endif
+        
         if(isOnAwake)
         {
             cutscene.gameObject.GetComponent<PlayableDirector>().Play();
             _GameSaveData._currentCutscene = cutsceneNum;
+            _GameSaveData.isPlayingCutscene = true;
 
             if(isOneTime)
             {
                 Destroy(gameObject);
+            }
+        }
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            if(_GameSaveData.isPlayingCutscene)
+            {
+                Skip();
             }
         }
     }
@@ -40,10 +58,29 @@ public class CutsceneTrigger : MonoBehaviour
         {
             cutscene.gameObject.GetComponent<PlayableDirector>().Play();
             _GameSaveData._currentCutscene = cutsceneNum;
+            _GameSaveData.isPlayingCutscene = true;
 
             if(isOneTime)
             {
                 Destroy(gameObject);
+            }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D obj)
+    {
+        if(obj.gameObject.tag == "Player")
+        {
+            if(isOnTriggerEnter)
+            {
+                cutscene.gameObject.GetComponent<PlayableDirector>().Play();
+                _GameSaveData._currentCutscene = cutsceneNum;
+                _GameSaveData.isPlayingCutscene = true;
+
+                if(isOneTime)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
     }
@@ -56,6 +93,7 @@ public class CutsceneTrigger : MonoBehaviour
             {
                 cutscene.gameObject.GetComponent<PlayableDirector>().Play();
                 _GameSaveData._currentCutscene = cutsceneNum;
+                _GameSaveData.isPlayingCutscene = true;
 
                 if(isOneTime)
                 {
@@ -65,15 +103,24 @@ public class CutsceneTrigger : MonoBehaviour
         }
     }
 
+    // public void StartCutscene()
+    // {
+    //     _GameSaveData._currentCutscene = 2;
+    //     PlayableDirector director = playableDirectors[_GameSaveData._currentCutscene];
+    //     cutscene.gameObject.GetComponent<PlayableDirector>().Play();
+    // }
+
     public void Skip()
     {
         PlayableDirector director = playableDirectors[_GameSaveData._currentCutscene];
         director.time = _GameSaveData._cutsceneEndTimes[_GameSaveData._currentCutscene];
+        _GameSaveData.isPlayingCutscene = false;
     }
 
     public void EndCutscene()
     {
         PlayableDirector director = playableDirectors[_GameSaveData._currentCutscene];
         director.Stop();
+        _GameSaveData.isPlayingCutscene = false;
     }
 }

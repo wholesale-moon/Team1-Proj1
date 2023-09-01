@@ -23,6 +23,8 @@ public class TypewriterEffect : MonoBehaviour
 	[SerializeField] private GameObject SceneManager;
 	[SerializeField] private GameObject contButton;
 
+	[SerializeField] private bool canCont = false;
+
 	// is there a way to ignore rich text tags?
 	
 	void Awake()
@@ -46,6 +48,9 @@ public class TypewriterEffect : MonoBehaviour
 	{
 		if(Input.GetKeyDown(KeyCode.Return))
 		{
+			if (canCont)
+				SceneManager.GetComponent<DialogueManager>().DisplayNextSentence();
+			
 			if (!_isScreenText)
 				SkipDialogue();
 		}
@@ -59,6 +64,7 @@ public class TypewriterEffect : MonoBehaviour
 		}
 
 		contButton.SetActive(false);
+		canCont = false;
 		if(startOnEnable) StartTypewriter();
 	}
 
@@ -103,6 +109,7 @@ public class TypewriterEffect : MonoBehaviour
 		}
 
 		contButton.gameObject.SetActive(true);
+		canCont = true;
 	}
 
 	private void SkipDialogue()
@@ -110,5 +117,6 @@ public class TypewriterEffect : MonoBehaviour
 		StopAllCoroutines();
 		tmpProText.text = writer;
 		contButton.gameObject.SetActive(true);
+		canCont = true;
 	}
 }

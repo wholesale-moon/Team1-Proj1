@@ -18,6 +18,8 @@ public class GameSaveData : ScriptableObject
     public bool _isClown;
     
     [Header("Cutscene Data")]
+    public bool isPlayingCutscene;
+    
     public int _currentCutscene;
     public float[] _cutsceneEndTimes;
 }

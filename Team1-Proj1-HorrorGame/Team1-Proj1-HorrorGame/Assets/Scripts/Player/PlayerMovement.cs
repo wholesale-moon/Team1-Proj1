@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using UnityEngine;
+using Cinemachine;
 using TMPro;
 
 public class PlayerMovement : MonoBehaviour
@@ -13,6 +14,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator animator;
     private Vector2 moveInput;
     float moveSpeed = 5;
+
+    private Vector3 outsideScale = new Vector3(0.5f, 0.5f, 0.5f);
+    private Vector3 insideScale = new Vector3(0.65f, 0.65f, 0.65f);
+
+    [Header("Health")]
     [SerializeField] int health = 4;
     [SerializeField] int numOfHearts = 4;
     [SerializeField] Image[] hearts;
@@ -114,56 +120,33 @@ public class PlayerMovement : MonoBehaviour
         }*/
         
         if (collision.gameObject.tag == "House")
-        { //X -2.5  y -24.5
-            theCamera.SetActive(false);
-            houseCamera.SetActive(true);
-            rb2d.transform.position = new Vector3(-8.2f, -41.14f, 0);
-            _SceneManager.GetComponent<SoundManager>().PlayClipByName("House Theme");
-            walkSound.clip = sounds[3];
+        {
+            StartCoroutine(ToHouse());
         }
         
         if (collision.gameObject.tag == "Barn")
-        {//x 18.5  y -24.5
-            theCamera.SetActive(false);
-            barnCamera.SetActive(true);
-            rb2d.transform.position = new Vector3(39.96f, -41.76f, -2);
-            _SceneManager.GetComponent<SoundManager>().PlayClipByName("House Theme");
-            walkSound.clip = sounds[3];
+        {
+            StartCoroutine(ToBarn());
         }
 
         if (collision.gameObject.tag == "Shed")
         {
-            theCamera.SetActive(false);
-            shedCamera.SetActive(true);
-            rb2d.transform.position = new Vector3(35.58f, -56.99f, -2);
-            _SceneManager.GetComponent<SoundManager>().PlayClipByName("House Theme");
-            walkSound.clip = sounds[3];
+            StartCoroutine(ToShed());
         }
         
         if (collision.gameObject.tag == "Field")
         {
-            theCamera.SetActive(true);
-            houseCamera.SetActive(false);
-            rb2d.transform.position = new Vector3(4.5f, 1.8f, -2);
-            _SceneManager.GetComponent<SoundManager>().PlayClipByName("Field Theme");
+            StartCoroutine(ExitHouse());
         }
         
         if (collision.gameObject.tag == "Field2")
         {
-            theCamera.SetActive(true);
-            barnCamera.SetActive(false);
-            theCamera.transform.position = new Vector3(0f, 0f, -10);
-            rb2d.transform.position = new Vector3(-4.5f, 2.5f, -2);
-            _SceneManager.GetComponent<SoundManager>().PlayClipByName("Field Theme");
+            StartCoroutine(ExitBarn());
         }
 
         if (collision.gameObject.tag == "Field3")
         {
-            theCamera.SetActive(true);
-            shedCamera.SetActive(false);
-            theCamera.transform.position = new Vector3(0f, 0f, -10);
-            rb2d.transform.position = new Vector3(-49.55f, 0.07f, -2);
-            _SceneManager.GetComponent<SoundManager>().PlayClipByName("Field Theme");
+            StartCoroutine(ExitShed());
         }
     }
 
@@ -212,13 +195,13 @@ public class PlayerMovement : MonoBehaviour
                 Debug.Log("You have lost all of your health!");
             }
         }
-        if (obj.gameObject.tag == "TV")
-        {
+        // if (obj.gameObject.tag == "TV")
+        // {
 
-            SceneManager.LoadScene(2);
-            walkSound.clip = sounds[3];
+        //     SceneManager.LoadScene(2);
+        //     walkSound.clip = sounds[3];
 
-        }
+        // }
     }
 
     private void UpdateActionText(string pickup)
@@ -244,4 +227,85 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         yield return null;
     }
+
+#region Travel
+    private IEnumerator ToHouse()
+    {
+        theCamera.GetComponent<CinemachineBrain>().enabled = false;
+        rb2d.transform.position = new Vector3(-8.2f, -41.14f, 0);
+        _SceneManager.GetComponent<SoundManager>().PlayClipByName("House Theme");
+        walkSound.clip = sounds[3];
+        transform.localScale = insideScale;
+
+        yield return new WaitForSeconds(0.4f);
+        theCamera.SetActive(false);
+        houseCamera.SetActive(true);
+        yield return null;
+    }
+
+    private IEnumerator ToBarn()
+    {
+        theCamera.GetComponent<CinemachineBrain>().enabled = false;
+        rb2d.transform.position = new Vector3(39.96f, -41.76f, -2);
+        _SceneManager.GetComponent<SoundManager>().PlayClipByName("House Theme");
+        walkSound.clip = sounds[3];
+        transform.localScale = insideScale;
+
+        yield return new WaitForSeconds(0.4f);
+        theCamera.SetActive(false);
+        barnCamera.SetActive(true);
+    }
+
+    private IEnumerator ToShed()
+    {
+        theCamera.GetComponent<CinemachineBrain>().enabled = false;
+        rb2d.transform.position = new Vector3(35.58f, -56.99f, -2);
+        _SceneManager.GetComponent<SoundManager>().PlayClipByName("House Theme");
+        walkSound.clip = sounds[3];
+        transform.localScale = insideScale;
+
+        yield return new WaitForSeconds(0.4f);
+        theCamera.SetActive(false);
+        shedCamera.SetActive(true);
+    }
+
+    private IEnumerator ExitHouse()
+    {
+        theCamera.GetComponent<CinemachineBrain>().enabled = true;
+        rb2d.transform.position = new Vector3(4.5f, 1.8f, -2);
+        _SceneManager.GetComponent<SoundManager>().PlayClipByName("Field Theme");
+        transform.localScale = outsideScale;
+
+        yield return new WaitForSeconds(0.4f);
+        theCamera.SetActive(true);
+        houseCamera.SetActive(false);
+    }
+
+    private IEnumerator ExitBarn()
+    {
+        theCamera.GetComponent<CinemachineBrain>().enabled = true;
+        theCamera.transform.position = new Vector3(0f, 0f, -10);
+        rb2d.transform.position = new Vector3(-4.5f, 2.5f, -2);
+        _SceneManager.GetComponent<SoundManager>().PlayClipByName("Field Theme");
+        transform.localScale = outsideScale;
+
+        yield return new WaitForSeconds(0.4f);
+        theCamera.SetActive(true);
+        barnCamera.SetActive(false);
+    }
+
+    private IEnumerator ExitShed()
+    {
+        theCamera.GetComponent<CinemachineBrain>().enabled = true;
+        theCamera.transform.position = new Vector3(0f, 0f, -10);
+        rb2d.transform.position = new Vector3(-49.55f, 0.07f, -2);
+        _SceneManager.GetComponent<SoundManager>().PlayClipByName("Field Theme");
+        transform.localScale = outsideScale;
+
+        yield return new WaitForSeconds(0.4f);
+        theCamera.SetActive(true);
+        shedCamera.SetActive(false);
+    }
+
+#endregion
 }

@@ -66,8 +66,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.006399989, y: -0.0011000037, z: 0}
-    m_Extent: {x: 1.0005, y: 0.9938, z: 0}
+    m_Center: {x: -0.0067499876, y: 0.001150012, z: 0}
+    m_Extent: {x: 1.00165, y: 1.00495, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -123,8 +123,8 @@ GameObject:
   - component: {fileID: 8320624081313387721}
   - component: {fileID: 1236487626517150811}
   - component: {fileID: 6163812994595470745}
-  - component: {fileID: 6358013691120154727}
   - component: {fileID: 2396183623973199653}
+  - component: {fileID: 7734900836336799497}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -286,44 +286,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb2d: {fileID: 8320624081313387721}
-  animator: {fileID: 6358013691120154727}
+  animator: {fileID: 7734900836336799497}
   health: 4
   numOfHearts: 4
-  hearts: []
+  hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   actionText: {fileID: 0}
   theCamera: {fileID: 0}
   houseCamera: {fileID: 0}
+  barnCamera: {fileID: 0}
+  shedCamera: {fileID: 0}
+  soundEffectsMixerGroup: {fileID: 5512973357858327002, guid: 3743e21ec69ec054ea63d1513abc3a00, type: 2}
   walkSound: {fileID: 2396183623973199653}
-  speaker: {fileID: 0}
-  audio:
-  - {fileID: 8300000, guid: 81f0b78c3137608419f3a3207b720efd, type: 3}
-  - {fileID: 8300000, guid: 0248581d6353d4649ac7fb72dd7df6bf, type: 3}
+  sounds:
   - {fileID: 8300000, guid: 75ae8ac27bb5de94591d11729dd251b3, type: 3}
   - {fileID: 8300000, guid: ab5d6ccd6610a7d4a9ba4a193d442f40, type: 3}
   - {fileID: 8300000, guid: bc8c9a76e33bf0544afdc43e055f3aca, type: 3}
   - {fileID: 8300000, guid: 70557f2054aed0c45994b259d849e9aa, type: 3}
-  flashlight: {fileID: 0}
---- !u!95 &6358013691120154727
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3599661399554378357}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6646b55b5c154274280bf5d437f8af2f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  _SceneManager: {fileID: 0}
+  flashlight: {fileID: 5993422211354082255}
 --- !u!82 &2396183623973199653
 AudioSource:
   m_ObjectHideFlags: 0
@@ -420,6 +404,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &7734900836336799497
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3599661399554378357}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6646b55b5c154274280bf5d437f8af2f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5993422211354082255
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,7 +441,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &888868623912851277
 Transform:
   m_ObjectHideFlags: 0
@@ -531,8 +536,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.3315, y: -0.006649971, z: 0}
-    m_Extent: {x: 1.3399999, y: 0.99815, z: 0}
+    m_Center: {x: -0.33775002, y: -0.002249986, z: 0}
+    m_Extent: {x: 1.3399501, y: 1.00205, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
