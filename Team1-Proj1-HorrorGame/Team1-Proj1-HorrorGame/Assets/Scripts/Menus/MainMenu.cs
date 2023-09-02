@@ -13,13 +13,15 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject optionsScreen;
     [SerializeField] private GameObject skipPrologueOption;
     
-    void Start()
-    {
-        if(_GameSaveData._hasCompletedPrologue == true)
-        {
-            skipPrologueOption.SetActive(true);
-        }
-    }
+    // void Start()
+    // {
+    //     if(_GameSaveData._hasCompletedPrologue == true)
+    //     {
+    //         skipPrologueOption.SetActive(true);
+    //     } else {
+    //         skipPrologueOption.SetActive(false);
+    //     }
+    // }
     
     public void OnButtonHighlight()
     {
