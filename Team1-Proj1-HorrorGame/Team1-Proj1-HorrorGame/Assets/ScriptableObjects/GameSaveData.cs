@@ -7,6 +7,7 @@ public class GameSaveData : ScriptableObject
 {
     [Header("Player Data")]
     public bool _hasFlashlight;
+    public bool _hasLantern;
     public bool _hasBarnKey;
     
     [Header("Settings Data")]
@@ -15,7 +16,7 @@ public class GameSaveData : ScriptableObject
     public float _sfxVolume;
 
     [Space(10)]
-    public bool _isClown;
+    //public bool _isClown;
     public bool _skipPrologue;
     public bool _hasCompletedPrologue;
     

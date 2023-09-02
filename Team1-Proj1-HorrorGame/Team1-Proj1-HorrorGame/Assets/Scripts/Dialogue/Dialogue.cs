@@ -14,6 +14,7 @@ public class Dialogue
     public string quest;
 
     [Space(10)]
+    public bool isQuest;
     public bool isScreenText;
     public bool doesEndCutscene;
 }

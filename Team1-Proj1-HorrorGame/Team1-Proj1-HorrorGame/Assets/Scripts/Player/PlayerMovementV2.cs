@@ -42,8 +42,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Objects")]
     [SerializeField] private GameSaveData _GameSaveData;
     [SerializeField] private GameObject _SceneManager;
-    [SerializeField] private GameObject flashlighTutTrigger;
-    [SerializeField] private GameObject blockedDoor;
+    [SerializeField] private GameObject sceneTransitioner;
 
     [Space(10)]
     public GameObject flashlight;
@@ -54,11 +53,12 @@ public class PlayerMovement : MonoBehaviour
     {
         walkSound = gameObject.GetComponent<AudioSource>();
         walkSound.outputAudioMixerGroup = soundEffectsMixerGroup;
-        
-        #if UNITY_EDITOR
-        _GameSaveData._hasFlashlight = false;
-        _GameSaveData._hasBarnKey = false;
-        #endif
+
+        if(SceneManager.GetActiveScene().buildIndex == 1 || SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            _GameSaveData._hasFlashlight = false;
+            _GameSaveData._hasBarnKey = false;
+        }
     }
 
     // Update is called once per frame
@@ -70,9 +70,19 @@ public class PlayerMovement : MonoBehaviour
         {
             if (_GameSaveData._hasFlashlight == false)
             {
-                GainFlashlight();
-            } else {
-                //pick up lantern
+                transform.GetComponent<SceneActivation>().GainFlashlight();
+                interactable.SetActive(false);
+                flashlightHold.SetActive(true);
+                canInteract = false;
+            } 
+            else if (interactable.tag == "LanternStash") 
+            {
+                _GameSaveData._hasLantern = true;
+                //flashlight.SetActive(false);
+                flashlightHold.SetActive(false);
+                lanternHold.SetActive(true);
+                // set player lantern light on
+                UpdateActionTextp("Lantern");
             }
         }
     }
@@ -110,19 +120,6 @@ public class PlayerMovement : MonoBehaviour
                 walkSound.Stop();
             }
         }
-    }
-
-    void GainFlashlight()
-    {
-        canInteract = false;
-        _GameSaveData._hasFlashlight = true;
-        interactable.SetActive(false);
-        itemHold.SetActive(true);
-        flashlight.SetActive(true);
-        flashlighTutTrigger.SetActive(true);
-        flashlightHold.SetActive(true);
-        blockedDoor.SetActive(false);
-        UpdateActionTextp("Flashlight");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -242,9 +239,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (obj.gameObject.tag == "Lvl1Start")
         {
-            SceneManager.LoadScene(2);
             _GameSaveData._hasCompletedPrologue = true;
             _GameSaveData._currentCutscene = 2;
+            sceneTransitioner.GetComponent<LevelTransition>().FadeToLevel(2); 
         }
     }
 

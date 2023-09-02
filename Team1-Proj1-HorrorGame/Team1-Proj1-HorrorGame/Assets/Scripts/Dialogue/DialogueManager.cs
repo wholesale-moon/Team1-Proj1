@@ -62,9 +62,15 @@ public class DialogueManager : MonoBehaviour
         } else {
             contText.text = "<< END DIALOGUE >>";
         }
-
-        DialogueBox.SetActive(true);
-        DisplayNextSentence();
+        
+        if(dialogue.isQuest == true)
+        {
+            return;
+        } else 
+        {
+            DialogueBox.SetActive(true);
+            DisplayNextSentence();
+        }
     }
 
     public void DisplayNextSentence()

@@ -23,11 +23,6 @@ public class CutsceneTrigger : MonoBehaviour
 
     void Awake()
     {
-        #if UNITY_EDITOR //bug testing lv1
-            _GameSaveData._currentCutscene = 2;
-            _GameSaveData.isPlayingCutscene = true;
-        #endif
-        
         if(isOnAwake)
         {
             cutscene.gameObject.GetComponent<PlayableDirector>().Play();

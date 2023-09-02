@@ -66,8 +66,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.006649971, y: 0.0033499897, z: 0}
-    m_Extent: {x: 0.99815, y: 0.99335, z: 0}
+    m_Center: {x: 0.0024999976, y: 0.00029999018, z: 0}
+    m_Extent: {x: 1.0002, y: 1.0026, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -120,10 +120,11 @@ GameObject:
   m_Component:
   - component: {fileID: 379132889861459278}
   - component: {fileID: 8196604437937191510}
-  - component: {fileID: 8320624081313387721}
-  - component: {fileID: 1236487626517150811}
   - component: {fileID: 6163812994595470745}
   - component: {fileID: 4788035796803891172}
+  - component: {fileID: 3993736357865368635}
+  - component: {fileID: 8320624081313387721}
+  - component: {fileID: 1236487626517150811}
   - component: {fileID: 2396183623973199653}
   - component: {fileID: 7734900836336799497}
   m_Layer: 9
@@ -202,6 +203,73 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6163812994595470745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3599661399554378357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a2a706a70aa9e244a102c8c947d8f65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb2d: {fileID: 8320624081313387721}
+  animator: {fileID: 7734900836336799497}
+  itemHold: {fileID: 0}
+  flashlightHold: {fileID: 0}
+  lanternHold: {fileID: 0}
+  actionText: {fileID: 0}
+  theCamera: {fileID: 0}
+  houseCamera: {fileID: 0}
+  barnCamera: {fileID: 0}
+  shedCamera: {fileID: 0}
+  soundEffectsMixerGroup: {fileID: 5512973357858327002, guid: 3743e21ec69ec054ea63d1513abc3a00, type: 2}
+  walkSound: {fileID: 2396183623973199653}
+  sounds:
+  - {fileID: 8300000, guid: 75ae8ac27bb5de94591d11729dd251b3, type: 3}
+  - {fileID: 8300000, guid: ab5d6ccd6610a7d4a9ba4a193d442f40, type: 3}
+  - {fileID: 8300000, guid: bc8c9a76e33bf0544afdc43e055f3aca, type: 3}
+  - {fileID: 8300000, guid: 70557f2054aed0c45994b259d849e9aa, type: 3}
+  _GameSaveData: {fileID: 0}
+  _SceneManager: {fileID: 0}
+  flashlighTutTrigger: {fileID: 0}
+  blockedDoor: {fileID: 0}
+  flashlight: {fileID: 5993422211354082255}
+--- !u!114 &4788035796803891172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3599661399554378357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 773c8a71b9108cf44a776d78923fd73d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 4
+  currentHealth: 0
+  medBottle: {fileID: 0}
+  healthbar: {fileID: 0}
+  hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &3993736357865368635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3599661399554378357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10fe2dd837701d44aae4ce77c15247a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &8320624081313387721
 Rigidbody2D:
   serializedVersion: 4
@@ -274,65 +342,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.6199048}
   m_EdgeRadius: 0
---- !u!114 &6163812994595470745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3599661399554378357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a2a706a70aa9e244a102c8c947d8f65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb2d: {fileID: 8320624081313387721}
-  animator: {fileID: 7734900836336799497}
-  health: 4
-  numOfHearts: 4
-  hearts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  itemHold: {fileID: 0}
-  flashlightHold: {fileID: 0}
-  lanternHold: {fileID: 0}
-  actionText: {fileID: 0}
-  theCamera: {fileID: 0}
-  houseCamera: {fileID: 0}
-  barnCamera: {fileID: 0}
-  shedCamera: {fileID: 0}
-  soundEffectsMixerGroup: {fileID: 5512973357858327002, guid: 3743e21ec69ec054ea63d1513abc3a00, type: 2}
-  walkSound: {fileID: 2396183623973199653}
-  sounds:
-  - {fileID: 8300000, guid: 75ae8ac27bb5de94591d11729dd251b3, type: 3}
-  - {fileID: 8300000, guid: ab5d6ccd6610a7d4a9ba4a193d442f40, type: 3}
-  - {fileID: 8300000, guid: bc8c9a76e33bf0544afdc43e055f3aca, type: 3}
-  - {fileID: 8300000, guid: 70557f2054aed0c45994b259d849e9aa, type: 3}
-  _GameSaveData: {fileID: 0}
-  _SceneManager: {fileID: 0}
-  flashlighTutTrigger: {fileID: 0}
-  flashlight: {fileID: 5993422211354082255}
---- !u!114 &4788035796803891172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3599661399554378357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 773c8a71b9108cf44a776d78923fd73d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 4
-  medBottle: {fileID: 0}
-  hearts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!82 &2396183623973199653
 AudioSource:
   m_ObjectHideFlags: 0
