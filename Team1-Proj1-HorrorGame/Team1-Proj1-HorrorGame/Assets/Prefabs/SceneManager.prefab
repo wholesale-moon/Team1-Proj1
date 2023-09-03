@@ -76,6 +76,7 @@ MonoBehaviour:
   isOnTriggerEnter: 0
   cutsceneNum: 0
   endTime: 0
+  isTransition: 0
 --- !u!114 &8311669033000115760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,6 +104,97 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a9c77a056b899041a723e6a1d0f0647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicMixerGroup: {fileID: 0}
-  soundEffectsMixerGroup: {fileID: 0}
-  sounds: []
+  musicMixerGroup: {fileID: 4213562252395297582, guid: 3743e21ec69ec054ea63d1513abc3a00, type: 2}
+  soundEffectsMixerGroup: {fileID: 5512973357858327002, guid: 3743e21ec69ec054ea63d1513abc3a00, type: 2}
+  sounds:
+  - audioType: 1
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 41e1302296e187d4f88ec2da3d070cc9, type: 3}
+    clipName: Field Theme Dusk
+    isLoop: 1
+    playOnAwake: 1
+    volume: 0.25
+  - audioType: 1
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: c164452a191c63546a6c2577e78ce8c3, type: 3}
+    clipName: FIeld Theme 1
+    isLoop: 1
+    playOnAwake: 0
+    volume: 1
+  - audioType: 1
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 86fc9abf12108534caeffff66b87c0e7, type: 3}
+    clipName: Field Theme 2
+    isLoop: 1
+    playOnAwake: 0
+    volume: 1
+  - audioType: 1
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 01afe35a16e96c84c8c4828342034994, type: 3}
+    clipName: Field Theme 3
+    isLoop: 0
+    playOnAwake: 0
+    volume: 1
+  - audioType: 1
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 0248581d6353d4649ac7fb72dd7df6bf, type: 3}
+    clipName: House Theme
+    isLoop: 1
+    playOnAwake: 0
+    volume: 1
+  - audioType: 1
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: b3503ccb394a43643b9009d022c01cf6, type: 3}
+    clipName: Credits Theme
+    isLoop: 1
+    playOnAwake: 0
+    volume: 1
+  - audioType: 1
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: f18ef7c63a0cb8642bbe3281329856ba, type: 3}
+    clipName: Menu Theme
+    isLoop: 1
+    playOnAwake: 0
+    volume: 1
+  - audioType: 0
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 9929631904c885740a6010cedcfb2422, type: 3}
+    clipName: Button Highlight
+    isLoop: 0
+    playOnAwake: 0
+    volume: 1
+  - audioType: 0
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: a35b7b104be283545a74d3db2ce6e0e8, type: 3}
+    clipName: Typewriter
+    isLoop: 0
+    playOnAwake: 0
+    volume: 1
+  - audioType: 0
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 75ae8ac27bb5de94591d11729dd251b3, type: 3}
+    clipName: Dirt
+    isLoop: 0
+    playOnAwake: 0
+    volume: 1
+  - audioType: 0
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: ab5d6ccd6610a7d4a9ba4a193d442f40, type: 3}
+    clipName: Corn
+    isLoop: 0
+    playOnAwake: 0
+    volume: 1
+  - audioType: 0
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 70557f2054aed0c45994b259d849e9aa, type: 3}
+    clipName: Wood
+    isLoop: 0
+    playOnAwake: 0
+    volume: 1
+  - audioType: 0
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: bc8c9a76e33bf0544afdc43e055f3aca, type: 3}
+    clipName: Grass
+    isLoop: 0
+    playOnAwake: 0
+    volume: 1

@@ -419,57 +419,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 350526127}
     m_Modifications:
     - target: {fileID: 1125858859830023591, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
-      propertyPath: audio
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1125858859830023591, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
-      propertyPath: contButton
-      value: 
-      objectReference: {fileID: 1235133353}
-    - target: {fileID: 1125858859830023591, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
-      propertyPath: skipButton
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1125858859830023591, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
       propertyPath: SceneManager
       value: 
       objectReference: {fileID: 738415852}
-    - target: {fileID: 1125858859830023591, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
-      propertyPath: startOnEnable
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2610665042180183802, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1445.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2610665042180183802, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.60838
-      objectReference: {fileID: 0}
-    - target: {fileID: 2610665042180183802, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 51
-      objectReference: {fileID: 0}
-    - target: {fileID: 3267654334572568030, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
-      propertyPath: m_Navigation.m_Mode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3267654334572568030, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1042282913}
-    - target: {fileID: 3267654334572568030, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DisplayNextSentence
-      objectReference: {fileID: 0}
-    - target: {fileID: 3267654334572568030, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: DialogueManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4391744036574877431, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
-      propertyPath: m_text
-      value: '***'
-      objectReference: {fileID: 0}
     - target: {fileID: 4551720606397904440, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
       propertyPath: m_Name
       value: DialogueBox
@@ -477,10 +433,6 @@ PrefabInstance:
     - target: {fileID: 4551720606397904440, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6666619944002605864, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6910964941857169730, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
       propertyPath: m_Pivot.x
@@ -513,18 +465,6 @@ PrefabInstance:
     - target: {fileID: 6910964941857169730, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
       propertyPath: m_SizeDelta.y
       value: 207.735
-      objectReference: {fileID: 0}
-    - target: {fileID: 6910964941857169730, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.90326995
-      objectReference: {fileID: 0}
-    - target: {fileID: 6910964941857169730, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.90326995
-      objectReference: {fileID: 0}
-    - target: {fileID: 6910964941857169730, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.90326995
       objectReference: {fileID: 0}
     - target: {fileID: 6910964941857169730, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -574,33 +514,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7912881736584467197, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
-      propertyPath: m_text
-      value: That looks like the last of them. I think it's safe to head home.
-      objectReference: {fileID: 0}
-    - target: {fileID: 9124748793133001387, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1451.0596
-      objectReference: {fileID: 0}
-    - target: {fileID: 9124748793133001387, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 115.96
-      objectReference: {fileID: 0}
-    - target: {fileID: 9124748793133001387, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 3.3891
-      objectReference: {fileID: 0}
-    - target: {fileID: 9124748793133001387, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -28
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4551720606397904440, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 115404258}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
 --- !u!114 &40086520 stripped
 MonoBehaviour:
@@ -4862,7 +4779,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &97959913
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5202,27 +5119,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6910964941857169730, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
   m_PrefabInstance: {fileID: 40086519}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &115404258
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 40086524}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &143264769
 GameObject:
   m_ObjectHideFlags: 0
@@ -6958,8 +6854,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.0027999878, y: -0.0022000074, z: 0}
-    m_Extent: {x: 1.4943, y: 1.4999, z: 0}
+    m_Center: {x: -0.00024998188, y: -0.007700026, z: 0}
+    m_Extent: {x: 1.50455, y: 1.5016999, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -12471,6 +12367,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 350526127}
     m_Modifications:
+    - target: {fileID: 1134848173634579240, guid: 2b1631220fd7e4f4795dea2167bc36d3, type: 3}
+      propertyPath: SceneManager
+      value: 
+      objectReference: {fileID: 738415852}
     - target: {fileID: 3935083190663281749, guid: 2b1631220fd7e4f4795dea2167bc36d3, type: 3}
       propertyPath: m_text
       value: You got a <color="red">Flashlight</color>!
@@ -14055,7 +13955,7 @@ MonoBehaviour:
     name: '***'
     sentences:
     - I should find a flashlight before going outside.
-    quest: Search for a flashlight upstairs
+    quest: 
     isQuest: 0
     isScreenText: 0
     doesEndCutscene: 0
@@ -15809,7 +15709,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 10109155785928262, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
       propertyPath: sounds.Array.data[0].volume
-      value: 1
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 10109155785928262, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
       propertyPath: sounds.Array.data[1].isLoop
@@ -15817,7 +15717,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 10109155785928262, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
       propertyPath: sounds.Array.data[1].volume
-      value: 1
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 10109155785928262, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
       propertyPath: sounds.Array.data[2].isLoop
@@ -15981,6 +15881,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 10109155785928262, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
       propertyPath: sounds.Array.data[0].playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10109155785928262, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
+      propertyPath: sounds.Array.data[1].playOnAwake
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 709193081501427244, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
@@ -18317,11 +18221,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1235133353 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6666619944002605864, guid: 710e2a7818e95de4fa4d239d66b8ebfb, type: 3}
-  m_PrefabInstance: {fileID: 40086519}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1242398448
 GameObject:
   m_ObjectHideFlags: 0
@@ -31967,6 +31866,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0029398, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1649642446
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1649642447}
+  m_Layer: 0
+  m_Name: FillerObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1649642447
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649642446}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.6832795, y: -1.8501573, z: 2.0486932}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1673070834
 GameObject:
   m_ObjectHideFlags: 0
@@ -57552,8 +57482,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.005100012, y: 0.003000021, z: 0}
-    m_Extent: {x: 1.0014, y: 1.0065, z: 0}
+    m_Center: {x: 0.0032999814, y: -0.00080001354, z: 0}
+    m_Extent: {x: 1.0021, y: 1.0077, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -72005,6 +71935,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2065970677}
     - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: minicrow1
+      value: 
+      objectReference: {fileID: 578500687}
+    - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
       propertyPath: flashlight
       value: 
       objectReference: {fileID: 96820077}
@@ -72013,9 +71947,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 4b3d4dca943ebc54aac5379ca92a9107, type: 2}
     - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: pickupTutorial
+      value: 
+      objectReference: {fileID: 1649642446}
+    - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: flashlightTutorial
+      value: 
+      objectReference: {fileID: 315751011}
+    - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
       propertyPath: flashlighTutTrigger
       value: 
       objectReference: {fileID: 315751011}
+    - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: blockedHouseDialogue
+      value: 
+      objectReference: {fileID: 1649642446}
     - target: {fileID: 4788035796803891172, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
       propertyPath: healthbar
       value: 
@@ -72056,6 +72002,10 @@ PrefabInstance:
       propertyPath: itemHold
       value: 
       objectReference: {fileID: 23892786}
+    - target: {fileID: 6163812994595470745, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: questLog
+      value: 
+      objectReference: {fileID: 422507155}
     - target: {fileID: 6163812994595470745, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
       propertyPath: houseDoor
       value: 
@@ -72100,6 +72050,10 @@ PrefabInstance:
       propertyPath: flashlightHold
       value: 
       objectReference: {fileID: 2000882179}
+    - target: {fileID: 6163812994595470745, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: sceneTransitioner
+      value: 
+      objectReference: {fileID: 5708933682185192129}
     - target: {fileID: 6163812994595470745, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
       propertyPath: flashlighTutTrigger
       value: 
@@ -72195,6 +72149,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0b205f887fedd945a90f65ad65ef116, type: 3}
+--- !u!1 &5708933682185192129 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 693780604880620638, guid: f0b205f887fedd945a90f65ad65ef116, type: 3}
+  m_PrefabInstance: {fileID: 5708933682185192128}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -72216,3 +72175,4 @@ SceneRoots:
   - {fileID: 1131190777}
   - {fileID: 1472119709}
   - {fileID: 982381355}
+  - {fileID: 1649642447}

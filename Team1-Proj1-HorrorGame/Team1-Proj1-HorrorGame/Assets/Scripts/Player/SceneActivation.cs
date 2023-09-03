@@ -13,7 +13,9 @@ public class SceneActivation : MonoBehaviour
     
     [Header("Scene Objects")]
     // Dialogue/Quest Triggers
-    [SerializeField] private GameObject flashlighTutTrigger;
+    [SerializeField] private GameObject pickupTutorial;
+    [SerializeField] private GameObject flashlightTutorial;
+    [SerializeField] private GameObject blockedHouseDialogue;
 
     //Doors
     [SerializeField] private GameObject houseDoor;
@@ -21,6 +23,9 @@ public class SceneActivation : MonoBehaviour
     //HUD
     [SerializeField] GameObject itemHold;
     public GameObject flashlight;
+
+    //Minicrows
+    [SerializeField] private GameObject minicrow1;
 
     void Start()
     {
@@ -33,17 +38,38 @@ public class SceneActivation : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             _GameSaveData._currentCutscene = 0;
+            _GameSaveData.isPlayingCutscene = true;
+            _GameSaveData._isHouseOpen = false;
         } else if (SceneManager.GetActiveScene().buildIndex == 2)
         {
-            _GameSaveData._currentCutscene = 2;
+            _GameSaveData._currentCutscene = 1;
+            _GameSaveData.isPlayingCutscene = true;
         }
+
+        minicrow1.GetComponent<Animator>().SetBool("Sludge3", true);
     }
 
+    public void PickupTutorialActive()
+    {
+        pickupTutorial.SetActive(true);
+    }
+
+    public void HouseBlockedDialogue()
+    {
+        blockedHouseDialogue.SetActive(true);
+        Invoke("disableBlockedHouseDialogue", 0.1f);
+    }
+
+    private void disableBlockedHouseDialogue()
+    {
+        blockedHouseDialogue.SetActive(false);
+    }
+    
     public void GainFlashlight()
     {
         _GameSaveData._hasFlashlight = true;
         itemHold.SetActive(true);
         flashlight.SetActive(true);
-        flashlighTutTrigger.SetActive(true);
+        flashlightTutorial.SetActive(true);
     }
 }

@@ -20,9 +20,10 @@ public class PlayerMovement : MonoBehaviour
     private GameObject interactable;
 
     [Header("HUD")]
-    [SerializeField] GameObject itemHold;
-    [SerializeField] GameObject flashlightHold;
-    [SerializeField] GameObject lanternHold;
+    public TMP_Text questLog;
+    [SerializeField] private GameObject itemHold;
+    [SerializeField] private GameObject flashlightHold;
+    [SerializeField] private GameObject lanternHold;
 
     [Space(10)]
     [SerializeField] private TMP_Text actionText;
@@ -53,12 +54,6 @@ public class PlayerMovement : MonoBehaviour
     {
         walkSound = gameObject.GetComponent<AudioSource>();
         walkSound.outputAudioMixerGroup = soundEffectsMixerGroup;
-
-        if(SceneManager.GetActiveScene().buildIndex == 1 || SceneManager.GetActiveScene().buildIndex == 2)
-        {
-            _GameSaveData._hasFlashlight = false;
-            _GameSaveData._hasBarnKey = false;
-        }
     }
 
     // Update is called once per frame
@@ -87,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    #region Player Movement
     void OnMove()
     {
         moveInput.x = Input.GetAxisRaw("Horizontal");
@@ -121,24 +117,19 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+    #endregion
 
+    #region Travel
     private void OnCollisionEnter2D(Collision2D collision)
-    {
-        /*if (collision.gameObject.tag == "Scarecrow")
-        {
-            health -= 10;
-            Debug.Log("You have taken 10 damage!");
-            if (health <= 0)
-            {
-                health = 0;
-                Debug.Log("You have lost all of your health!");
-            }
-        }*/
-        
-        #region Travel
+    {   
         if (collision.gameObject.tag == "House")
         {
-            StartCoroutine(ToHouse());
+            if (_GameSaveData._isHouseOpen == true)
+            {
+                StartCoroutine(ToHouse());
+            } else {
+
+            }
         }
         
         if (collision.gameObject.tag == "Barn")
@@ -180,8 +171,8 @@ public class PlayerMovement : MonoBehaviour
         {
             StartCoroutine(ToDownstairs());
         }
-        #endregion
     }
+    #endregion
 
     private void OnTriggerEnter2D(Collider2D obj)
     {
@@ -226,15 +217,29 @@ public class PlayerMovement : MonoBehaviour
             if (transform.GetComponent<PlayerHealth>().currentHealth != transform.GetComponent<PlayerHealth>().maxHealth)
             {
                 transform.GetComponent<PlayerHealth>().Heal();
-                obj.gameObject.SetActive(false);
+                StartCoroutine(transform.GetComponent<PlayerHealth>().MedicineSpawn());
                 UpdateActionTextp("Medicine");
             }
         }
         #endregion
 
+        if (obj.gameObject.tag == "HealthShow")
+        {
+            transform.GetComponent<PlayerHealth>().healthbar.SetActive(true);
+            transform.GetComponent<SceneActivation>().PickupTutorialActive();
+            Destroy(obj.gameObject);
+        }
+        
         if (obj.gameObject.tag == "Sludge")
         {
             transform.GetComponent<PlayerHealth>().TakeDamage();
+        }
+
+        if (obj.gameObject.tag == "HouseDoorActive")
+        {
+            _SceneManager.GetComponent<DialogueManager>().UpdateQuestLog("Watch TV");
+            _GameSaveData._isHouseOpen = true;
+            Destroy(obj.gameObject);
         }
 
         if (obj.gameObject.tag == "Lvl1Start")

@@ -110,13 +110,6 @@ public class CutsceneTrigger : MonoBehaviour
         }
     }
 
-    // public void StartCutscene()
-    // {
-    //     _GameSaveData._currentCutscene = 2;
-    //     PlayableDirector director = playableDirectors[_GameSaveData._currentCutscene];
-    //     cutscene.gameObject.GetComponent<PlayableDirector>().Play();
-    // }
-
     public void Skip()
     {
         PlayableDirector director = playableDirectors[_GameSaveData._currentCutscene];

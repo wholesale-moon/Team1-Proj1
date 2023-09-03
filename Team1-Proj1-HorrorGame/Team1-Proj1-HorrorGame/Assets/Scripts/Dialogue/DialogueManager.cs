@@ -19,7 +19,7 @@ public class DialogueManager : MonoBehaviour
     [Header("Quest Log")]
     public GameObject questLog;
     public TMP_Text questText;
-    private string quest;
+    private string questTemp;
 
     [Header("Scene Manager")]
     [SerializeField] private GameObject SceneManager;
@@ -43,9 +43,7 @@ public class DialogueManager : MonoBehaviour
         
         if(dialogue.quest != null)
         {
-            quest = dialogue.quest;
-        } else {
-            quest = "";
+            questTemp = dialogue.quest;
         }
 
         isEndCutscene = dialogue.doesEndCutscene;
@@ -65,6 +63,7 @@ public class DialogueManager : MonoBehaviour
         
         if(dialogue.isQuest == true)
         {
+            UpdateQuestLog(questTemp);
             return;
         } else 
         {
@@ -104,16 +103,21 @@ public class DialogueManager : MonoBehaviour
     {
         DialogueBox.SetActive(false);
         
-        if (quest != "")
+        if (questTemp != "")
         {
-            questLog.SetActive(true);
+            UpdateQuestLog(questTemp);
         }
-        
-        questText.text = ">> "+ quest;
 
         if(isEndCutscene)
         {
             SceneManager.GetComponent<CutsceneTrigger>().EndCutscene();
         }
+    }
+
+    public void UpdateQuestLog(string quest)
+    {
+        questLog.gameObject.SetActive(false);
+        questText.text = ">> "+ quest;
+        questLog.gameObject.SetActive(true);
     }
 }

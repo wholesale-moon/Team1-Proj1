@@ -9,6 +9,9 @@ public class GameSaveData : ScriptableObject
     public bool _hasFlashlight;
     public bool _hasLantern;
     public bool _hasBarnKey;
+
+    [Space(10)]
+    public bool _isHouseOpen;
     
     [Header("Settings Data")]
     public float _masterVolume;
