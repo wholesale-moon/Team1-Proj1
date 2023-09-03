@@ -1,0 +1,488 @@
+Using pre-set license
+Built from '2022.3/release' branch; Version is '2022.3.5f1 (9674261d40ee) revision 9860134'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit Enterprise' Language: 'en' Physical Memory: 32693 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker3
+-projectPath
+C:/Users/naveb/Documents/GitHub/Team1-Proj1/Team1-Proj1-HorrorGame/Team1-Proj1-HorrorGame
+-logFile
+Logs/AssetImportWorker3.log
+-srvPort
+51781
+Successfully changed project path to: C:/Users/naveb/Documents/GitHub/Team1-Proj1/Team1-Proj1-HorrorGame/Team1-Proj1-HorrorGame
+C:/Users/naveb/Documents/GitHub/Team1-Proj1/Team1-Proj1-HorrorGame/Team1-Proj1-HorrorGame
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [26992] Host "[IP] 192.168.1.50 [Port] 0 [Flags] 2 [Guid] 286533369 [EditorId] 286533369 [Version] 1048832 [Id] WindowsEditor(7,Evan-PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [26992] Host "[IP] 192.168.1.50 [Port] 0 [Flags] 2 [Guid] 286533369 [EditorId] 286533369 [Version] 1048832 [Id] WindowsEditor(7,Evan-PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+Refreshing native plugins compatible for Editor in 19.02 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.5f1 (9674261d40ee)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.5f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/naveb/Documents/GitHub/Team1-Proj1/Team1-Proj1-HorrorGame/Team1-Proj1-HorrorGame/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3060 (ID=0x2487)
+    Vendor:   NVIDIA
+    VRAM:     12124 MB
+    Driver:   31.0.15.3713
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.5f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.5f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.5f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56136
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.5f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.5f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.011984 seconds.
+- Loaded All Assemblies, in  0.394 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.287 seconds
+Domain Reload Profiling: 679ms
+	BeginReloadAssembly (101ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (39ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (69ms)
+	LoadAllAssembliesAndSetupDomain (169ms)
+		LoadAssemblies (98ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (160ms)
+			TypeCache.Refresh (159ms)
+				TypeCache.ScanAssembly (148ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (288ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (223ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (12ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (2ms)
+			ProcessInitializeOnLoadAttributes (149ms)
+			ProcessInitializeOnLoadMethodAttributes (54ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\naveb\Documents\GitHub\Team1-Proj1\Team1-Proj1-HorrorGame\Team1-Proj1-HorrorGame\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\naveb\Documents\GitHub\Team1-Proj1\Team1-Proj1-HorrorGame\Team1-Proj1-HorrorGame\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+- Loaded All Assemblies, in  0.872 seconds
+Refreshing native plugins compatible for Editor in 4.92 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.731 seconds
+Domain Reload Profiling: 1596ms
+	BeginReloadAssembly (135ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (22ms)
+	RebuildCommonClasses (36ms)
+	RebuildNativeTypeToScriptingClass (13ms)
+	initialDomainReloadingComplete (49ms)
+	LoadAllAssembliesAndSetupDomain (633ms)
+		LoadAssemblies (332ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (354ms)
+			TypeCache.Refresh (317ms)
+				TypeCache.ScanAssembly (300ms)
+			ScanForSourceGeneratedMonoScriptInfo (27ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (731ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (540ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (8ms)
+			SetLoadedEditorAssemblies (5ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (102ms)
+			ProcessInitializeOnLoadAttributes (329ms)
+			ProcessInitializeOnLoadMethodAttributes (87ms)
+			AfterProcessingInitializeOnLoad (8ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (7ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 5.59 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5831 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 97 unused Assets / (423.2 KB). Loaded Objects now: 6293.
+Memory consumption went from 224.6 MB to 224.2 MB.
+Total: 4.334200 ms (FindLiveObjects: 0.574200 ms CreateObjectMapping: 0.190500 ms MarkObjects: 3.267500 ms  DeleteObjects: 0.301200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 200241.269785 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/House_Assets_up/Lacy_Rug_SM.png
+  artifactKey: Guid(6be4e9a887b28b341901ec945a46ed08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/House_Assets_up/Lacy_Rug_SM.png using Guid(6be4e9a887b28b341901ec945a46ed08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a88e99c7d9cbc1856f3cdf464d15cb93') in 0.025491 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Art Assets/Items/Upscaled/Molotov_Cocktail_up.png
+  artifactKey: Guid(e10ccac653acb0240a60e5426ebc149a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Items/Upscaled/Molotov_Cocktail_up.png using Guid(e10ccac653acb0240a60e5426ebc149a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '932964eac11d1000291323408efdad03') in 0.002172 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/MiniScarecrow/MiniScarecrow_Sludge_02_up.png
+  artifactKey: Guid(8c4561585f284724980cbcb70b79858b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/MiniScarecrow/MiniScarecrow_Sludge_02_up.png using Guid(8c4561585f284724980cbcb70b79858b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc9fd6b7bca610861d410f6fa4093137') in 0.002690 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Art Assets/Entities/Player/Player_Spritesheet_LFT_up.png
+  artifactKey: Guid(3e9077890e15ebf4a8c53b6a3d8ef226) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Entities/Player/Player_Spritesheet_LFT_up.png using Guid(3e9077890e15ebf4a8c53b6a3d8ef226) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '26822125e3bfee98dfadb26f1d82130b') in 0.003218 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/Barn_Assets/Original/Milk_Canister.png
+  artifactKey: Guid(8943012e9e63bc34199564640330e42c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/Barn_Assets/Original/Milk_Canister.png using Guid(8943012e9e63bc34199564640330e42c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4337c1a9c5248d9908a019339510a71') in 0.002042 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Art Assets/Menus/MenuForeground.png
+  artifactKey: Guid(ed6310c316fffb344bef21161175318b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Menus/MenuForeground.png using Guid(ed6310c316fffb344bef21161175318b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c04c1e86727ccbd9a35dc157ecc0103') in 0.003091 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Art Assets/Floor tiles/Other/Plankboards_01.png
+  artifactKey: Guid(784575bca632d714c9ca78a60140c1bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Floor tiles/Other/Plankboards_01.png using Guid(784575bca632d714c9ca78a60140c1bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '200faf7b124e9f81af259abf064340ed') in 0.002097 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Art Assets/Items/Upscaled/Lantern.png
+  artifactKey: Guid(e3e33db61d5397245b0d389233dae087) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Items/Upscaled/Lantern.png using Guid(e3e33db61d5397245b0d389233dae087) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a335bf6f7f8580b8569f846b621dba1f') in 0.001417 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Art Assets/Items/Upscaled/Padlock.png
+  artifactKey: Guid(eced20e3bc107f543a0135442b6c57b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Items/Upscaled/Padlock.png using Guid(eced20e3bc107f543a0135442b6c57b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7edcea2d1816089a9c22e01d8c1eb622') in 0.002094 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/MiniScarecrow/MiniScarecrow_Sludge_03_up.png
+  artifactKey: Guid(20913e8d29345bc4cbadaa24a4984539) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/MiniScarecrow/MiniScarecrow_Sludge_03_up.png using Guid(20913e8d29345bc4cbadaa24a4984539) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b396ca3bafee1b9b1e2b1b752082742') in 0.001886 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Art Assets/Entities/Player/LowRes/Player_Spritesheet_FWD.png
+  artifactKey: Guid(1d1dc879e7ce5da4b84060d97c712914) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Entities/Player/LowRes/Player_Spritesheet_FWD.png using Guid(1d1dc879e7ce5da4b84060d97c712914) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '04ffc65afdcf5aa310daf4d4f3f5a3ae') in 0.001540 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/House_Assets_up/Large_Rug_03.png
+  artifactKey: Guid(eca20d3247c7b9f48a905ef05009402d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/House_Assets_up/Large_Rug_03.png using Guid(eca20d3247c7b9f48a905ef05009402d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '150b2a93e1d031f7d573df7cdad2a89f') in 0.002312 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/Barn_Assets/Upscaled/Milk_Canister_up.png
+  artifactKey: Guid(95c3cf87550efaa4b88a2ab4112776d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/Barn_Assets/Upscaled/Milk_Canister_up.png using Guid(95c3cf87550efaa4b88a2ab4112776d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0cab7611d6422e6566fbc2cf5e8e3c5e') in 0.001742 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Art Assets/Items/Upscaled/Padlock_With_Chains.png
+  artifactKey: Guid(d1d4ddf1f90e701408bbe5212633ad41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Items/Upscaled/Padlock_With_Chains.png using Guid(d1d4ddf1f90e701408bbe5212633ad41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '749ca1543b05e8734e14bd50c010b8b5') in 0.001668 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/MiniScarecrow/LowRes/MiniScarecrow_Sludge_03.png
+  artifactKey: Guid(25fac0599e7239e4fa81c8cadcd963c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/MiniScarecrow/LowRes/MiniScarecrow_Sludge_03.png using Guid(25fac0599e7239e4fa81c8cadcd963c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec687a221dfad76db797ddd76cca591b') in 0.001453 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Art Assets/Menus/move_mouse.png
+  artifactKey: Guid(36642703f890d214094cc1f00606c4d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Menus/move_mouse.png using Guid(36642703f890d214094cc1f00606c4d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e5ad32495c5965cd2dcc1f9d0834b2a') in 0.003249 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Art Assets/Entities/Player/LowRes/Player_Spritesheet_BHD.png
+  artifactKey: Guid(d608372520b6f764cbfb4ad37c6aa7bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Entities/Player/LowRes/Player_Spritesheet_BHD.png using Guid(d608372520b6f764cbfb4ad37c6aa7bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'adff11d47815f12f289d4fbfc7d78367') in 0.002043 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/House_Assets_up/Night_Stand_SM.png
+  artifactKey: Guid(ee9fea5fa305b19409446cd3c63b832d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/House_Assets_up/Night_Stand_SM.png using Guid(ee9fea5fa305b19409446cd3c63b832d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9317d0c3d5196b05881d7e76bfadc5a4') in 0.001996 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 3.108133 seconds.
+  path: Assets/Art Assets/Floor tiles/Other/Floorboards_Damaged_02_up.png
+  artifactKey: Guid(3d5aaf651bc783a4c9272e8dd11b8373) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Floor tiles/Other/Floorboards_Damaged_02_up.png using Guid(3d5aaf651bc783a4c9272e8dd11b8373) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1bca7df644b30abd5a49ada0124714cb') in 0.001639 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Art Assets/Floor tiles/Grass/Grass_Rock_02_up.png
+  artifactKey: Guid(6e3e0a80324847c418a8de1f21277989) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Floor tiles/Grass/Grass_Rock_02_up.png using Guid(6e3e0a80324847c418a8de1f21277989) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '98a67d36b6d54fefa9c730e041ec567b') in 0.001990 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Art Assets/Floor tiles/Grass-Dirt-Transition/Grass_Dirt_Trans_T_up.png
+  artifactKey: Guid(a0ed840166c913b4cb001d435c19a7f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Floor tiles/Grass-Dirt-Transition/Grass_Dirt_Trans_T_up.png using Guid(a0ed840166c913b4cb001d435c19a7f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3cd86227dfaf14bb83b40b731f98edb5') in 0.001915 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Art Assets/Floor tiles/Grass-Dirt-Transition/Grass_Dirt_Trans_TCL_up.png
+  artifactKey: Guid(25cc2653a69bd014c9822601a4a8685d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Floor tiles/Grass-Dirt-Transition/Grass_Dirt_Trans_TCL_up.png using Guid(25cc2653a69bd014c9822601a4a8685d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c926e5609790a086739bbc7665e842a4') in 0.002092 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Art Assets/Floor tiles/Grass/Grass_Rock_01_up.png
+  artifactKey: Guid(e1b2f519b298f564b89d87ab1fd134af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Floor tiles/Grass/Grass_Rock_01_up.png using Guid(e1b2f519b298f564b89d87ab1fd134af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dff9c62c977689758806bc0fd567e663') in 0.002139 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Art Assets/Floor tiles/Other/Floorboards_Damaged_06_up.png
+  artifactKey: Guid(789ee9a71f4a71346905b4ef36b19016) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Floor tiles/Other/Floorboards_Damaged_06_up.png using Guid(789ee9a71f4a71346905b4ef36b19016) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8afb6533db18c95ad6c6297110e8c82d') in 0.001731 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Art Assets/Floor tiles/Grass-Dirt-Transition/Grass_Dirt_Trans_BL_up.png
+  artifactKey: Guid(554a68986b44b9f41a593bff409845b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Floor tiles/Grass-Dirt-Transition/Grass_Dirt_Trans_BL_up.png using Guid(554a68986b44b9f41a593bff409845b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '318db4120f631d32473a47a62be75ea5') in 0.001557 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Art Assets/Floor tiles/Grass-Dirt-Transition/Grass_Dirt_Trans_B_up.png
+  artifactKey: Guid(be617e512148aa840be9d8f33ece2293) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Floor tiles/Grass-Dirt-Transition/Grass_Dirt_Trans_B_up.png using Guid(be617e512148aa840be9d8f33ece2293) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08ad264a09e7d48da18352e4e932540a') in 0.001828 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/Barn_Assets/Upscaled/Hay_Pile_Sludged_03.png
+  artifactKey: Guid(0ecbdd78a6c8bc04ab47de6c4619cdd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/Barn_Assets/Upscaled/Hay_Pile_Sludged_03.png using Guid(0ecbdd78a6c8bc04ab47de6c4619cdd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '56f590c7e96267098d8f691e082925e6') in 0.001752 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/Other_Outdoor_Assets/Generator_Off.png
+  artifactKey: Guid(9ff8a04eaaf8d7241b411756bd6014e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/Other_Outdoor_Assets/Generator_Off.png using Guid(9ff8a04eaaf8d7241b411756bd6014e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '480e57d35cf61621f2f3fb943411b915') in 0.001793 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/Barn_Assets/Upscaled/Hay_Pile_Sludged_02.png
+  artifactKey: Guid(8ff82cd17d562de4e81c2a948623b597) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/Barn_Assets/Upscaled/Hay_Pile_Sludged_02.png using Guid(8ff82cd17d562de4e81c2a948623b597) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ce9e35b606a4a723847cf8e1a3c2492') in 0.001818 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Art Assets/Floor tiles/Grass/Grass_Bush_01_up.png
+  artifactKey: Guid(66889ca5c5d725c42a90518242c55579) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Floor tiles/Grass/Grass_Bush_01_up.png using Guid(66889ca5c5d725c42a90518242c55579) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd8e505192a31b0cc7e9274fbe59e5041') in 0.002043 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Art Assets/Floor tiles/Grass/Grass_Bush_02_up.png
+  artifactKey: Guid(8ff9c18f78ea1de4b8b54aaac8d5e14c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Floor tiles/Grass/Grass_Bush_02_up.png using Guid(8ff9c18f78ea1de4b8b54aaac8d5e14c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'abae0f0c9f4249ff08dffce50a5444b0') in 0.001767 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/Other_Outdoor_Assets/Generator_On.png
+  artifactKey: Guid(0f83644bad5843d4eae8b0de759970c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/Other_Outdoor_Assets/Generator_On.png using Guid(0f83644bad5843d4eae8b0de759970c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ba3dde8dc72c77e3c63c19076da6cc0') in 0.003002 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 4
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Art Assets/Floor tiles/Grass-Dirt-Transition/Grass_Dirt_Trans_TR_up.png
+  artifactKey: Guid(753ca1abc4e52cd46a60c6f76749e1a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Floor tiles/Grass-Dirt-Transition/Grass_Dirt_Trans_TR_up.png using Guid(753ca1abc4e52cd46a60c6f76749e1a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1cb4fe49b7f65ed812569d61f22c753') in 0.002309 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 1.006448 seconds.
+  path: Assets/Art Assets/Menus/scarecrow_high_res.png
+  artifactKey: Guid(79e0b1ffd041eaf4eb31986463b1a98b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Menus/scarecrow_high_res.png using Guid(79e0b1ffd041eaf4eb31986463b1a98b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71bcf1951b89f848c36e60e327c2c1e8') in 0.002757 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Art Assets/Entities/Scarecrow/Walking/LowRes/Scarecrow_Walk_BHD.png
+  artifactKey: Guid(39a840fd2e5d7394e8e7019f2fe2d91c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Entities/Scarecrow/Walking/LowRes/Scarecrow_Walk_BHD.png using Guid(39a840fd2e5d7394e8e7019f2fe2d91c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '023cea5fd071392074d843e095176af9') in 0.002274 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Art Assets/Entities/Scarecrow/Walking/LowRes/Scarecrow_Walk_LFT.png
+  artifactKey: Guid(e79f1f6dca2e8cb4ba39711c1dfa7a50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Entities/Scarecrow/Walking/LowRes/Scarecrow_Walk_LFT.png using Guid(e79f1f6dca2e8cb4ba39711c1dfa7a50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3869b8444ad3a93c6088b34e8792ae62') in 0.001539 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Art Assets/Entities/Scarecrow/Walking/Scarecrow_Walk_RGT_up.png
+  artifactKey: Guid(fd6cafa08a2ca8e45a8cc4963004cc96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Entities/Scarecrow/Walking/Scarecrow_Walk_RGT_up.png using Guid(fd6cafa08a2ca8e45a8cc4963004cc96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '05e26d96c57ef578729f94499b560d5e') in 0.003201 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Art Assets/Entities/Scarecrow/Walking/LowRes/Scarecrow_Walk_FWD.png
+  artifactKey: Guid(2d7d9087c25dcc345be00e0148736466) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Entities/Scarecrow/Walking/LowRes/Scarecrow_Walk_FWD.png using Guid(2d7d9087c25dcc345be00e0148736466) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7eebc74d7c5c2176e86d256c4d5d1696') in 0.002439 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: The I/O operation has been aborted because of either a thread exit or an application request.
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
