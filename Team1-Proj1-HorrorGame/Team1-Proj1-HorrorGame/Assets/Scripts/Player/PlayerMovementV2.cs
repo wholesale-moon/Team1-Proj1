@@ -61,30 +61,7 @@ public class PlayerMovement : MonoBehaviour
     {
         OnMove();
         
-        if (Input.GetKeyDown(KeyCode.E) & canInteract)
-        {
-            if (_GameSaveData._hasFlashlight == false)
-            {
-                transform.GetComponent<SceneActivation>().GainFlashlight();
-                interactable.SetActive(false);
-                flashlightHold.SetActive(true);
-                canInteract = false;
-            } 
-            else if (interactable.tag == "LanternStash") 
-            {
-                _GameSaveData._hasLantern = true;
-                //flashlight.SetActive(false);
-                flashlightHold.SetActive(false);
-                lanternHold.SetActive(true);
-                // set player lantern light on
-                UpdateActionTextp("Lantern");
-            }
-            else if (interactable.tag == "FlameTool")
-            {
-                //_GameSaveData._hasLantern = true;
-                UpdateActionTextp("FlameTool");
-            }
-        }
+        CheckInteractables();
     }
 
     #region Player Movement
@@ -124,6 +101,39 @@ public class PlayerMovement : MonoBehaviour
     }
     #endregion
 
+    private void CheckInteractables()
+    {
+        if (Input.GetKeyDown(KeyCode.E) & canInteract)
+        {
+            if (_GameSaveData._hasFlashlight == false)
+            {
+                transform.GetComponent<SceneActivation>().GainFlashlight();
+                interactable.SetActive(false);
+                flashlightHold.SetActive(true);
+                canInteract = false;
+            } 
+            else if (interactable.tag == "LanternStash") 
+            {
+                _GameSaveData._hasLantern = true;
+                //flashlight.SetActive(false);
+                flashlightHold.SetActive(false);
+                lanternHold.SetActive(true);
+                // set player lantern light on
+                UpdateActionTextp("Lantern");
+            }
+            else if (interactable.tag == "Generator")
+            {
+                Destroy(interactable);
+                transform.GetComponent<SceneActivation>().GeneratorOn();
+            }
+            else if (interactable.tag == "FlameTool")
+            {
+                //_GameSaveData._hasFlameTool = true;
+                UpdateActionTextp("FlameTool");
+            }
+        }
+    }
+
     #region Travel
     private void OnCollisionEnter2D(Collision2D collision)
     {   
@@ -133,7 +143,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 StartCoroutine(ToHouse());
             } else {
-
+                transform.GetComponent<SceneActivation>().HouseBlockedDialogue();
             }
         }
         
@@ -144,6 +154,10 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(ToBarn());
             } else {
                 UpdateActionTextn("Barn Key");
+                if (transform.GetComponent<SceneActivation>().hasMorphed == false)
+                {
+                    transform.GetComponent<SceneActivation>().Morph();
+                }
             }
         }
 
@@ -199,16 +213,6 @@ public class PlayerMovement : MonoBehaviour
         #endregion
 
         #region Pickups
-        if (obj.gameObject.name == "DoorToLevel2")
-        {
-            SceneManager.LoadScene("Level2");
-        }
-        if (obj.gameObject.tag == "FlashlightPickup")
-        {
-            interactable = obj.gameObject;
-            canInteract = true;
-        }
-
         if (obj.gameObject.tag == "Lantern")
         {
             interactable = obj.gameObject;
@@ -230,17 +234,31 @@ public class PlayerMovement : MonoBehaviour
                 UpdateActionTextp("Medicine");
             }
         }
+        
+        if (obj.gameObject.tag == "GasCan")
+        {
+            Debug.Log("has gas can");
+            Destroy(obj.gameObject);
+        }
+        #endregion
+
+        #region Interactables
+        if (obj.gameObject.tag == "FlashlightPickup")
+        {
+            interactable = obj.gameObject;
+            canInteract = true;
+        }
+        
         if (obj.gameObject.tag == "FlameTool")
         {
             interactable = obj.gameObject;
             canInteract = true;
         }
-        if (obj.gameObject.tag == "GasCan")
+
+        if (obj.gameObject.tag == "Generator")
         {
-            //interactable = obj.gameObject;
-            //canInteract = true;
-            Debug.Log("has gas can");
-            Destroy(obj.gameObject);
+            interactable = obj.gameObject;
+            canInteract = true;
         }
         #endregion
 
@@ -249,11 +267,6 @@ public class PlayerMovement : MonoBehaviour
             transform.GetComponent<PlayerHealth>().healthbar.SetActive(true);
             transform.GetComponent<SceneActivation>().PickupTutorialActive();
             Destroy(obj.gameObject);
-        }
-        
-        if (obj.gameObject.tag == "Sludge")
-        {
-            transform.GetComponent<PlayerHealth>().TakeDamage();
         }
 
         if (obj.gameObject.tag == "HouseDoorActive")
@@ -267,13 +280,28 @@ public class PlayerMovement : MonoBehaviour
         {
             _GameSaveData._hasCompletedPrologue = true;
             _GameSaveData._currentCutscene = 2;
-            sceneTransitioner.GetComponent<LevelTransition>().FadeToLevel(2); 
+            sceneTransitioner.GetComponent<LevelTransition>().FadeToLevel(2);
+        }
+
+        if (obj.gameObject.name == "DoorToLevel2")
+        {
+            sceneTransitioner.GetComponent<LevelTransition>().FadeToLevel(3);
+        }
+        
+        if (obj.gameObject.tag == "Sludge")
+        {
+            transform.GetComponent<PlayerHealth>().TakeDamage();
         }
     }
 
     private void OnTriggerExit2D(Collider2D obj)
     {
         if (obj.gameObject.tag == "FlashlightPickup")
+        {
+            canInteract = false;
+        }
+
+        if (obj.gameObject.tag == "FlameTool")
         {
             canInteract = false;
         }

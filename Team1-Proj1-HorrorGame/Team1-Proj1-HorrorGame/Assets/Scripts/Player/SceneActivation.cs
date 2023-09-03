@@ -11,21 +11,27 @@ public class SceneActivation : MonoBehaviour
     [Header("Game Save Data")]
     [SerializeField] private GameSaveData _GameSaveData;
     
-    [Header("Scene Objects")]
-    // Dialogue/Quest Triggers
+    [Header("Dialoge/Quest Triggers")]
     [SerializeField] private GameObject pickupTutorial;
     [SerializeField] private GameObject flashlightTutorial;
     [SerializeField] private GameObject blockedHouseDialogue;
+    [SerializeField] private GameObject noFlashlighNoExit;
 
-    //Doors
+    [Header("Story Items")]
+    [SerializeField] private GameObject generator;
+
+    [Header("Doors")]
     [SerializeField] private GameObject houseDoor;
     
-    //HUD
+    [Header("HUD")]
     [SerializeField] GameObject itemHold;
     public GameObject flashlight;
 
-    //Minicrows
+    [Header("MiniCrows")]
+    [SerializeField] private GameObject minicrowMorph;
     [SerializeField] private GameObject minicrow1;
+
+    [HideInInspector] public bool hasMorphed = false;
 
     void Start()
     {
@@ -54,6 +60,7 @@ public class SceneActivation : MonoBehaviour
         pickupTutorial.SetActive(true);
     }
 
+    // For prologue no house entry until first 2 quests are complete
     public void HouseBlockedDialogue()
     {
         blockedHouseDialogue.SetActive(true);
@@ -71,5 +78,17 @@ public class SceneActivation : MonoBehaviour
         itemHold.SetActive(true);
         flashlight.SetActive(true);
         flashlightTutorial.SetActive(true);
+        noFlashlighNoExit.SetActive(false);
+    }
+
+    public void Morph()
+    {
+        hasMorphed = true;
+        minicrowMorph.GetComponent<Animator>().SetTrigger("Morph");
+    }
+
+    public void GeneratorOn()
+    {
+        generator.GetComponent<Animator>().SetTrigger("isTurnedOn");
     }
 }

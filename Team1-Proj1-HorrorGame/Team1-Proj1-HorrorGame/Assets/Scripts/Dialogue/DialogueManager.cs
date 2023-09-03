@@ -69,6 +69,7 @@ public class DialogueManager : MonoBehaviour
         {
             DialogueBox.SetActive(true);
             DisplayNextSentence();
+            //Time.timeScale = 0.0f;
         }
     }
 
@@ -112,6 +113,8 @@ public class DialogueManager : MonoBehaviour
         {
             SceneManager.GetComponent<CutsceneTrigger>().EndCutscene();
         }
+
+        //Time.timeScale = 1.0f;
     }
 
     public void UpdateQuestLog(string quest)
