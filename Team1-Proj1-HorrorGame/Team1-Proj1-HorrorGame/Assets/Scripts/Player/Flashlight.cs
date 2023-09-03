@@ -19,7 +19,7 @@ public class Flashlight : MonoBehaviour
     {
         if (collision.gameObject.tag == "Scarecrow")
         {
-            collision.gameObject.GetComponent<EnemyMovement>().isStunned = true;
+            collision.gameObject.GetComponent<EnemyMovement>().Stunned();
             StartCoroutine(collision.gameObject.GetComponent<EnemyMovement>().HandleStunTime());
         }
     }

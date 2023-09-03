@@ -160,12 +160,9 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(ToBarn());
             } else {
                 UpdateActionTextn("Barn Key");
-                if (transform.GetComponent<SceneActivation>().hasMorphed == false)
-                {
-                    transform.GetComponent<SceneActivation>().Morph();
-                }
             }
         }
+
 
         if (collision.gameObject.tag == "Shed")
         {

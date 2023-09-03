@@ -13,6 +13,8 @@ public class EnemyMovement : MonoBehaviour
     public bool IsInRange = false;
     public int stunTime;
     public bool isStunned;
+    [SerializeField] private Animator animatorTop;
+    [SerializeField] private Animator animatorBottom;
 
 
     private void Awake()
@@ -26,17 +28,41 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        if (IsInRange)
+        if (isStunned)
         {
-            ChasePlayer();
+            animatorTop.SetTrigger("isStunned");
+            animatorBottom.SetTrigger("isStunned");
+            Debug.Log(isStunned);
+            return;
         }
-        else if (!IsInRange)
+        else
         {
-            Roam();
+            if (IsInRange)
+            {
+                animatorTop.SetBool("isHostile", true);
+                animatorBottom.SetBool("isHostile", true);
+                ChasePlayer();
+            }
+            else if (!IsInRange)
+            {
+                animatorTop.SetBool("isHostile", false);
+                animatorBottom.SetBool("isHostile", false);
+                Roam();
+            }
         }
-        Debug.Log(isStunned);
+        
+        
     }
     
+    public void AnimateMovement(Vector3 direction)
+    {
+        animatorTop.SetFloat("Horizontal", direction.x);
+        animatorTop.SetFloat("Vertical", direction.y);
+        //animatorTop.SetFloat("Speed", moveInput.sqrMagnitude);
+        animatorBottom.SetFloat("Horizontal", direction.x);
+        animatorBottom.SetFloat("Vertical", direction.y);
+        //animatorBottom.SetFloat("Speed", moveInput.sqrMagnitude);
+    }
     public void Roam()
     {
         if (Vector3.Distance(transform.position, roamPosition) > 0.1f)
@@ -44,6 +70,7 @@ public class EnemyMovement : MonoBehaviour
             Vector3 direction = roamPosition - transform.position;
             direction.Normalize();
             transform.position += direction * moveSpeed * Time.deltaTime;
+            AnimateMovement(direction);
         }
         else
         {
@@ -56,6 +83,7 @@ public class EnemyMovement : MonoBehaviour
         Vector3 direction = player.position -transform.position;
         direction.Normalize();
         transform.position += direction * moveSpeed * Time.deltaTime;
+        AnimateMovement(direction);
     }
     void OnTriggerEnter2D(Collider2D obj)
     {
@@ -79,6 +107,7 @@ public class EnemyMovement : MonoBehaviour
     {
         isStunned = true;
         StartCoroutine(HandleStunTime());
+        Debug.Log("Hello World");
     }
 
     public IEnumerator HandleStunTime()
