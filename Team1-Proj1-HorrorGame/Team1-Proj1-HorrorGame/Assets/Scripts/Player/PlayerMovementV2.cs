@@ -79,6 +79,11 @@ public class PlayerMovement : MonoBehaviour
                 // set player lantern light on
                 UpdateActionTextp("Lantern");
             }
+            else if (interactable.tag == "FlameTool")
+            {
+                //_GameSaveData._hasLantern = true;
+                UpdateActionTextp("FlameTool");
+            }
         }
     }
 
@@ -194,6 +199,10 @@ public class PlayerMovement : MonoBehaviour
         #endregion
 
         #region Pickups
+        if (obj.gameObject.name == "DoorToLevel2")
+        {
+            SceneManager.LoadScene("Level2");
+        }
         if (obj.gameObject.tag == "FlashlightPickup")
         {
             interactable = obj.gameObject;
@@ -220,6 +229,18 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(transform.GetComponent<PlayerHealth>().MedicineSpawn());
                 UpdateActionTextp("Medicine");
             }
+        }
+        if (obj.gameObject.tag == "FlameTool")
+        {
+            interactable = obj.gameObject;
+            canInteract = true;
+        }
+        if (obj.gameObject.tag == "GasCan")
+        {
+            //interactable = obj.gameObject;
+            //canInteract = true;
+            Debug.Log("has gas can");
+            Destroy(obj.gameObject);
         }
         #endregion
 

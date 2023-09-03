@@ -66,8 +66,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.0024999976, y: 0.00029999018, z: 0}
-    m_Extent: {x: 1.0002, y: 1.0026, z: 0}
+    m_Center: {x: 0.00394997, y: -0.0045999885, z: 0}
+    m_Extent: {x: 1.00145, y: 0.99939996, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -234,8 +234,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 70557f2054aed0c45994b259d849e9aa, type: 3}
   _GameSaveData: {fileID: 0}
   _SceneManager: {fileID: 0}
-  flashlighTutTrigger: {fileID: 0}
-  blockedDoor: {fileID: 0}
+  sceneTransitioner: {fileID: 0}
   flashlight: {fileID: 5993422211354082255}
 --- !u!114 &4788035796803891172
 MonoBehaviour:
@@ -270,6 +269,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10fe2dd837701d44aae4ce77c15247a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _GameSaveData: {fileID: 0}
+  flashlighTutTrigger: {fileID: 0}
+  houseDoor: {fileID: 0}
+  itemHold: {fileID: 0}
+  flashlight: {fileID: 0}
 --- !u!50 &8320624081313387721
 Rigidbody2D:
   serializedVersion: 4
@@ -475,7 +479,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &888868623912851277
 Transform:
   m_ObjectHideFlags: 0
@@ -515,9 +519,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1499520513477021927}
   - component: {fileID: 1179357629409303132}
+  - component: {fileID: 5433057460032344235}
+  - component: {fileID: 4528112659203966488}
   m_Layer: 9
   m_Name: Light 2D
-  m_TagString: Untagged
+  m_TagString: Flashlight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -571,8 +577,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.33775002, y: -0.002249986, z: 0}
-    m_Extent: {x: 1.3399501, y: 1.00205, z: 0}
+    m_Center: {x: -0.34190002, y: -0.0016999841, z: 0}
+    m_Extent: {x: 1.3402001, y: 1.0025, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -607,3 +613,69 @@ MonoBehaviour:
   - {x: 0.4157348, y: -0.27778515, z: 0}
   - {x: 0.46193978, y: -0.19134171, z: 0}
   - {x: 0.49039266, y: -0.09754512, z: 0}
+--- !u!60 &5433057460032344235
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6257816477856324187}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.3496537, y: 0.3637635}
+      - {x: 0.03232044, y: 0.5041271}
+      - {x: -1.0003021, y: 0.26249948}
+      - {x: -1.1545272, y: 0.019251525}
+      - {x: -1.0072173, y: -0.24767886}
+      - {x: -0.610871, y: -0.35868353}
+      - {x: -0.012448594, y: -0.5054212}
+      - {x: 0.32806173, y: -0.38731557}
+      - {x: 0.4939553, y: 0.035781056}
+  m_UseDelaunayMesh: 0
+--- !u!114 &4528112659203966488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6257816477856324187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f64b68938ebc8d44ca48bfda524e629f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
