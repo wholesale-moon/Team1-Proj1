@@ -151,6 +151,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if(_GameSaveData._hasBarnKey == true)
             {
+                transform.GetComponent<SceneActivation>().UnlockBarn();
                 StartCoroutine(ToBarn());
             } else {
                 UpdateActionTextn("Barn Key");
@@ -173,6 +174,12 @@ public class PlayerMovement : MonoBehaviour
         
         if (collision.gameObject.tag == "Field2")
         {
+            if (transform.GetComponent<SceneActivation>().hasMorphed == false)
+            {
+                transform.GetComponent<SceneActivation>().UnlockBarn();
+                transform.GetComponent<SceneActivation>().Morph();
+            }
+
             StartCoroutine(ExitBarn());
         }
 
@@ -223,6 +230,7 @@ public class PlayerMovement : MonoBehaviour
         {
             _GameSaveData._hasBarnKey = true;
             Destroy(obj.gameObject);
+            transform.GetComponent<SceneActivation>().GainKey();
         }
 
         if (obj.gameObject.tag == "Medicine")
@@ -283,7 +291,7 @@ public class PlayerMovement : MonoBehaviour
             sceneTransitioner.GetComponent<LevelTransition>().FadeToLevel(2);
         }
 
-        if (obj.gameObject.name == "DoorToLevel2")
+        if (obj.gameObject.tag == "Lvl2Start")
         {
             sceneTransitioner.GetComponent<LevelTransition>().FadeToLevel(3);
         }
@@ -419,13 +427,13 @@ public class PlayerMovement : MonoBehaviour
     {
         theCamera.GetComponent<CinemachineBrain>().enabled = true;
         theCamera.transform.position = new Vector3(0f, 0f, -10);
-        rb2d.transform.position = new Vector3(-4.5f, 2.5f, -2);
+        rb2d.transform.position = new Vector3(-35.86f, -23.43f, -2);
         //_SceneManager.GetComponent<SoundManager>().PlayClipByName("Field Theme");
 
         yield return new WaitForSeconds(0.4f);
         theCamera.SetActive(true);
         barnCamera.SetActive(false);
-        //flashlight.GetComponent<FollowMouse>().currentCamera = theCamera.GetComponent<Camera>();
+        flashlight.GetComponent<FollowMouse>().currentCamera = theCamera.GetComponent<Camera>();
         yield return null;
     }
 

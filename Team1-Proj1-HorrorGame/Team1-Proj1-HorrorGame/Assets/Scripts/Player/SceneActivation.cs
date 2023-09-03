@@ -11,17 +11,31 @@ public class SceneActivation : MonoBehaviour
     [Header("Game Save Data")]
     [SerializeField] private GameSaveData _GameSaveData;
     
-    [Header("Dialoge/Quest Triggers")]
+    [Header("Dialogue/Quest Triggers")]
     [SerializeField] private GameObject pickupTutorial;
     [SerializeField] private GameObject flashlightTutorial;
     [SerializeField] private GameObject blockedHouseDialogue;
     [SerializeField] private GameObject noFlashlighNoExit;
+    [SerializeField] private GameObject LockedBarn;
+    [SerializeField] private GameObject HeadHome;
 
     [Header("Story Items")]
     [SerializeField] private GameObject generator;
+    [SerializeField] private GameObject MorphCutscene;
+    [SerializeField] private GameObject Lvl2Start;
+
+    [Header("Lights")]
+    [SerializeField] private GameObject houseLight;
+    [SerializeField] private GameObject upstairsHouseLight;
+    [SerializeField] private GameObject exteriorHouseLights;
+    [SerializeField] private GameObject barnLight;
+    [SerializeField] private GameObject shedLight;
+
 
     [Header("Doors")]
     [SerializeField] private GameObject houseDoor;
+    [SerializeField] private GameObject barnTransition;
+    [SerializeField] private GameObject exteriorBarnDoors;
     
     [Header("HUD")]
     [SerializeField] GameObject itemHold;
@@ -39,6 +53,7 @@ public class SceneActivation : MonoBehaviour
         {
             _GameSaveData._hasFlashlight = false;
             _GameSaveData._hasBarnKey = false;
+            hasMorphed = false;
         }
 
         if (SceneManager.GetActiveScene().buildIndex == 1)
@@ -84,11 +99,35 @@ public class SceneActivation : MonoBehaviour
     public void Morph()
     {
         hasMorphed = true;
-        minicrowMorph.GetComponent<Animator>().SetTrigger("Morph");
+        Invoke("StartMorph", 1);
+    }
+
+    private void StartMorph()
+    {
+        MorphCutscene.SetActive(true);
     }
 
     public void GeneratorOn()
     {
+        houseLight.SetActive(true);
+        upstairsHouseLight.SetActive(true);
+        exteriorHouseLights.SetActive(true);
+        barnLight.SetActive(true);
+        shedLight.SetActive(true);
+        HeadHome.SetActive(true);
+        barnTransition.SetActive(true);
+        Lvl2Start.SetActive(true);
+        
         generator.GetComponent<Animator>().SetTrigger("isTurnedOn");
+    }
+
+    public void GainKey()
+    {
+        Destroy(LockedBarn);
+    }
+    
+    public void UnlockBarn()
+    {
+        exteriorBarnDoors.SetActive(true);
     }
 }
