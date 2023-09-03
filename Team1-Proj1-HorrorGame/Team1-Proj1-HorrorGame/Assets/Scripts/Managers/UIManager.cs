@@ -31,10 +31,10 @@ public class UIManager : MonoBehaviour
             PauseScreen.SetActive(isPaused);
         }
 
-        if (isPaused)
+        if (isPaused || isHelp || isOptions)
         {
             Time.timeScale = 0.0f;
-        } else {
+        } else if (!isPaused && !isHelp && !isOptions){
             Time.timeScale = 1.0f;
         }
     }

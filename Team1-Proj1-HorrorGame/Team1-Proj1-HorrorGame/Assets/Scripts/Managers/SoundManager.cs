@@ -2,13 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 using System;
 
 public class SoundManager : MonoBehaviour
 {
     //public const string prefAudioMute = "prefAudioMute";
+    public AudioMixer audioMixer;
+    public GameSaveData _GameSaveData;
+    
     [SerializeField] private AudioMixerGroup musicMixerGroup;
     [SerializeField] private AudioMixerGroup soundEffectsMixerGroup;
+
+    [SerializeField] private Slider masterVolume;
+    [SerializeField] private Slider musicVolume;
+    [SerializeField] private Slider sfxVolume;
     
     [Space(10)]
     [SerializeField] private Sound[] sounds;
@@ -43,6 +51,16 @@ public class SoundManager : MonoBehaviour
             if (s.playOnAwake)
                 s.source.Play();
         }
+    }
+
+    public void Start()
+    {
+        audioMixer.SetFloat("MasterVolume", _GameSaveData._masterVolume);
+        audioMixer.SetFloat("MusicVolume", _GameSaveData._musicVolume);
+        audioMixer.SetFloat("SFXVolume", _GameSaveData._sfxVolume);
+        masterVolume.value = PlayerPrefs.GetFloat("MasterVolume");
+        musicVolume.value = PlayerPrefs.GetFloat("MusicVolume");
+        sfxVolume.value = PlayerPrefs.GetFloat("SFXVolume");
     }
 
     public void PlayClipByName(string _clipName)
