@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlayerHealth : MonoBehaviour
 {
+    [SerializeField] GameObject _SceneManager;
     public int maxHealth = 4;
     public int currentHealth;
 
@@ -34,12 +36,14 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth > 1) //if the player has at least 2 hearts
         {
             currentHealth -= 1;
+            _SceneManager.GetComponent<SoundManager>().PlayClipByName("PlayerHurt1");
             hearts[currentHealth].GetComponent<Animator>().SetBool("isFull", false);
         }
         else if (currentHealth <= 1) //if the player is on the last heart
         {
             // play player death
             currentHealth = 0;
+            _SceneManager.GetComponent<SoundManager>().PlayClipByName("PlayerDeath");
             hearts[currentHealth].GetComponent<Animator>().SetBool("isFull", false);
         } 
         else if (currentHealth <= 0) 
@@ -51,6 +55,7 @@ public class PlayerHealth : MonoBehaviour
     public void Heal()
     {
         medBottle.SetActive(false);
+        _SceneManager.GetComponent<SoundManager>().PlayClipByName("Healing");
         hearts[currentHealth].GetComponent<Animator>().SetBool("isFull", true);
         currentHealth += 1;
     }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SceneActivation : MonoBehaviour
 {
@@ -46,6 +47,7 @@ public class SceneActivation : MonoBehaviour
     [SerializeField] private GameObject minicrow1;
 
     [HideInInspector] public bool hasMorphed = false;
+    [SerializeField] GameObject _SceneManager;
 
     void Start()
     {
@@ -100,6 +102,7 @@ public class SceneActivation : MonoBehaviour
     {
         hasMorphed = true;
         Invoke("StartMorph", 1);
+        _SceneManager.GetComponent<SoundManager>().PlayClipByName("EnemyGrowl");
     }
 
     private void StartMorph()
