@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
+    [Header("Scene Manager")]
+    [SerializeField] private GameObject SceneManager;
+    
     [Header("Dialogue")]
     public Dialogue dialogue;
 

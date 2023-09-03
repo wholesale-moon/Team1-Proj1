@@ -121,6 +121,11 @@ public class PlayerMovement : MonoBehaviour
                 // set player lantern light on
                 UpdateActionTextp("Lantern");
             }
+            else if (interactable.tag == "StringLightsPickup")
+            {
+                Destroy(interactable);
+                _GameSaveData._hasStringLights = true;
+            }
             else if (interactable.tag == "Generator")
             {
                 Destroy(interactable);
@@ -217,12 +222,6 @@ public class PlayerMovement : MonoBehaviour
         #endregion
 
         #region Pickups
-        if (obj.gameObject.tag == "Lantern")
-        {
-            interactable = obj.gameObject;
-            canInteract = true;
-        }
-
         if (obj.gameObject.tag == "BarnKey")
         {
             _GameSaveData._hasBarnKey = true;
@@ -249,6 +248,18 @@ public class PlayerMovement : MonoBehaviour
 
         #region Interactables
         if (obj.gameObject.tag == "FlashlightPickup")
+        {
+            interactable = obj.gameObject;
+            canInteract = true;
+        }
+
+        if (obj.gameObject.tag == "StringLightsPickup")
+        {
+            interactable = obj.gameObject;
+            canInteract = true;
+        }
+
+        if (obj.gameObject.tag == "Lantern")
         {
             interactable = obj.gameObject;
             canInteract = true;
@@ -306,7 +317,22 @@ public class PlayerMovement : MonoBehaviour
             canInteract = false;
         }
 
+        if (obj.gameObject.tag == "StringLightsPickup")
+        {
+            canInteract = false;
+        }
+
+        if (obj.gameObject.tag == "Lantern")
+        {
+            canInteract = false;
+        }
+        
         if (obj.gameObject.tag == "FlameTool")
+        {
+            canInteract = false;
+        }
+
+        if (obj.gameObject.tag == "Generator")
         {
             canInteract = false;
         }
