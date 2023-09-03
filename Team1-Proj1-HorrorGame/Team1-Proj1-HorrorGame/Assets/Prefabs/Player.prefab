@@ -66,8 +66,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.00394997, y: -0.0045999885, z: 0}
-    m_Extent: {x: 1.00145, y: 0.99939996, z: 0}
+    m_Center: {x: -0.0024500191, y: 0.0051499903, z: 0}
+    m_Extent: {x: 0.99835, y: 1.00175, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -217,6 +217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb2d: {fileID: 8320624081313387721}
   animator: {fileID: 7734900836336799497}
+  questLog: {fileID: 0}
   itemHold: {fileID: 0}
   flashlightHold: {fileID: 0}
   lanternHold: {fileID: 0}
@@ -270,10 +271,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _GameSaveData: {fileID: 0}
-  flashlighTutTrigger: {fileID: 0}
+  pickupTutorial: {fileID: 0}
+  flashlightTutorial: {fileID: 0}
+  blockedHouseDialogue: {fileID: 0}
+  noFlashlighNoExit: {fileID: 0}
+  LockedBarn: {fileID: 0}
+  HeadHome: {fileID: 0}
+  PutUpStringLights: {fileID: 0}
+  generator: {fileID: 0}
+  MorphCutscene: {fileID: 0}
+  Lvl2Start: {fileID: 0}
+  ScreenText: {fileID: 0}
+  StartingQuest: {fileID: 0}
+  houseLight: {fileID: 0}
+  upstairsHouseLight: {fileID: 0}
+  exteriorHouseLights: {fileID: 0}
+  barnLight: {fileID: 0}
+  shedLight: {fileID: 0}
   houseDoor: {fileID: 0}
+  barnTransition: {fileID: 0}
+  exteriorBarnDoors: {fileID: 0}
   itemHold: {fileID: 0}
   flashlight: {fileID: 0}
+  minicrowMorph: {fileID: 0}
+  minicrow1: {fileID: 0}
+  hasMorphed: 0
 --- !u!50 &8320624081313387721
 Rigidbody2D:
   serializedVersion: 4
@@ -519,6 +541,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1499520513477021927}
   - component: {fileID: 1179357629409303132}
+  - component: {fileID: 9159418711947850876}
   - component: {fileID: 5433057460032344235}
   - component: {fileID: 4528112659203966488}
   m_Layer: 9
@@ -613,6 +636,33 @@ MonoBehaviour:
   - {x: 0.4157348, y: -0.27778515, z: 0}
   - {x: 0.46193978, y: -0.19134171, z: 0}
   - {x: 0.49039266, y: -0.09754512, z: 0}
+--- !u!50 &9159418711947850876
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6257816477856324187}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!60 &5433057460032344235
 PolygonCollider2D:
   m_ObjectHideFlags: 0

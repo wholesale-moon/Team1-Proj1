@@ -15,7 +15,7 @@ D:/SGD212/Team1-Proj1/Team1-Proj1-HorrorGame/Team1-Proj1-HorrorGame
 -logFile
 Logs/AssetImportWorker4.log
 -srvPort
-62333
+63822
 Successfully changed project path to: D:/SGD212/Team1-Proj1/Team1-Proj1-HorrorGame/Team1-Proj1-HorrorGame
 D:/SGD212/Team1-Proj1/Team1-Proj1-HorrorGame/Team1-Proj1-HorrorGame
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,11 +49,11 @@ D:/SGD212/Team1-Proj1/Team1-Proj1-HorrorGame/Team1-Proj1-HorrorGame
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [53500] Host "[IP] 192.168.68.114 [Port] 0 [Flags] 2 [Guid] 1395008889 [EditorId] 1395008889 [Version] 1048832 [Id] WindowsEditor(7,thebigboy) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [13584] Host "[IP] 192.168.68.114 [Port] 0 [Flags] 2 [Guid] 427472101 [EditorId] 427472101 [Version] 1048832 [Id] WindowsEditor(7,thebigboy) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [53500] Host "[IP] 192.168.68.114 [Port] 0 [Flags] 2 [Guid] 1395008889 [EditorId] 1395008889 [Version] 1048832 [Id] WindowsEditor(7,thebigboy) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [13584] Host "[IP] 192.168.68.114 [Port] 0 [Flags] 2 [Guid] 427472101 [EditorId] 427472101 [Version] 1048832 [Id] WindowsEditor(7,thebigboy) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
-Refreshing native plugins compatible for Editor in 9.06 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 143.37 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.5f1 (9674261d40ee)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity 2022.3.5f1/Editor/Data/Resources/UnitySubsystems
@@ -69,44 +69,44 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity 2022.3.5f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity 2022.3.5f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity 2022.3.5f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56680
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56752
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity 2022.3.5f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.008164 seconds.
-- Loaded All Assemblies, in  0.311 seconds
+Registered in 0.008004 seconds.
+- Loaded All Assemblies, in  0.654 seconds
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.235 seconds
-Domain Reload Profiling: 543ms
-	BeginReloadAssembly (84ms)
+- Finished resetting the current domain, in  0.254 seconds
+Domain Reload Profiling: 906ms
+	BeginReloadAssembly (83ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (33ms)
+	RebuildCommonClasses (183ms)
 	RebuildNativeTypeToScriptingClass (11ms)
-	initialDomainReloadingComplete (55ms)
-	LoadAllAssembliesAndSetupDomain (126ms)
+	initialDomainReloadingComplete (56ms)
+	LoadAllAssembliesAndSetupDomain (317ms)
 		LoadAssemblies (80ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (119ms)
-			TypeCache.Refresh (118ms)
-				TypeCache.ScanAssembly (107ms)
+		AnalyzeDomain (310ms)
+			TypeCache.Refresh (309ms)
+				TypeCache.ScanAssembly (299ms)
 			ScanForSourceGeneratedMonoScriptInfo (0ms)
 			ResolveRequiredComponents (0ms)
-	FinalizeReload (235ms)
+	FinalizeReload (254ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (184ms)
+		SetupLoadedEditorAssemblies (199ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (8ms)
+			InitializePlatformSupportModulesInManaged (9ms)
 			SetLoadedEditorAssemblies (7ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (2ms)
-			ProcessInitializeOnLoadAttributes (123ms)
-			ProcessInitializeOnLoadMethodAttributes (43ms)
+			ProcessInitializeOnLoadAttributes (130ms)
+			ProcessInitializeOnLoadMethodAttributes (51ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -116,51 +116,51 @@ Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\SGD212\Team1-Proj1\Team1-Proj1-HorrorGame\Team1-Proj1-HorrorGame\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\SGD212\Team1-Proj1\Team1-Proj1-HorrorGame\Team1-Proj1-HorrorGame\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-- Loaded All Assemblies, in  0.754 seconds
-Refreshing native plugins compatible for Editor in 3.93 ms, found 4 plugins.
+- Loaded All Assemblies, in  0.805 seconds
+Refreshing native plugins compatible for Editor in 3.18 ms, found 4 plugins.
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.641 seconds
-Domain Reload Profiling: 1390ms
-	BeginReloadAssembly (118ms)
+- Finished resetting the current domain, in  0.653 seconds
+Domain Reload Profiling: 1453ms
+	BeginReloadAssembly (126ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (5ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (20ms)
-	RebuildCommonClasses (31ms)
+		CreateAndSetChildDomain (21ms)
+	RebuildCommonClasses (42ms)
 	RebuildNativeTypeToScriptingClass (11ms)
-	initialDomainReloadingComplete (40ms)
-	LoadAllAssembliesAndSetupDomain (548ms)
-		LoadAssemblies (299ms)
+	initialDomainReloadingComplete (42ms)
+	LoadAllAssembliesAndSetupDomain (576ms)
+		LoadAssemblies (324ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (303ms)
-			TypeCache.Refresh (267ms)
-				TypeCache.ScanAssembly (255ms)
-			ScanForSourceGeneratedMonoScriptInfo (26ms)
+		AnalyzeDomain (311ms)
+			TypeCache.Refresh (274ms)
+				TypeCache.ScanAssembly (263ms)
+			ScanForSourceGeneratedMonoScriptInfo (27ms)
 			ResolveRequiredComponents (10ms)
-	FinalizeReload (641ms)
+	FinalizeReload (655ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (485ms)
+		SetupLoadedEditorAssemblies (494ms)
 			LogAssemblyErrors (0ms)
 			InitializePlatformSupportModulesInManaged (5ms)
 			SetLoadedEditorAssemblies (5ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (109ms)
-			ProcessInitializeOnLoadAttributes (283ms)
-			ProcessInitializeOnLoadMethodAttributes (74ms)
-			AfterProcessingInitializeOnLoad (8ms)
+			BeforeProcessingInitializeOnLoad (110ms)
+			ProcessInitializeOnLoadAttributes (286ms)
+			ProcessInitializeOnLoadMethodAttributes (76ms)
+			AfterProcessingInitializeOnLoad (12ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (5ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 3.96 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 3.71 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5876 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 97 unused Assets / (421.8 KB). Loaded Objects now: 6338.
-Memory consumption went from 225.8 MB to 225.4 MB.
-Total: 4.177300 ms (FindLiveObjects: 0.680300 ms CreateObjectMapping: 0.174600 ms MarkObjects: 3.062400 ms  DeleteObjects: 0.259000 ms)
+Unloading 5875 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 97 unused Assets / (421.8 KB). Loaded Objects now: 6337.
+Memory consumption went from 225.4 MB to 225.0 MB.
+Total: 4.078300 ms (FindLiveObjects: 0.524000 ms CreateObjectMapping: 0.168200 ms MarkObjects: 3.121400 ms  DeleteObjects: 0.264000 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -176,73 +176,30 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 787121.873828 seconds.
-  path: Assets/Animations
-  artifactKey: Guid(5651f3ec0bf21294eae257f8f8d1e1ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animations using Guid(5651f3ec0bf21294eae257f8f8d1e1ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b959f7b6e6562f6c89c44e498af3cedf') in 0.002640 seconds
+  Time since last request: 795359.398325 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/Upscaled/String_Light_End_Four_Corners.png
+  artifactKey: Guid(1003ca0d75a1f124aa18fa7593438b60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/Upscaled/String_Light_End_Four_Corners.png using Guid(1003ca0d75a1f124aa18fa7593438b60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72b33ad69ade8f3774faa2c5ed89d364') in 0.016070 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
+Number of asset objects unloaded after import = 2
 ========================================================================
 Received Import Request.
-  Time since last request: 1.240597 seconds.
-  path: Assets/Animations/Crow
-  artifactKey: Guid(810dc1551ba13be41a614e6490b39ddf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animations/Crow using Guid(810dc1551ba13be41a614e6490b39ddf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4792bde701222d2dc16c388096212aec') in 0.000560 seconds
+  Time since last request: 0.042847 seconds.
+  path: Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/Upscaled/String_Light_End_LUD.png
+  artifactKey: Guid(3bfa8be2a2f50574cb9d89db7170a8e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Enviroment_Assets/String Lights Poles and Wires/Upscaled/String_Light_End_LUD.png using Guid(3bfa8be2a2f50574cb9d89db7170a8e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '95338a6cd0eb015d94870065a01384c9') in 0.002367 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
+Number of asset objects unloaded after import = 2
 ========================================================================
 Received Import Request.
-  Time since last request: 1.477033 seconds.
-  path: Assets/Animations/blightcrow
-  artifactKey: Guid(2b3bb1e6ccba1f140b0bc436bd95de33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animations/blightcrow using Guid(2b3bb1e6ccba1f140b0bc436bd95de33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee0f12972e3deec0a47ac6994ff17a40') in 0.000515 seconds
+  Time since last request: 3.663199 seconds.
+  path: Assets/Art Assets/Items/Upscaled/Pole_Pickup.png
+  artifactKey: Guid(c0fe7b7535e50bf4bb7d1d1a5c776e2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/Items/Upscaled/Pole_Pickup.png using Guid(c0fe7b7535e50bf4bb7d1d1a5c776e2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '660f5c15a69b60c7678a66f57c2ed41f') in 0.007307 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 1.191352 seconds.
-  path: Assets/Animations/blightcrow/Blightcrow.controller
-  artifactKey: Guid(02046426371c70c4b8414da99dc2b705) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animations/blightcrow/Blightcrow.controller using Guid(02046426371c70c4b8414da99dc2b705) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '661cff073419b060f62d72b8510173f7') in 0.004504 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 22
-========================================================================
-Received Import Request.
-  Time since last request: 165.679136 seconds.
-  path: Assets/Animations/blightcrow/WalkUp.anim
-  artifactKey: Guid(56670634502cfa348b4d885da32f81df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animations/blightcrow/WalkUp.anim using Guid(56670634502cfa348b4d885da32f81df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '626624624678dfad2007c1178d0f321f') in 0.001128 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 38.765210 seconds.
-  path: Assets/Animations/blightcrow/Unhide.anim
-  artifactKey: Guid(8be4c85c6335fd747a3064428d35966c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animations/blightcrow/Unhide.anim using Guid(8be4c85c6335fd747a3064428d35966c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '139f4fa15e31af3412d70dc3a84067d1') in 0.001333 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 7.308825 seconds.
-  path: Assets/Animations/blightcrow/Burn.anim
-  artifactKey: Guid(0be6fd7f6e5800942b6ffed6e19d54f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animations/blightcrow/Burn.anim using Guid(0be6fd7f6e5800942b6ffed6e19d54f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a0779be41ff7e10a4a58a4838721de6') in 0.001393 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 48.040442 seconds.
-  path: Assets/Animations/blightcrow/Burn.anim
-  artifactKey: Guid(0be6fd7f6e5800942b6ffed6e19d54f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animations/blightcrow/Burn.anim using Guid(0be6fd7f6e5800942b6ffed6e19d54f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dcdb7afe55bde3f84293a4926d0021cc') in 0.001474 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 2.757199 seconds.
-  path: Assets/Animations/blightcrow/Burn.anim
-  artifactKey: Guid(0be6fd7f6e5800942b6ffed6e19d54f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animations/blightcrow/Burn.anim using Guid(0be6fd7f6e5800942b6ffed6e19d54f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a340c5899e3fcbffe51ff29ff1e97f7d') in 0.001329 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
+Number of asset objects unloaded after import = 2
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: The I/O operation has been aborted because of either a thread exit or an application request.
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

@@ -5,7 +5,7 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     [Header("Scene Manager")]
-    [SerializeField] private GameObject SceneManager;
+    //[SerializeField] private GameObject SceneManager;
     
     [Header("Dialogue")]
     public Dialogue dialogue;
@@ -20,6 +20,7 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
+        //Debug.Log(FindObjectOfType<DialogueManager>().gameObject.name);
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
     }
 

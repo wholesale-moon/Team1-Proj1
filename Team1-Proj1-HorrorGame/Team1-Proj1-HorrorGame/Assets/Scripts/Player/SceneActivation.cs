@@ -18,11 +18,14 @@ public class SceneActivation : MonoBehaviour
     [SerializeField] private GameObject noFlashlighNoExit;
     [SerializeField] private GameObject LockedBarn;
     [SerializeField] private GameObject HeadHome;
+    [SerializeField] private GameObject PutUpStringLights;
 
     [Header("Story Items")]
     [SerializeField] private GameObject generator;
     [SerializeField] private GameObject MorphCutscene;
     [SerializeField] private GameObject Lvl2Start;
+    [SerializeField] private GameObject ScreenText;
+    [SerializeField] private GameObject StartingQuest;
 
     [Header("Lights")]
     [SerializeField] private GameObject houseLight;
@@ -53,6 +56,7 @@ public class SceneActivation : MonoBehaviour
         {
             _GameSaveData._hasFlashlight = false;
             _GameSaveData._hasBarnKey = false;
+            _GameSaveData._hasStringLights = false;
             hasMorphed = false;
         }
 
@@ -71,6 +75,7 @@ public class SceneActivation : MonoBehaviour
             _GameSaveData._hasBarnKey = true;
             _GameSaveData._isHouseOpen = true;
             generator.GetComponent<Animator>().SetTrigger("isTurnedOn");
+            StartCoroutine(TimeCheck());
         }
 
         minicrow1.GetComponent<Animator>().SetBool("Sludge3", true);
@@ -135,5 +140,19 @@ public class SceneActivation : MonoBehaviour
     public void UnlockBarn()
     {
         exteriorBarnDoors.SetActive(true);
+    }
+
+    public IEnumerator TimeCheck()
+    {
+        yield return new WaitForSeconds(2.5f);
+
+        ScreenText.SetActive(false);
+        StartingQuest.SetActive(true);
+        yield return null;
+    }
+
+    public void GainStringLights()
+    {
+        PutUpStringLights.SetActive(true);
     }
 }
