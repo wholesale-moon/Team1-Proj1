@@ -65,6 +65,12 @@ public class SceneActivation : MonoBehaviour
         {
             _GameSaveData._currentCutscene = 1;
             _GameSaveData.isPlayingCutscene = true;
+        } else if (SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            _GameSaveData._hasFlashlight = true;
+            _GameSaveData._hasBarnKey = true;
+            _GameSaveData._isHouseOpen = true;
+            generator.GetComponent<Animator>().SetTrigger("isTurnedOn");
         }
 
         minicrow1.GetComponent<Animator>().SetBool("Sludge3", true);
