@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class UIManager : MonoBehaviour
     public bool isPaused = false;
     public bool isHelp = false;
     public bool isOptions = false;
+
+    [SerializeField] private GameObject sceneTransitioner;
 
     private void Update()
     {
@@ -53,6 +56,12 @@ public class UIManager : MonoBehaviour
     {
         isPaused = false;
         PauseScreen.SetActive(isPaused);
+    }
+
+    public void Restart()
+    {
+        sceneTransitioner.SetActive(true);
+        sceneTransitioner.GetComponent<LevelTransition>().FadeToLevel(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void Help()

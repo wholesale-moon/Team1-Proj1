@@ -18,4 +18,9 @@ public class LevelTransition : MonoBehaviour
     {
         SceneManager.LoadScene(levelToLoad);
     }
+    
+    public void DisableSceneTransitioner()
+    {
+        transform.gameObject.SetActive(false);
+    }
 }

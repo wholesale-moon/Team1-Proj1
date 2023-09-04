@@ -12,10 +12,11 @@ public class PlayerMovement : MonoBehaviour
     #region Variables
     [Header("Player")]
     public Rigidbody2D rb2d;
-    [SerializeField] private Animator animator;
     private Vector2 moveInput;
     float moveSpeed = 5;
     public bool canMove = true;
+    [SerializeField] private Animator topAnimator;
+    [SerializeField] private Animator bottomAnimator;
 
     private bool canInteract;
     private GameObject interactable;
@@ -74,9 +75,13 @@ public class PlayerMovement : MonoBehaviour
             moveInput.y = Input.GetAxisRaw("Vertical");
 
             // Setting animation bools to determine which animation should play
-            animator.SetFloat("Horizontal", moveInput.x);
-            animator.SetFloat("Vertical", moveInput.y);
-            animator.SetFloat("Speed", moveInput.sqrMagnitude);
+            topAnimator.SetFloat("Horizontal", moveInput.x);
+            topAnimator.SetFloat("Vertical", moveInput.y);
+            topAnimator.SetFloat("Speed", moveInput.sqrMagnitude);
+
+            bottomAnimator.SetFloat("Horizontal", moveInput.x);
+            bottomAnimator.SetFloat("Vertical", moveInput.y);
+            bottomAnimator.SetFloat("Speed", moveInput.sqrMagnitude);
 
             moveInput.Normalize();
 
@@ -104,14 +109,10 @@ public class PlayerMovement : MonoBehaviour
         else if (canMove == false)
         {
             rb2d.velocity = Vector3.zero;
-            animator.gameObject.GetComponent<Animator>().enabled = false;
+            // topAnimator.gameObject.GetComponent<Animator>().enabled = false;
+            // bottomAnimator.gameObject.GetComponent<Animator>().enabled = false;
         }
-
-
-        
-
-
-        
+       
     }
     #endregion
 
@@ -323,12 +324,20 @@ public class PlayerMovement : MonoBehaviour
         {
             _GameSaveData._hasCompletedPrologue = true;
             _GameSaveData._currentCutscene = 2;
+            sceneTransitioner.SetActive(true);
             sceneTransitioner.GetComponent<LevelTransition>().FadeToLevel(2);
         }
 
         if (obj.gameObject.tag == "Lvl2Start")
         {
+            sceneTransitioner.SetActive(true);
             sceneTransitioner.GetComponent<LevelTransition>().FadeToLevel(3);
+        }
+
+        if (obj.gameObject.tag == "Lvl3Start")
+        {
+            sceneTransitioner.SetActive(true);
+            sceneTransitioner.GetComponent<LevelTransition>().FadeToLevel(4);
         }
         
         if (obj.gameObject.tag == "Sludge")

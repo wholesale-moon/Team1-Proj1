@@ -13,22 +13,18 @@ public class SceneActivation : MonoBehaviour
     [SerializeField] private GameSaveData _GameSaveData;
     [SerializeField] GameObject _SceneManager;
     
-    [Header("Dialogue/Quest Triggers")]
+    [Header("Prologue")]
     [SerializeField] private GameObject pickupTutorial;
+    [SerializeField] private GameObject MedBottle;
+    
+    [Header("Level 1")]
     [SerializeField] private GameObject flashlightTutorial;
     [SerializeField] private GameObject blockedHouseDialogue;
     [SerializeField] private GameObject noFlashlighNoExit;
     [SerializeField] private GameObject LockedBarn;
-    [SerializeField] private GameObject HeadHome;
-    [SerializeField] private GameObject NeedStringLightsDialogue;
-    [SerializeField] private GameObject PutUpStringLights;
-
-    [Header("Story Items")]
-    [SerializeField] private GameObject generator;
     [SerializeField] private GameObject MorphCutscene;
+    [SerializeField] private GameObject HeadHome;
     [SerializeField] private GameObject Lvl2Start;
-    [SerializeField] private GameObject ScreenText;
-    [SerializeField] private GameObject StartingQuest;
 
     [Header("Lights")]
     [SerializeField] private GameObject houseLight;
@@ -39,7 +35,15 @@ public class SceneActivation : MonoBehaviour
     [SerializeField] private GameObject exteriorBarnLight;
     [SerializeField] private GameObject exteriorShedLight;
     [SerializeField] private GameObject baseStringLights;
+    
+    [Header("Level 2")]
+    [SerializeField] private GameObject NeedStringLightsDialogue;
+    [SerializeField] private GameObject PutUpStringLights;
 
+    [Header("Story Items")]
+    [SerializeField] private GameObject generator;
+    [SerializeField] private GameObject ScreenText;
+    [SerializeField] private GameObject StartingQuest;
 
     [Header("Doors")]
     [SerializeField] private GameObject houseDoor;
@@ -90,6 +94,7 @@ public class SceneActivation : MonoBehaviour
     public void PickupTutorialActive()
     {
         pickupTutorial.SetActive(true);
+        MedBottle.SetActive(true);
     }
 
     // For prologue no house entry until first 2 quests are complete
