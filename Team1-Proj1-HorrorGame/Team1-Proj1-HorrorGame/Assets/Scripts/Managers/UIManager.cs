@@ -9,9 +9,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject HelpScreen;
     [SerializeField] private GameObject OptionsScreen;
 
-    private bool isPaused = false;
-    private bool isHelp = false;
-    private bool isOptions = false;
+    public bool isPaused = false;
+    public bool isHelp = false;
+    public bool isOptions = false;
 
     private void Update()
     {

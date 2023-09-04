@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public float moveSpeed = 2f;
-    public float roamRadius = 5f;
-    public Transform player;
+    [Header("Movement")]
+    [SerializeField] private float moveSpeed = 2f;
+    [SerializeField] private float roamRadius = 5f;
+    [SerializeField] private Transform player;
 
+    private Vector3 hidePosition;
     private Vector3 roamPosition;
-
     public bool IsInRange = false;
-    public int stunTime;
+
+    [Header("Stun")]
+    [SerializeField] private int stunTime;
     public bool isStunned;
+
+    [Header("Animation")]
     [SerializeField] private Animator animatorTop;
     [SerializeField] private Animator animatorBottom;
 
@@ -30,13 +35,13 @@ public class EnemyMovement : MonoBehaviour
     {
         if (isStunned)
         {
-            animatorTop.SetTrigger("isStunned");
-            animatorBottom.SetTrigger("isStunned");
-            Debug.Log(isStunned);
+            // transform.position = hidePosition;
+            animatorTop.SetFloat("Speed", 0);
             return;
         }
-        else
+        else if (!isStunned)
         {
+            animatorTop.SetFloat("Speed", 1);
             if (IsInRange)
             {
                 animatorTop.SetBool("isHostile", true);
@@ -49,20 +54,17 @@ public class EnemyMovement : MonoBehaviour
                 animatorBottom.SetBool("isHostile", false);
                 Roam();
             }
-        }
-        
-        
+        } 
     }
     
     public void AnimateMovement(Vector3 direction)
     {
         animatorTop.SetFloat("Horizontal", direction.x);
         animatorTop.SetFloat("Vertical", direction.y);
-        //animatorTop.SetFloat("Speed", moveInput.sqrMagnitude);
         animatorBottom.SetFloat("Horizontal", direction.x);
         animatorBottom.SetFloat("Vertical", direction.y);
-        //animatorBottom.SetFloat("Speed", moveInput.sqrMagnitude);
     }
+    
     public void Roam()
     {
         if (Vector3.Distance(transform.position, roamPosition) > 0.1f)
@@ -80,34 +82,37 @@ public class EnemyMovement : MonoBehaviour
 
     public void ChasePlayer()
     {
-        Vector3 direction = player.position -transform.position;
+        Vector3 direction = player.position - transform.position;
         direction.Normalize();
         transform.position += direction * moveSpeed * Time.deltaTime;
         AnimateMovement(direction);
     }
-    void OnTriggerEnter2D(Collider2D obj)
-    {
-        if (obj.gameObject.tag == "Player")
-        {
-            IsInRange = true;
-        }
+    
+    // void OnTriggerEnter2D(Collider2D obj)
+    // {
+    //     if (obj.gameObject.tag == "Player")
+    //     {
+    //         IsInRange = true;
+    //     }
         
-    }
+    // }
 
-    void OnTriggerExit2D(Collider2D obj)
-    {
-        if (obj.gameObject.tag == "Player")
-        {
-            IsInRange = false;
-            roamPosition = GetRandomRoamPosition();
-        } 
+    // void OnTriggerExit2D(Collider2D obj)
+    // {
+    //     if (obj.gameObject.tag == "Player")
+    //     {
+    //         IsInRange = false;
+    //         roamPosition = GetRandomRoamPosition();
+    //     } 
         
-    }
+    // }
+    
     public void Stunned()
     {
         isStunned = true;
+        animatorTop.SetTrigger("isStunned");
+        animatorBottom.SetTrigger("isStunned");
         StartCoroutine(HandleStunTime());
-        Debug.Log("Hello World");
     }
 
     public IEnumerator HandleStunTime()
@@ -116,7 +121,6 @@ public class EnemyMovement : MonoBehaviour
         isStunned = false;
         //GetComponent<AudioSource>().Play();
     }
-
 
     private Vector3 GetRandomRoamPosition()
     {

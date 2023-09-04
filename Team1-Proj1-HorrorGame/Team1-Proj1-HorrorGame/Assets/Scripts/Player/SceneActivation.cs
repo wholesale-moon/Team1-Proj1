@@ -11,6 +11,7 @@ public class SceneActivation : MonoBehaviour
     
     [Header("Game Save Data")]
     [SerializeField] private GameSaveData _GameSaveData;
+    [SerializeField] GameObject _SceneManager;
     
     [Header("Dialogue/Quest Triggers")]
     [SerializeField] private GameObject pickupTutorial;
@@ -50,7 +51,6 @@ public class SceneActivation : MonoBehaviour
     [SerializeField] private GameObject minicrow1;
 
     [HideInInspector] public bool hasMorphed = false;
-    [SerializeField] GameObject _SceneManager;
 
     void Start()
     {
