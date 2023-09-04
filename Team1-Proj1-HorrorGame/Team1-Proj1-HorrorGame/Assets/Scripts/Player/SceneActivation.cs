@@ -39,6 +39,12 @@ public class SceneActivation : MonoBehaviour
     [Header("Level 2")]
     [SerializeField] private GameObject NeedStringLightsDialogue;
     [SerializeField] private GameObject PutUpStringLights;
+    [SerializeField] private GameObject OutOfStringLightsDialogue;
+    [SerializeField] private GameObject SLForShow;
+    [SerializeField] private GameObject SLInteract;
+    [SerializeField] private GameObject BurnCutsceneTrigger;
+    [SerializeField] private GameObject StringLightSpecial;
+    public GameObject StringLightBroken;
 
     [Header("Story Items")]
     [SerializeField] private GameObject generator;
@@ -57,8 +63,12 @@ public class SceneActivation : MonoBehaviour
     [Header("MiniCrows")]
     [SerializeField] private GameObject minicrowMorph;
     [SerializeField] private GameObject minicrow1;
+    [SerializeField] private GameObject minicrow2;
+    [SerializeField] private GameObject minicrow3;
+    [SerializeField] private GameObject minicrow4;
 
     [HideInInspector] public bool hasMorphed = false;
+    [HideInInspector] public int stringLightInventory = 0;
 
     void Start()
     {
@@ -70,22 +80,36 @@ public class SceneActivation : MonoBehaviour
             hasMorphed = false;
         }
 
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+        if (SceneManager.GetActiveScene().buildIndex == 1) //Prologue
         {
             _GameSaveData._currentCutscene = 0;
             _GameSaveData.isPlayingCutscene = true;
             _GameSaveData._isHouseOpen = false;
-        } else if (SceneManager.GetActiveScene().buildIndex == 2)
+        } else if (SceneManager.GetActiveScene().buildIndex == 2) // Lvl 1
         {
             _GameSaveData._currentCutscene = 1;
             _GameSaveData.isPlayingCutscene = true;
-        } else if (SceneManager.GetActiveScene().buildIndex == 3)
+            minicrow2.GetComponent<Animator>().SetBool("Sludge1", true);
+        } else if (SceneManager.GetActiveScene().buildIndex == 3) // Lvl 2
         {
             _GameSaveData._hasFlashlight = true;
             _GameSaveData._hasBarnKey = true;
             _GameSaveData._isHouseOpen = true;
+            _GameSaveData._hasStringLights = false;
+            _GameSaveData.isPlayingCutscene = false;
             generator.GetComponent<Animator>().SetTrigger("isTurnedOn");
+            minicrow2.GetComponent<Animator>().SetBool("Sludge2", true);
+            minicrow3.GetComponent<Animator>().SetBool("Sludge1", true);
             StartCoroutine(TimeCheck());
+        } else if (SceneManager.GetActiveScene().buildIndex == 4) // Lvl 3
+        {
+            // _GameSaveData._hasFlashlight = true;
+            // _GameSaveData._hasBarnKey = true;
+            // _GameSaveData._isHouseOpen = true;
+            // generator.GetComponent<Animator>().SetTrigger("isTurnedOn");
+            // minicrow2.GetComponent<Animator>().SetBool("Sludge3", true);
+            // minicrow3.GetComponent<Animator>().SetBool("Sludge2", true);
+            // StartCoroutine(TimeCheck());
         }
 
         minicrow1.GetComponent<Animator>().SetBool("Sludge3", true);
@@ -168,7 +192,21 @@ public class SceneActivation : MonoBehaviour
 
     public void GainStringLights()
     {
+        stringLightInventory = 12;
         NeedStringLightsDialogue.SetActive(false);
         PutUpStringLights.SetActive(true);
+    }
+
+    public void RanOutOfStringLights()
+    {
+        OutOfStringLightsDialogue.SetActive(true);
+        SLForShow.SetActive(false);
+        SLInteract.SetActive(true);
+    }
+
+    public void Burn()
+    {
+        BurnCutsceneTrigger.SetActive(true);
+        StringLightSpecial.SetActive(true);
     }
 }

@@ -138,14 +138,36 @@ public class PlayerMovement : MonoBehaviour
             else if (interactable.tag == "StringLightsPickup")
             {
                 Destroy(interactable);
-                _GameSaveData._hasStringLights = true;
-                transform.GetComponent<SceneActivation>().GainStringLights();
-                UpdateActionTextp("12x String Lights");
+                if (_GameSaveData._hasStringLights == false)
+                {
+                    _GameSaveData._hasStringLights = true;
+                    transform.GetComponent<SceneActivation>().GainStringLights();
+                    UpdateActionTextp("12x String Lights");
+                } else {
+                    transform.GetComponent<SceneActivation>().stringLightInventory = 2;
+                    transform.GetComponent<SceneActivation>().Burn();
+                    UpdateActionTextp("2x String Lights");
+                }
             }
             else if (interactable.tag == "PlaceStringLight")
             {
+                if(transform.GetComponent<SceneActivation>().stringLightInventory > 0)
+                {
+                    transform.GetComponent<SceneActivation>().stringLightInventory -= 1;
+                    interactable.GetComponent<StringLights>().stringLight.SetActive(true);
+                    Destroy(interactable);
+                } else if (transform.GetComponent<SceneActivation>().stringLightInventory == 0)
+                {
+                    transform.GetComponent<SceneActivation>().RanOutOfStringLights();
+                }
+            }
+            else if (interactable.tag == "PlaceSpecialSL")
+            {
+                transform.GetComponent<SceneActivation>().stringLightInventory -= 1;
                 interactable.GetComponent<StringLights>().stringLight.SetActive(true);
+                transform.GetComponent<SceneActivation>().StringLightBroken.GetComponent<BreakLights>().FixStringLights();
                 Destroy(interactable);
+                Destroy(transform.GetComponent<SceneActivation>().StringLightBroken);
             }
             else if (interactable.tag == "Generator")
             {
@@ -287,6 +309,12 @@ public class PlayerMovement : MonoBehaviour
             canInteract = true;
         }
 
+        if (obj.gameObject.tag == "PlaceSpecialSL")
+        {
+            interactable = obj.gameObject;
+            canInteract = true;
+        }
+
         if (obj.gameObject.tag == "Lantern")
         {
             interactable = obj.gameObject;
@@ -359,6 +387,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (obj.gameObject.tag == "PlaceStringLight")
+        {
+            canInteract = false;
+        }
+        
+        if (obj.gameObject.tag == "PlaceSpecialSL")
         {
             canInteract = false;
         }
