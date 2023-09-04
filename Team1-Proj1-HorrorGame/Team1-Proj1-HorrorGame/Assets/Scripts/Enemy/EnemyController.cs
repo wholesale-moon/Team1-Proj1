@@ -1,28 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Audio;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public float moveSpeed = 2f;
-    public float roamRadius = 5f;
-    public Transform player;
+    [Header("Movement")]
+    [SerializeField] private float moveSpeed = 2f;
+    [SerializeField] private float roamRadius = 5f;
+    [SerializeField] private Transform player;
 
+    private Vector3 hidePosition;
     private Vector3 roamPosition;
-
     public bool IsInRange = false;
-    public int stunTime;
+
+    [Header("Stun")]
+    [SerializeField] private int stunTime;
     public bool isStunned;
+
+    [Header("Animation")]
     [SerializeField] private Animator animatorTop;
     [SerializeField] private Animator animatorBottom;
+
+    [Header("Audio")]
+    [SerializeField] private AudioMixerGroup soundEffectsMixerGroup;
+    [SerializeField] private AudioSource mouf; //mouth
+    [SerializeField] private AudioClip[] sound;
 
 
     private void Awake()
     {
         player = FindObjectOfType<PlayerMovement>().transform;
     }
+    
     private void Start()
     {
+        mouf.outputAudioMixerGroup = soundEffectsMixerGroup;
         roamPosition = GetRandomRoamPosition();
     }
 
@@ -30,13 +43,15 @@ public class EnemyMovement : MonoBehaviour
     {
         if (isStunned)
         {
-            animatorTop.SetTrigger("isStunned");
-            animatorBottom.SetTrigger("isStunned");
-            Debug.Log(isStunned);
+            // transform.position = hidePosition;
+            animatorTop.SetFloat("Speed", 0);
+            animatorBottom.SetFloat("Speed", 0);
             return;
         }
-        else
+        else if (!isStunned)
         {
+            animatorTop.SetFloat("Speed", 1);
+            animatorBottom.SetFloat("Speed", 1);
             if (IsInRange)
             {
                 animatorTop.SetBool("isHostile", true);
@@ -49,22 +64,20 @@ public class EnemyMovement : MonoBehaviour
                 animatorBottom.SetBool("isHostile", false);
                 Roam();
             }
-        }
-        
-        
+        } 
     }
     
     public void AnimateMovement(Vector3 direction)
     {
         animatorTop.SetFloat("Horizontal", direction.x);
         animatorTop.SetFloat("Vertical", direction.y);
-        //animatorTop.SetFloat("Speed", moveInput.sqrMagnitude);
         animatorBottom.SetFloat("Horizontal", direction.x);
         animatorBottom.SetFloat("Vertical", direction.y);
-        //animatorBottom.SetFloat("Speed", moveInput.sqrMagnitude);
     }
+    
     public void Roam()
     {
+        mouf.clip = sound[0];
         if (Vector3.Distance(transform.position, roamPosition) > 0.1f)
         {
             Vector3 direction = roamPosition - transform.position;
@@ -80,94 +93,46 @@ public class EnemyMovement : MonoBehaviour
 
     public void ChasePlayer()
     {
-        Vector3 direction = player.position -transform.position;
+        mouf.clip = sound[2];
+        Vector3 direction = player.position - transform.position;
         direction.Normalize();
         transform.position += direction * moveSpeed * Time.deltaTime;
         AnimateMovement(direction);
     }
-    void OnTriggerEnter2D(Collider2D obj)
+    
+    void OnCollisionEnter2D(Collision2D obj)
     {
-        if (obj.gameObject.tag == "Player")
+        if(obj.gameObject.tag == "Player")
         {
-            IsInRange = true;
+            obj.gameObject.GetComponent<PlayerHealth>().TakeDamage();
         }
-        
     }
-
-    void OnTriggerExit2D(Collider2D obj)
-    {
-        if (obj.gameObject.tag == "Player")
-        {
-            IsInRange = false;
-            roamPosition = GetRandomRoamPosition();
-        } 
-        
-    }
+    
     public void Stunned()
     {
+        mouf.clip = sound[1];
         isStunned = true;
+        animatorTop.SetTrigger("isStunned");
+        animatorBottom.SetTrigger("isStunned");
         StartCoroutine(HandleStunTime());
-        Debug.Log("Hello World");
     }
 
     public IEnumerator HandleStunTime()
     {
         yield return new WaitForSeconds(stunTime);
         isStunned = false;
-        //GetComponent<AudioSource>().Play();
+        // play unstun sound?
     }
-
 
     private Vector3 GetRandomRoamPosition()
     {
         Vector3 randomDirection = Random.insideUnitCircle.normalized;
         return transform.position + randomDirection * roamRadius;
     }
+
+    // void OnDrawGizmos()
+    // {
+    //     Gizmos.color = Color.red;
+    //     Gizmos.DrawSphere(transform.position, roamRadius);
+    // }
 }
-
-
-
-
-/*using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class EnemyMovement : MonoBehaviour
-{
-    public GameObject player;
-    public float speed;
-    private float distance;
-    public GameObject scarecrows;
-
-    //public Rigidbody2D rb2d;
-    //private Vector2 moveInput;
-    //float moveSpeed = 5;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //rb2d = transform.GetComponent<Rigidbody2D>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //distance = Vector2.Distance(transform.position, player.transform.position);
-        //Vector2 direction = player.transform.position - transform.position;
-        //rb2d.velocity = moveInput * moveSpeed;
-
-
-        //if (distance < 60)
-        //{
-            //transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
-        //}
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "Player")
-        {
-            player.GetComponent<PlayerHealth>().TakeDamage();
-        }
-    }
-}*/

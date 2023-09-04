@@ -11,6 +11,7 @@ public class SceneActivation : MonoBehaviour
     
     [Header("Game Save Data")]
     [SerializeField] private GameSaveData _GameSaveData;
+    [SerializeField] GameObject _SceneManager;
     
     [Header("Dialogue/Quest Triggers")]
     [SerializeField] private GameObject pickupTutorial;
@@ -19,6 +20,7 @@ public class SceneActivation : MonoBehaviour
     [SerializeField] private GameObject noFlashlighNoExit;
     [SerializeField] private GameObject LockedBarn;
     [SerializeField] private GameObject HeadHome;
+    [SerializeField] private GameObject NeedStringLightsDialogue;
     [SerializeField] private GameObject PutUpStringLights;
 
     [Header("Story Items")]
@@ -31,9 +33,12 @@ public class SceneActivation : MonoBehaviour
     [Header("Lights")]
     [SerializeField] private GameObject houseLight;
     [SerializeField] private GameObject upstairsHouseLight;
-    [SerializeField] private GameObject exteriorHouseLights;
     [SerializeField] private GameObject barnLight;
     [SerializeField] private GameObject shedLight;
+    [SerializeField] private GameObject exteriorHouseLights;
+    [SerializeField] private GameObject exteriorBarnLight;
+    [SerializeField] private GameObject exteriorShedLight;
+    [SerializeField] private GameObject baseStringLights;
 
 
     [Header("Doors")]
@@ -50,7 +55,6 @@ public class SceneActivation : MonoBehaviour
     [SerializeField] private GameObject minicrow1;
 
     [HideInInspector] public bool hasMorphed = false;
-    [SerializeField] GameObject _SceneManager;
 
     void Start()
     {
@@ -125,9 +129,12 @@ public class SceneActivation : MonoBehaviour
     {
         houseLight.SetActive(true);
         upstairsHouseLight.SetActive(true);
-        exteriorHouseLights.SetActive(true);
         barnLight.SetActive(true);
         shedLight.SetActive(true);
+        exteriorHouseLights.SetActive(true);
+        exteriorBarnLight.SetActive(true);
+        exteriorShedLight.SetActive(true);
+        baseStringLights.SetActive(true);
         HeadHome.SetActive(true);
         barnTransition.SetActive(true);
         Lvl2Start.SetActive(true);
@@ -147,7 +154,7 @@ public class SceneActivation : MonoBehaviour
 
     public IEnumerator TimeCheck()
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(1.5f);
 
         ScreenText.SetActive(false);
         StartingQuest.SetActive(true);
@@ -156,6 +163,7 @@ public class SceneActivation : MonoBehaviour
 
     public void GainStringLights()
     {
+        NeedStringLightsDialogue.SetActive(false);
         PutUpStringLights.SetActive(true);
     }
 }

@@ -4,23 +4,15 @@ using UnityEngine;
 
 public class Flashlight : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Scarecrow")
         {
-            collision.gameObject.GetComponent<EnemyMovement>().Stunned();
-            StartCoroutine(collision.gameObject.GetComponent<EnemyMovement>().HandleStunTime());
+            if(collision.GetComponent<EnemyMovement>().isStunned == false)
+            {
+                collision.gameObject.GetComponent<EnemyMovement>().Stunned();
+                StartCoroutine(collision.gameObject.GetComponent<EnemyMovement>().HandleStunTime());
+            }
         }
     }
 }
