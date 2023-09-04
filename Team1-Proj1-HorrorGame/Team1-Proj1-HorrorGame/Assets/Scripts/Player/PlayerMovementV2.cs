@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator animator;
     private Vector2 moveInput;
     float moveSpeed = 5;
+    public bool canMove = true;
 
     private bool canInteract;
     private GameObject interactable;
@@ -67,37 +68,50 @@ public class PlayerMovement : MonoBehaviour
     #region Player Movement
     void OnMove()
     {
-        moveInput.x = Input.GetAxisRaw("Horizontal");
-        moveInput.y = Input.GetAxisRaw("Vertical");
-
-        // Setting animation bools to determine which animation should play
-        animator.SetFloat("Horizontal", moveInput.x);
-        animator.SetFloat("Vertical", moveInput.y);
-        animator.SetFloat("Speed", moveInput.sqrMagnitude);
-
-        moveInput.Normalize();
-
-        rb2d.velocity = moveInput * moveSpeed;
-
-
-        if (rb2d.velocity.x != 0 || rb2d.velocity.y != 0)
+        if (canMove == true)
         {
+            moveInput.x = Input.GetAxisRaw("Horizontal");
+            moveInput.y = Input.GetAxisRaw("Vertical");
 
-            isMoving = true;
+            // Setting animation bools to determine which animation should play
+            animator.SetFloat("Horizontal", moveInput.x);
+            animator.SetFloat("Vertical", moveInput.y);
+            animator.SetFloat("Speed", moveInput.sqrMagnitude);
 
-            if (isMoving)
+            moveInput.Normalize();
+
+            rb2d.velocity = moveInput * moveSpeed;
+
+            if (rb2d.velocity.x != 0 || rb2d.velocity.y != 0)
             {
-                if (!walkSound.isPlaying)
-                {
 
-                    walkSound.Play();
+                isMoving = true;
+
+                if (isMoving)
+                {
+                    if (!walkSound.isPlaying)
+                    {
+
+                        walkSound.Play();
+                    }
+                }
+                else
+                {
+                    walkSound.Stop();
                 }
             }
-            else
-            {
-                walkSound.Stop();
-            }
         }
+        else if (canMove == false)
+        {
+            rb2d.velocity = Vector3.zero;
+            animator.gameObject.GetComponent<Animator>().enabled = false;
+        }
+
+
+        
+
+
+        
     }
     #endregion
 
