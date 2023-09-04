@@ -29732,8 +29732,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.0018000007, y: -0.0013499856, z: 0}
-    m_Extent: {x: 1.0076001, y: 1.0064499, z: 0}
+    m_Center: {x: 0.00074994564, y: -0.0009499788, z: 0}
+    m_Extent: {x: 1.00825, y: 1.00465, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -36570,11 +36570,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
-  m_LookaheadTime: 0.5
+  m_LookaheadTime: 0.75
   m_LookaheadSmoothing: 1
   m_LookaheadIgnoreY: 0
-  m_XDamping: 5
-  m_YDamping: 5
+  m_XDamping: 4
+  m_YDamping: 4
   m_ZDamping: 1
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
@@ -38421,6 +38421,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 982381353}
     - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: SLForShow
+      value: 
+      objectReference: {fileID: 993321105}
+    - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
       propertyPath: barnLight
       value: 
       objectReference: {fileID: 993321105}
@@ -38437,11 +38441,27 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 578500687}
     - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: minicrow2
+      value: 
+      objectReference: {fileID: 993321105}
+    - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: minicrow3
+      value: 
+      objectReference: {fileID: 993321105}
+    - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: minicrow4
+      value: 
+      objectReference: {fileID: 993321105}
+    - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
       propertyPath: shedLight
       value: 
       objectReference: {fileID: 993321105}
     - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
       propertyPath: LockedBarn
+      value: 
+      objectReference: {fileID: 993321105}
+    - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: SLInteract
       value: 
       objectReference: {fileID: 993321105}
     - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
@@ -38493,6 +38513,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 993321105}
     - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: StringLightBroken
+      value: 
+      objectReference: {fileID: 993321105}
+    - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
       propertyPath: exteriorBarnDoors
       value: 
       objectReference: {fileID: 993321105}
@@ -38509,11 +38533,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 993321105}
     - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: StringLightSpecial
+      value: 
+      objectReference: {fileID: 993321105}
+    - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
       propertyPath: flashlightTutorial
       value: 
       objectReference: {fileID: 993321105}
     - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
       propertyPath: upstairsHouseLight
+      value: 
+      objectReference: {fileID: 993321105}
+    - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: BurnCutsceneTrigger
       value: 
       objectReference: {fileID: 993321105}
     - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
@@ -38530,6 +38562,10 @@ PrefabInstance:
       objectReference: {fileID: 993321105}
     - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
       propertyPath: NeedStringLightsDialogue
+      value: 
+      objectReference: {fileID: 993321105}
+    - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: OutOfStringLightsDialogue
       value: 
       objectReference: {fileID: 993321105}
     - target: {fileID: 4788035796803891172, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
