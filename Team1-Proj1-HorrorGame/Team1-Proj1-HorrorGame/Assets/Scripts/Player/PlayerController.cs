@@ -142,11 +142,11 @@ public class PlayerMovement : MonoBehaviour
                 {
                     _GameSaveData._hasStringLights = true;
                     transform.GetComponent<SceneActivation>().GainStringLights();
-                    UpdateActionTextp("12x String Lights");
+                    UpdateActionTextp("x12 String Lights");
                 } else {
                     transform.GetComponent<SceneActivation>().stringLightInventory = 2;
                     transform.GetComponent<SceneActivation>().Burn();
-                    UpdateActionTextp("2x String Lights");
+                    UpdateActionTextp("x2 String Lights");
                 }
             }
             else if (interactable.tag == "PlaceStringLight")

@@ -26,7 +26,7 @@ public class SceneActivation : MonoBehaviour
     [SerializeField] private GameObject HeadHome;
     [SerializeField] private GameObject Lvl2Start;
 
-    [Header("Lights")]
+    [Space(10)]
     [SerializeField] private GameObject houseLight;
     [SerializeField] private GameObject upstairsHouseLight;
     [SerializeField] private GameObject barnLight;
@@ -45,6 +45,9 @@ public class SceneActivation : MonoBehaviour
     [SerializeField] private GameObject BurnCutsceneTrigger;
     [SerializeField] private GameObject StringLightSpecial;
     public GameObject StringLightBroken;
+    [SerializeField] private GameObject ExitQuest;
+    [SerializeField] private GameObject FlameToolUpstairs;
+    [SerializeField] private GameObject Lvl3Start;
 
     [Header("Story Items")]
     [SerializeField] private GameObject generator;
@@ -173,6 +176,7 @@ public class SceneActivation : MonoBehaviour
 
     public void GainKey()
     {
+        _SceneManager.GetComponent<DialogueManager>().DialogueBox.SetActive(false);
         Destroy(LockedBarn);
     }
     
@@ -208,5 +212,9 @@ public class SceneActivation : MonoBehaviour
     {
         BurnCutsceneTrigger.SetActive(true);
         StringLightSpecial.SetActive(true);
+        ExitQuest.SetActive(true);
+        FlameToolUpstairs.SetActive(true);
+        Lvl3Start.SetActive(true);
+        _SceneManager.GetComponent<DialogueManager>().DialogueBox.SetActive(false);
     }
 }

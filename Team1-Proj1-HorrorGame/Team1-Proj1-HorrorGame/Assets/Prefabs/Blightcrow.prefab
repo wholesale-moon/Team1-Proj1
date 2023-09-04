@@ -172,7 +172,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3158944368944950773}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -206,6 +206,7 @@ MonoBehaviour:
   moveSpeed: 3
   roamRadius: 5
   player: {fileID: 0}
+  rb: {fileID: 0}
   IsInRange: 0
   stunTime: 4
   isStunned: 0

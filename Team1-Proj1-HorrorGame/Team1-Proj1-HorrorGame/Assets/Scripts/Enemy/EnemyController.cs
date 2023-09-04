@@ -9,9 +9,9 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private float roamRadius = 5f;
     [SerializeField] private Transform player;
+    [SerializeField] private Rigidbody2D rb;
 
-    private Vector3 hidePosition;
-    private Vector3 roamPosition;
+    private Vector2 roamPosition;
     public bool IsInRange = false;
 
     [Header("Stun")]
@@ -35,6 +35,7 @@ public class EnemyMovement : MonoBehaviour
     
     private void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         mouf.outputAudioMixerGroup = soundEffectsMixerGroup;
         roamPosition = GetRandomRoamPosition();
     }
@@ -43,9 +44,9 @@ public class EnemyMovement : MonoBehaviour
     {
         if (isStunned)
         {
-            // transform.position = hidePosition;
             animatorTop.SetFloat("Speed", 0);
             animatorBottom.SetFloat("Speed", 0);
+            rb.velocity = Vector2.zero;
             return;
         }
         else if (!isStunned)
@@ -78,11 +79,11 @@ public class EnemyMovement : MonoBehaviour
     public void Roam()
     {
         mouf.clip = sound[0];
-        if (Vector3.Distance(transform.position, roamPosition) > 0.1f)
+        if (Vector2.Distance(transform.position, roamPosition) > 0.1f)
         {
-            Vector3 direction = roamPosition - transform.position;
+            Vector2 direction = roamPosition - (Vector2)transform.position;
             direction.Normalize();
-            transform.position += direction * moveSpeed * Time.deltaTime;
+            rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));
             AnimateMovement(direction);
         }
         else
@@ -94,9 +95,9 @@ public class EnemyMovement : MonoBehaviour
     public void ChasePlayer()
     {
         mouf.clip = sound[2];
-        Vector3 direction = player.position - transform.position;
+        Vector2 direction = player.position - transform.position;
         direction.Normalize();
-        transform.position += direction * moveSpeed * Time.deltaTime;
+        rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));
         AnimateMovement(direction);
     }
     
@@ -105,6 +106,11 @@ public class EnemyMovement : MonoBehaviour
         if(obj.gameObject.tag == "Player")
         {
             obj.gameObject.GetComponent<PlayerHealth>().TakeDamage();
+        }
+
+        if(obj.gameObject.tag == "MapBorder")
+        {
+            roamPosition = GetRandomRoamPosition();
         }
     }
     
@@ -121,7 +127,7 @@ public class EnemyMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(stunTime);
         isStunned = false;
-        // play unstun sound?
+        roamPosition = GetRandomRoamPosition();
     }
 
     private Vector3 GetRandomRoamPosition()
@@ -129,10 +135,4 @@ public class EnemyMovement : MonoBehaviour
         Vector3 randomDirection = Random.insideUnitCircle.normalized;
         return transform.position + randomDirection * roamRadius;
     }
-
-    // void OnDrawGizmos()
-    // {
-    //     Gizmos.color = Color.red;
-    //     Gizmos.DrawSphere(transform.position, roamRadius);
-    // }
 }
