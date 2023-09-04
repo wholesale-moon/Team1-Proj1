@@ -110,21 +110,27 @@ public class PlayerMovement : MonoBehaviour
                 transform.GetComponent<SceneActivation>().GainFlashlight();
                 interactable.SetActive(false);
                 flashlightHold.SetActive(true);
+                UpdateActionTextp("Flashlight");
                 canInteract = false;
             } 
             else if (interactable.tag == "LanternStash") 
             {
                 _GameSaveData._hasLantern = true;
-                //flashlight.SetActive(false);
                 flashlightHold.SetActive(false);
                 lanternHold.SetActive(true);
-                // set player lantern light on
                 UpdateActionTextp("Lantern");
             }
             else if (interactable.tag == "StringLightsPickup")
             {
                 Destroy(interactable);
                 _GameSaveData._hasStringLights = true;
+                transform.GetComponent<SceneActivation>().GainStringLights();
+                UpdateActionTextp("12x String Lights");
+            }
+            else if (interactable.tag == "PlaceStringLight")
+            {
+                interactable.GetComponent<StringLights>().stringLight.SetActive(true);
+                Destroy(interactable);
             }
             else if (interactable.tag == "Generator")
             {
@@ -139,7 +145,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    #region Travel
+    #region Travel On Collision
     private void OnCollisionEnter2D(Collision2D collision)
     {   
         if (collision.gameObject.tag == "House")
@@ -227,6 +233,7 @@ public class PlayerMovement : MonoBehaviour
             _GameSaveData._hasBarnKey = true;
             Destroy(obj.gameObject);
             transform.GetComponent<SceneActivation>().GainKey();
+            UpdateActionTextp("Barn Key");
         }
 
         if (obj.gameObject.tag == "Medicine")
@@ -254,6 +261,12 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (obj.gameObject.tag == "StringLightsPickup")
+        {
+            interactable = obj.gameObject;
+            canInteract = true;
+        }
+
+        if (obj.gameObject.tag == "PlaceStringLight")
         {
             interactable = obj.gameObject;
             canInteract = true;
@@ -322,6 +335,11 @@ public class PlayerMovement : MonoBehaviour
             canInteract = false;
         }
 
+        if (obj.gameObject.tag == "PlaceStringLight")
+        {
+            canInteract = false;
+        }
+
         if (obj.gameObject.tag == "Lantern")
         {
             canInteract = false;
@@ -372,7 +390,7 @@ public class PlayerMovement : MonoBehaviour
     }
     #endregion
 
-    #region Travel
+    #region Travel Coordinates
     private IEnumerator ToHouse()
     {
         theCamera.GetComponent<CinemachineBrain>().enabled = false;
