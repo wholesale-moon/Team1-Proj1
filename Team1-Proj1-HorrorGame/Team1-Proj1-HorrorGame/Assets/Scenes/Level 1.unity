@@ -13496,8 +13496,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.89540005, y: -0.13549995, z: 0}
-    m_Extent: {x: 3.9031, y: 3.6134, z: 0}
+    m_Center: {x: -0.8981501, y: -0.13059998, z: 0}
+    m_Extent: {x: 3.9018502, y: 3.6124, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -13578,8 +13578,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.0022000074, y: -0.00064998865, z: 0}
-    m_Extent: {x: 1.5001, y: 1.50155, z: 0}
+    m_Center: {x: 0.0043500066, y: 0.0017499924, z: 0}
+    m_Extent: {x: 1.5006499, y: 1.50195, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -29331,9 +29331,45 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4213562252395297582, guid: 3743e21ec69ec054ea63d1513abc3a00, type: 2}
     - target: {fileID: 10109155785928262, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
+      propertyPath: sounds.Array.size
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 10109155785928262, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
       propertyPath: soundEffectsMixerGroup
       value: 
       objectReference: {fileID: 5512973357858327002, guid: 3743e21ec69ec054ea63d1513abc3a00, type: 2}
+    - target: {fileID: 10109155785928262, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
+      propertyPath: sounds.Array.data[17].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 720ca030af7a12b40bc8bd5ea76d5ffe, type: 3}
+    - target: {fileID: 10109155785928262, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
+      propertyPath: sounds.Array.data[18].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: ca7e7b66310229d488bd5f4156713d0a, type: 3}
+    - target: {fileID: 10109155785928262, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
+      propertyPath: sounds.Array.data[17].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 10109155785928262, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
+      propertyPath: sounds.Array.data[18].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 10109155785928262, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
+      propertyPath: sounds.Array.data[17].clipName
+      value: EnemyDeath
+      objectReference: {fileID: 0}
+    - target: {fileID: 10109155785928262, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
+      propertyPath: sounds.Array.data[18].clipName
+      value: EnemyBreath
+      objectReference: {fileID: 0}
+    - target: {fileID: 10109155785928262, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
+      propertyPath: sounds.Array.data[1].playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10109155785928262, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
+      propertyPath: sounds.Array.data[2].playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 709193081501427244, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
       propertyPath: m_Name
       value: SceneManager
@@ -30673,8 +30709,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.89059997, y: -0.13419998, z: 0}
-    m_Extent: {x: 3.8963, y: 3.6088, z: 0}
+    m_Center: {x: -0.88999987, y: -0.13145006, z: 0}
+    m_Extent: {x: 3.8967, y: 3.6108499, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -82609,8 +82645,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.0031999946, y: -0.0016500354, z: 0}
-    m_Extent: {x: 1.0065, y: 1.00355, z: 0}
+    m_Center: {x: 0.00040000677, y: -0.00079998374, z: 0}
+    m_Extent: {x: 1.0058999, y: 0.9999, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -99868,9 +99904,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 23892786}
     - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: ExitQuest
+      value: 
+      objectReference: {fileID: 1649642446}
+    - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
       propertyPath: Lvl2Start
       value: 
       objectReference: {fileID: 1544357922}
+    - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: Lvl3Start
+      value: 
+      objectReference: {fileID: 1649642446}
     - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
       propertyPath: MedBottle
       value: 
@@ -99960,9 +100004,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1649642446}
     - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: protectTheFarm
+      value: 
+      objectReference: {fileID: 1649642446}
+    - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
       propertyPath: baseStringLights
       value: 
       objectReference: {fileID: 1521454073}
+    - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: FlameToolUpstairs
+      value: 
+      objectReference: {fileID: 1649642446}
     - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
       propertyPath: PutUpStringLights
       value: 
@@ -100100,6 +100152,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6163812994595470745, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: flame
+      value: 
+      objectReference: {fileID: 691789092692151506}
+    - target: {fileID: 6163812994595470745, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
       propertyPath: itemHold
       value: 
       objectReference: {fileID: 23892786}
@@ -100107,6 +100163,10 @@ PrefabInstance:
       propertyPath: questLog
       value: 
       objectReference: {fileID: 422507155}
+    - target: {fileID: 6163812994595470745, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: FlameTool
+      value: 
+      objectReference: {fileID: 691789092692151507}
     - target: {fileID: 6163812994595470745, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
       propertyPath: houseDoor
       value: 
@@ -100132,6 +100192,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 816901486}
     - target: {fileID: 6163812994595470745, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: flameDamage
+      value: 
+      objectReference: {fileID: 691789092692151505}
+    - target: {fileID: 6163812994595470745, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
       propertyPath: houseCamera
       value: 
       objectReference: {fileID: 192464960}
@@ -100147,6 +100211,10 @@ PrefabInstance:
       propertyPath: _SceneManager
       value: 
       objectReference: {fileID: 738415852}
+    - target: {fileID: 6163812994595470745, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: flameToolHold
+      value: 
+      objectReference: {fileID: 1649642446}
     - target: {fileID: 6163812994595470745, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
       propertyPath: flashlightHold
       value: 
@@ -100210,6 +100278,21 @@ PrefabInstance:
 --- !u!1 &691789092692151504 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3599661399554378357, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+  m_PrefabInstance: {fileID: 691789092692151503}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &691789092692151505 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2791650872678520272, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+  m_PrefabInstance: {fileID: 691789092692151503}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &691789092692151506 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 476611028109544582, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+  m_PrefabInstance: {fileID: 691789092692151503}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &691789092692151507 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3607066760066598451, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
   m_PrefabInstance: {fileID: 691789092692151503}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &691789092692151515 stripped

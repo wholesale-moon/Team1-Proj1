@@ -18037,6 +18037,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0029398, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1650912057 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2791650872678520272, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+  m_PrefabInstance: {fileID: 691789092692151503}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1673070834
 GameObject:
   m_ObjectHideFlags: 0
@@ -28862,8 +28867,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.00085002184, y: 0.00055003166, z: 0}
-    m_Extent: {x: 1.0013499, y: 1.00385, z: 0}
+    m_Center: {x: 0.0032500029, y: -0.0019500256, z: 0}
+    m_Extent: {x: 1.00445, y: 1.00055, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -37240,6 +37245,16 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4701668169389357945, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
   m_PrefabInstance: {fileID: 1042282897}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2114998580 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3607066760066598451, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+  m_PrefabInstance: {fileID: 691789092692151503}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2120607476 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 476611028109544582, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+  m_PrefabInstance: {fileID: 691789092692151503}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &691789092692151503
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37313,7 +37328,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 993321105}
     - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: ExitQuest
+      value: 
+      objectReference: {fileID: 993321105}
+    - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
       propertyPath: Lvl2Start
+      value: 
+      objectReference: {fileID: 993321105}
+    - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: Lvl3Start
       value: 
       objectReference: {fileID: 993321105}
     - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
@@ -37405,7 +37428,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 827772500}
     - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: protectTheFarm
+      value: 
+      objectReference: {fileID: 993321105}
+    - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
       propertyPath: baseStringLights
+      value: 
+      objectReference: {fileID: 993321105}
+    - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: FlameToolUpstairs
       value: 
       objectReference: {fileID: 993321105}
     - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
@@ -37521,6 +37552,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6163812994595470745, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: flame
+      value: 
+      objectReference: {fileID: 2120607476}
+    - target: {fileID: 6163812994595470745, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
       propertyPath: itemHold
       value: 
       objectReference: {fileID: 2090278891}
@@ -37528,6 +37563,10 @@ PrefabInstance:
       propertyPath: questLog
       value: 
       objectReference: {fileID: 1082374561}
+    - target: {fileID: 6163812994595470745, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: FlameTool
+      value: 
+      objectReference: {fileID: 2114998580}
     - target: {fileID: 6163812994595470745, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
       propertyPath: houseDoor
       value: 
@@ -37553,6 +37592,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6163812994595470745, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: flameDamage
+      value: 
+      objectReference: {fileID: 1650912057}
+    - target: {fileID: 6163812994595470745, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
       propertyPath: houseCamera
       value: 
       objectReference: {fileID: 192464960}
@@ -37568,6 +37611,10 @@ PrefabInstance:
       propertyPath: _SceneManager
       value: 
       objectReference: {fileID: 738415852}
+    - target: {fileID: 6163812994595470745, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: flameToolHold
+      value: 
+      objectReference: {fileID: 993321105}
     - target: {fileID: 6163812994595470745, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
       propertyPath: flashlightHold
       value: 
@@ -37596,6 +37643,14 @@ PrefabInstance:
       propertyPath: hearts.Array.data[3]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6585606865562676045, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: SceneManager
+      value: 
+      objectReference: {fileID: 738415852}
+    - target: {fileID: 6585606865562676045, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: currentCamera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 7597846045094545737, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
       propertyPath: currentCamera
       value: 

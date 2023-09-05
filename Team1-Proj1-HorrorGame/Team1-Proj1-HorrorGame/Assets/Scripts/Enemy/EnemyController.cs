@@ -23,9 +23,10 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private Animator animatorBottom;
 
     [Header("Audio")]
-    [SerializeField] private AudioMixerGroup soundEffectsMixerGroup;
-    [SerializeField] private AudioSource mouf; //mouth
-    [SerializeField] private AudioClip[] sound;
+    [SerializeField] private GameObject SceneManager;
+    //[SerializeField] private AudioMixerGroup soundEffectsMixerGroup;
+    //[SerializeField] private AudioSource mouf; //mouth
+    //[SerializeField] private AudioClip[] sound;
 
 
     private void Awake()
@@ -36,7 +37,7 @@ public class EnemyMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        mouf.outputAudioMixerGroup = soundEffectsMixerGroup;
+        
         roamPosition = GetRandomRoamPosition();
     }
 
@@ -44,6 +45,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (isStunned)
         {
+            SceneManager.GetComponent<SoundManager>().PlayClipByName("EnemyGrowl");
             animatorTop.SetFloat("Speed", 0);
             animatorBottom.SetFloat("Speed", 0);
             rb.velocity = Vector2.zero;
@@ -74,11 +76,12 @@ public class EnemyMovement : MonoBehaviour
         animatorTop.SetFloat("Vertical", direction.y);
         animatorBottom.SetFloat("Horizontal", direction.x);
         animatorBottom.SetFloat("Vertical", direction.y);
+        
     }
     
     public void Roam()
     {
-        mouf.clip = sound[0];
+        
         if (Vector2.Distance(transform.position, roamPosition) > 0.1f)
         {
             Vector2 direction = roamPosition - (Vector2)transform.position;
@@ -94,7 +97,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void ChasePlayer()
     {
-        mouf.clip = sound[2];
+        SceneManager.GetComponent<SoundManager>().PlayClipByName("EnemyBreath");
         Vector2 direction = player.position - transform.position;
         direction.Normalize();
         rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));
@@ -107,12 +110,14 @@ public class EnemyMovement : MonoBehaviour
         {
             animatorTop.SetTrigger("isBurn");
             animatorBottom.SetTrigger("isBurn");
+            
             StartCoroutine(Death());
         }
     }
 
     private IEnumerator Death()
     {
+        SceneManager.GetComponent<SoundManager>().PlayClipByName("EnemyDeath");
         yield return new WaitForSeconds(2.7f);
 
         Destroy(gameObject);
@@ -134,7 +139,7 @@ public class EnemyMovement : MonoBehaviour
     
     public void Stunned()
     {
-        mouf.clip = sound[1];
+        
         isStunned = true;
         animatorTop.SetTrigger("isStunned");
         animatorBottom.SetTrigger("isStunned");
