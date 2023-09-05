@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    [SerializeField] private GameSaveData _GameSaveData;
+    
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private float roamRadius = 5f;
@@ -24,10 +26,6 @@ public class EnemyMovement : MonoBehaviour
 
     [Header("Audio")]
     [SerializeField] private GameObject SceneManager;
-    //[SerializeField] private AudioMixerGroup soundEffectsMixerGroup;
-    //[SerializeField] private AudioSource mouf; //mouth
-    //[SerializeField] private AudioClip[] sound;
-
 
     private void Awake()
     {
@@ -97,7 +95,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void ChasePlayer()
     {
-        SceneManager.GetComponent<SoundManager>().PlayClipByName("EnemyBreath");
+        //SceneManager.GetComponent<SoundManager>().PlayClipByName("EnemyBreath");
         Vector2 direction = player.position - transform.position;
         direction.Normalize();
         rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));
@@ -120,6 +118,7 @@ public class EnemyMovement : MonoBehaviour
         SceneManager.GetComponent<SoundManager>().PlayClipByName("EnemyDeath");
         yield return new WaitForSeconds(2.7f);
 
+        _GameSaveData._numOfScarecrows -= 1;
         Destroy(gameObject);
         yield return null;
     }

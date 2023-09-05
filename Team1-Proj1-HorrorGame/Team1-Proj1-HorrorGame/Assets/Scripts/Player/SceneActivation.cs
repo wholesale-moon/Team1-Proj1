@@ -49,11 +49,16 @@ public class SceneActivation : MonoBehaviour
     [SerializeField] private GameObject FlameToolUpstairs;
     [SerializeField] private GameObject Lvl3Start;
 
+    [Header("Level 3")]
+    [SerializeField] private GameObject NeedFlameTool;
+    [SerializeField] private GameObject protectTheFarm;
+    [SerializeField] private GameObject SafeToHeadHome;
+    [SerializeField] private GameObject creditsStart;
+
     [Header("Story Items")]
     [SerializeField] private GameObject generator;
     [SerializeField] private GameObject ScreenText;
     [SerializeField] private GameObject StartingQuest;
-    [SerializeField] private GameObject protectTheFarm;
  
     [Header("Doors")]
     [SerializeField] private GameObject houseDoor;
@@ -73,6 +78,7 @@ public class SceneActivation : MonoBehaviour
 
     [HideInInspector] public bool hasMorphed = false;
     [HideInInspector] public int stringLightInventory = 0;
+    [HideInInspector] public bool clearLvl3 = false;
 
     void Start()
     {
@@ -112,6 +118,7 @@ public class SceneActivation : MonoBehaviour
             _GameSaveData._isHouseOpen = true;
             _GameSaveData._hasStringLights = false;
             _GameSaveData._hasFlameTool = false;
+            _GameSaveData._numOfScarecrows = 7;
             generator.GetComponent<Animator>().SetTrigger("isTurnedOn");
             minicrow2.GetComponent<Animator>().SetBool("Sludge3", true);
             minicrow3.GetComponent<Animator>().SetBool("Sludge2", true);
@@ -119,6 +126,23 @@ public class SceneActivation : MonoBehaviour
         }
 
         minicrow1.GetComponent<Animator>().SetBool("Sludge3", true);
+    }
+
+    void Update()
+    {
+        if(SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            if(_GameSaveData._numOfScarecrows == 0 || _GameSaveData._numOfScarecrows <= 0)
+            {
+                clearLvl3 = true;
+            }
+        }
+
+        if(clearLvl3)
+        {
+            SafeToHeadHome.SetActive(true);
+            creditsStart.SetActive(true);
+        }
     }
 
     public void PickupTutorialActive()
@@ -223,6 +247,7 @@ public class SceneActivation : MonoBehaviour
 
     public void ProtectTheFarm()
     {
+        NeedFlameTool.SetActive(false);
         protectTheFarm.SetActive(true);
     }
 }

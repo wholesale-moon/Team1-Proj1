@@ -30,4 +30,7 @@ public class GameSaveData : ScriptableObject
     
     public int _currentCutscene;
     public float[] _cutsceneEndTimes;
+
+
+    public int _numOfScarecrows;
 }

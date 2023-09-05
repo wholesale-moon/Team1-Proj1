@@ -10788,21 +10788,21 @@ PlayableDirector:
   - key: {fileID: -3277428606344684629, guid: 2363ef4eddfa181488c323b55c7a2e49, type: 2}
     value: {fileID: 691789092692151514}
   - key: {fileID: 8138422142970178212, guid: 2363ef4eddfa181488c323b55c7a2e49, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 1082374565}
   - key: {fileID: -126619502060074663, guid: 2363ef4eddfa181488c323b55c7a2e49, type: 2}
     value: {fileID: 1211442638}
   - key: {fileID: 5690075084198746548, guid: 2363ef4eddfa181488c323b55c7a2e49, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 1341468246}
   - key: {fileID: 5688992024050935751, guid: 2363ef4eddfa181488c323b55c7a2e49, type: 2}
     value: {fileID: 595659720}
   - key: {fileID: 569590113354228766, guid: 2363ef4eddfa181488c323b55c7a2e49, type: 2}
     value: {fileID: 691789092692151504}
   - key: {fileID: 431111453631647248, guid: 2363ef4eddfa181488c323b55c7a2e49, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 1186149246}
   - key: {fileID: -6908271587294797950, guid: 2363ef4eddfa181488c323b55c7a2e49, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 1082374562}
   - key: {fileID: 2284377219655819209, guid: 2363ef4eddfa181488c323b55c7a2e49, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 1276377548}
   - key: {fileID: 7162264880788511620, guid: 2363ef4eddfa181488c323b55c7a2e49, type: 2}
     value: {fileID: 1473313576}
   - key: {fileID: -6115080362194402562, guid: 2363ef4eddfa181488c323b55c7a2e49, type: 2}
@@ -13346,6 +13346,14 @@ PrefabInstance:
       propertyPath: sounds.Array.data[15].clipName
       value: Healing
       objectReference: {fileID: 0}
+    - target: {fileID: 10109155785928262, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
+      propertyPath: sounds.Array.data[0].playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 10109155785928262, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
+      propertyPath: sounds.Array.data[1].playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 709193081501427244, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
       propertyPath: m_Name
       value: SceneManager
@@ -13422,6 +13430,22 @@ PrefabInstance:
       propertyPath: playableDirectors.Array.data[4]
       value: 
       objectReference: {fileID: 754864815}
+    - target: {fileID: 6531698511824454423, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6531698511824454423, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 6531698511824454423, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 6686852558528483415, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8311669033000115760, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
       propertyPath: speaker
       value: 
@@ -13492,6 +13516,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8553388102964357382, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9110656165145314340, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -14252,6 +14280,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1186149246 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4267509363899814920, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
+  m_PrefabInstance: {fileID: 1042282897}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1197881176
 GameObject:
   m_ObjectHideFlags: 0
@@ -15036,6 +15069,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1276377548 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2695902960244666716, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
+  m_PrefabInstance: {fileID: 1042282897}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1294096076
 GameObject:
   m_ObjectHideFlags: 0
@@ -15304,6 +15342,11 @@ Transform:
   - {fileID: 1421583919}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1341468246 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6686852558528483415, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
+  m_PrefabInstance: {fileID: 1042282897}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1346761565
 GameObject:
   m_ObjectHideFlags: 0
@@ -15556,6 +15599,18 @@ PrefabInstance:
     - target: {fileID: 1623834075143687274, guid: f0b205f887fedd945a90f65ad65ef116, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6018710620692793613, guid: f0b205f887fedd945a90f65ad65ef116, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6018710620692793613, guid: f0b205f887fedd945a90f65ad65ef116, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 6018710620692793613, guid: f0b205f887fedd945a90f65ad65ef116, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28867,8 +28922,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.0032500029, y: -0.0019500256, z: 0}
-    m_Extent: {x: 1.00445, y: 1.00055, z: 0}
+    m_Center: {x: -0.0026500225, y: -0.002000004, z: 0}
+    m_Extent: {x: 1.00545, y: 0.9956, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -37400,7 +37455,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 993321105}
     - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: creditsStart
+      value: 
+      objectReference: {fileID: 993321105}
+    - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
       propertyPath: MorphCutscene
+      value: 
+      objectReference: {fileID: 993321105}
+    - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: NeedFlameTool
       value: 
       objectReference: {fileID: 993321105}
     - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
@@ -37417,6 +37480,10 @@ PrefabInstance:
       objectReference: {fileID: 738415852}
     - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
       propertyPath: minicrowMorph
+      value: 
+      objectReference: {fileID: 993321105}
+    - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
+      propertyPath: SafeToHeadHome
       value: 
       objectReference: {fileID: 993321105}
     - target: {fileID: 3993736357865368635, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}

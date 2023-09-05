@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f4437d3405dbc4b9573ccaebfae460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SceneManager: {fileID: 0}
   scarecrow: {fileID: 3158944368944950773}
 --- !u!58 &7908284517433114311
 CircleCollider2D:
@@ -231,6 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76479aa52b6f7744ab4d685c6241f4de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _GameSaveData: {fileID: 11400000, guid: 4b3d4dca943ebc54aac5379ca92a9107, type: 2}
   moveSpeed: 3
   roamRadius: 5
   player: {fileID: 0}
@@ -240,13 +242,7 @@ MonoBehaviour:
   isStunned: 0
   animatorTop: {fileID: 5521587957524862918}
   animatorBottom: {fileID: 2414068521016886053}
-  soundEffectsMixerGroup: {fileID: 5512973357858327002, guid: 3743e21ec69ec054ea63d1513abc3a00, type: 2}
-  mouf: {fileID: 6211107815038619409}
-  sound:
-  - {fileID: 8300000, guid: 09dd3f6d12097514790ac47b8b6baec9, type: 3}
-  - {fileID: 8300000, guid: 3fde7585d5ef87c49b788ccc67d3752a, type: 3}
-  - {fileID: 8300000, guid: f5f04b890804068478700b8381a8602c, type: 3}
-  - {fileID: 8300000, guid: c7ace64fc9d3e44498424995c21343de, type: 3}
+  SceneManager: {fileID: 0}
 --- !u!82 &6211107815038619409
 AudioSource:
   m_ObjectHideFlags: 0

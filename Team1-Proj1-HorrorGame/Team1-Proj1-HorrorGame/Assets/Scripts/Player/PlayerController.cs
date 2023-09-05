@@ -60,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
     {
         walkSound = gameObject.GetComponent<AudioSource>();
         walkSound.outputAudioMixerGroup = soundEffectsMixerGroup;
+        // Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -207,6 +208,7 @@ public class PlayerMovement : MonoBehaviour
                 flameToolHold.SetActive(true);
                 flashlightHold.SetActive(false);
                 flashlight.SetActive(false);
+                transform.GetComponent<SceneActivation>().ProtectTheFarm();
                 UpdateActionTextp("FlameTool");
             }
         }
@@ -315,7 +317,7 @@ public class PlayerMovement : MonoBehaviour
         
         if (obj.gameObject.tag == "GasCan")
         {
-            Debug.Log("has gas can");
+            UpdateActionTextp("Fuel");
             Destroy(obj.gameObject);
         }
         #endregion
@@ -396,6 +398,12 @@ public class PlayerMovement : MonoBehaviour
         {
             sceneTransitioner.SetActive(true);
             sceneTransitioner.GetComponent<LevelTransition>().FadeToLevel(4);
+        }
+
+        if (obj.gameObject.tag == "creditsStart")
+        {
+            sceneTransitioner.SetActive(true);
+            sceneTransitioner.GetComponent<LevelTransition>().FadeToLevel(5);
         }
         
         if (obj.gameObject.tag == "Sludge")
