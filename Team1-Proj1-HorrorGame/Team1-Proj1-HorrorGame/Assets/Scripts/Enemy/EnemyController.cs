@@ -100,6 +100,24 @@ public class EnemyMovement : MonoBehaviour
         rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));
         AnimateMovement(direction);
     }
+
+    void OnTriggerEnter2D(Collider2D obj)
+    {
+        if (obj.gameObject.tag == "Damage")
+        {
+            animatorTop.SetTrigger("isBurn");
+            animatorBottom.SetTrigger("isBurn");
+            StartCoroutine(Death());
+        }
+    }
+
+    private IEnumerator Death()
+    {
+        yield return new WaitForSeconds(2.7f);
+
+        Destroy(gameObject);
+        yield return null;
+    }
     
     void OnCollisionEnter2D(Collision2D obj)
     {

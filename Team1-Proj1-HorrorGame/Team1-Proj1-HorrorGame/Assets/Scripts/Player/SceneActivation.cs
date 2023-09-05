@@ -53,7 +53,8 @@ public class SceneActivation : MonoBehaviour
     [SerializeField] private GameObject generator;
     [SerializeField] private GameObject ScreenText;
     [SerializeField] private GameObject StartingQuest;
-
+    [SerializeField] private GameObject protectTheFarm;
+ 
     [Header("Doors")]
     [SerializeField] private GameObject houseDoor;
     [SerializeField] private GameObject barnTransition;
@@ -106,13 +107,15 @@ public class SceneActivation : MonoBehaviour
             StartCoroutine(TimeCheck());
         } else if (SceneManager.GetActiveScene().buildIndex == 4) // Lvl 3
         {
-            // _GameSaveData._hasFlashlight = true;
-            // _GameSaveData._hasBarnKey = true;
-            // _GameSaveData._isHouseOpen = true;
-            // generator.GetComponent<Animator>().SetTrigger("isTurnedOn");
-            // minicrow2.GetComponent<Animator>().SetBool("Sludge3", true);
-            // minicrow3.GetComponent<Animator>().SetBool("Sludge2", true);
-            // StartCoroutine(TimeCheck());
+            _GameSaveData._hasFlashlight = true;
+            _GameSaveData._hasBarnKey = true;
+            _GameSaveData._isHouseOpen = true;
+            _GameSaveData._hasStringLights = false;
+            _GameSaveData._hasFlameTool = false;
+            generator.GetComponent<Animator>().SetTrigger("isTurnedOn");
+            minicrow2.GetComponent<Animator>().SetBool("Sludge3", true);
+            minicrow3.GetComponent<Animator>().SetBool("Sludge2", true);
+            StartCoroutine(TimeCheck());
         }
 
         minicrow1.GetComponent<Animator>().SetBool("Sludge3", true);
@@ -216,5 +219,10 @@ public class SceneActivation : MonoBehaviour
         FlameToolUpstairs.SetActive(true);
         Lvl3Start.SetActive(true);
         _SceneManager.GetComponent<DialogueManager>().DialogueBox.SetActive(false);
+    }
+
+    public void ProtectTheFarm()
+    {
+        protectTheFarm.SetActive(true);
     }
 }

@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject itemHold;
     [SerializeField] private GameObject flashlightHold;
     [SerializeField] private GameObject lanternHold;
+    [SerializeField] private GameObject flameToolHold;
 
     [Space(10)]
     [SerializeField] private TMP_Text actionText;
@@ -49,6 +50,9 @@ public class PlayerMovement : MonoBehaviour
 
     [Space(10)]
     public GameObject flashlight;
+    [SerializeField] private GameObject FlameTool;
+    [SerializeField] private GameObject flame;
+    [SerializeField] private GameObject flameDamage;
     #endregion
 
     // Start is called before the first frame update
@@ -62,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         OnMove();
-        
+        CheckAttack();
         CheckInteractables();
     }
 
@@ -115,6 +119,27 @@ public class PlayerMovement : MonoBehaviour
        
     }
     #endregion
+
+    private void CheckAttack()
+    {
+        if (Input.GetMouseButtonDown(0) && _GameSaveData._hasFlameTool == true)
+        {
+            flame.GetComponent<Animator>().SetTrigger("Blast");
+            StartCoroutine(DealDamage());
+        }
+    }
+
+    private IEnumerator DealDamage()
+    {
+        yield return new WaitForSeconds(0.09f);
+
+        flameDamage.SetActive(true);
+        yield return new WaitForSeconds(1.11f);
+
+        flameDamage.SetActive(false);
+        yield return null;
+    }
+
 
     private void CheckInteractables()
     {
@@ -176,7 +201,12 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (interactable.tag == "FlameTool")
             {
-                //_GameSaveData._hasFlameTool = true;
+                _GameSaveData._hasFlameTool = true;
+                Destroy(interactable);
+                FlameTool.SetActive(true);
+                flameToolHold.SetActive(true);
+                flashlightHold.SetActive(false);
+                flashlight.SetActive(false);
                 UpdateActionTextp("FlameTool");
             }
         }
@@ -458,6 +488,7 @@ public class PlayerMovement : MonoBehaviour
         theCamera.SetActive(false);
         houseCamera.SetActive(true);
         flashlight.GetComponent<FollowMouse>().currentCamera = houseCamera.GetComponent<Camera>();
+        FlameTool.GetComponent<FollowMouse>().currentCamera = houseCamera.GetComponent<Camera>();
         yield return null;
     }
 
@@ -472,6 +503,7 @@ public class PlayerMovement : MonoBehaviour
         theCamera.SetActive(false);
         barnCamera.SetActive(true);
         flashlight.GetComponent<FollowMouse>().currentCamera = barnCamera.GetComponent<Camera>();
+        FlameTool.GetComponent<FollowMouse>().currentCamera = barnCamera.GetComponent<Camera>();
         yield return null;
     }
 
@@ -486,6 +518,7 @@ public class PlayerMovement : MonoBehaviour
         theCamera.SetActive(false);
         shedCamera.SetActive(true);
         flashlight.GetComponent<FollowMouse>().currentCamera = shedCamera.GetComponent<Camera>();
+        FlameTool.GetComponent<FollowMouse>().currentCamera = shedCamera.GetComponent<Camera>();
         yield return null;
     }
 
@@ -517,6 +550,7 @@ public class PlayerMovement : MonoBehaviour
         theCamera.SetActive(true);
         houseCamera.SetActive(false);
         flashlight.GetComponent<FollowMouse>().currentCamera = theCamera.GetComponent<Camera>();
+        FlameTool.GetComponent<FollowMouse>().currentCamera = theCamera.GetComponent<Camera>();
         yield return null;
     }
 
@@ -531,6 +565,7 @@ public class PlayerMovement : MonoBehaviour
         theCamera.SetActive(true);
         barnCamera.SetActive(false);
         flashlight.GetComponent<FollowMouse>().currentCamera = theCamera.GetComponent<Camera>();
+        FlameTool.GetComponent<FollowMouse>().currentCamera = theCamera.GetComponent<Camera>();
         yield return null;
     }
 
@@ -545,6 +580,7 @@ public class PlayerMovement : MonoBehaviour
         theCamera.SetActive(true);
         shedCamera.SetActive(false);
         flashlight.GetComponent<FollowMouse>().currentCamera = theCamera.GetComponent<Camera>();
+        FlameTool.GetComponent<FollowMouse>().currentCamera = theCamera.GetComponent<Camera>();
         yield return null;
     }
 

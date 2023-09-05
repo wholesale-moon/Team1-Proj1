@@ -10,6 +10,7 @@ public class GameSaveData : ScriptableObject
     public bool _hasLantern;
     public bool _hasBarnKey;
     public bool _hasStringLights;
+    public bool _hasFlameTool;
 
     [Space(10)]
     public bool _isHouseOpen;
