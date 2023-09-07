@@ -47,15 +47,4 @@ public class OptionsMenu : MonoBehaviour
         _GameSaveData._skipPrologue = skipPrologue;
         _SceneManager.GetComponent<SoundManager>().PlayClipByName("Button Highlight");
     }
-
-    // public void SetBrightness(float brightness)
-    // {
-    //      
-    // }
-
-    // public void SetClownMode(bool isClown)
-    // {
-    //     _GameSaveData._isClown = isClown;
-    //     _SceneManager.GetComponent<SoundManager>().PlayClipByName("Button Highlight");
-    // }
 }

@@ -12,17 +12,19 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameSaveData _GameSaveData;
     [SerializeField] private GameObject optionsScreen;
     [SerializeField] private GameObject skipPrologueOption;
-    
-    // void Start()
-    // {
-    //     if(_GameSaveData._hasCompletedPrologue == true)
-    //     {
-    //         skipPrologueOption.SetActive(true);
-    //     } else {
-    //         skipPrologueOption.SetActive(false);
-    //     }
-    // }
-    
+
+    void Start()
+    {
+        if (_GameSaveData._hasCompletedPrologue == true)
+        {
+            skipPrologueOption.SetActive(true);
+        }
+        else
+        {
+            skipPrologueOption.SetActive(false);
+        }
+    }
+
     public void OnButtonHighlight()
     {
         _SceneManager.GetComponent<SoundManager>().PlayClipByName("Button Highlight");

@@ -488,8 +488,7 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator ToHouse()
     {
         theCamera.GetComponent<CinemachineBrain>().enabled = false;
-        rb2d.transform.position = new Vector3(-6.19f, -41.3f, -2);
-        //_SceneManager.GetComponent<SoundManager>().PlayClipByName("House Theme");
+        rb2d.transform.position = new Vector3(-33.43f, -45.19f, 0);
         walkSound.clip = sounds[3];
 
         yield return new WaitForSeconds(0.4f);
@@ -503,8 +502,7 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator ToBarn()
     {
         theCamera.GetComponent<CinemachineBrain>().enabled = false;
-        rb2d.transform.position = new Vector3(39.96f, -41.76f, -2);
-        //_SceneManager.GetComponent<SoundManager>().PlayClipByName("House Theme");
+        rb2d.transform.position = new Vector3(12.99f, -45.19f, 0);
         walkSound.clip = sounds[3];
 
         yield return new WaitForSeconds(0.4f);
@@ -518,8 +516,7 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator ToShed()
     {
         theCamera.GetComponent<CinemachineBrain>().enabled = false;
-        rb2d.transform.position = new Vector3(35.58f, -56.99f, -2);
-        //_SceneManager.GetComponent<SoundManager>().PlayClipByName("House Theme");
+        rb2d.transform.position = new Vector3(6.57f, -60.56f, 0);
         walkSound.clip = sounds[3];
 
         yield return new WaitForSeconds(0.4f);
@@ -531,28 +528,27 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private IEnumerator ToUpstairs()
-    { // 2.48, -12.7, -10
-        rb2d.transform.position = new Vector3(6.83f, -57.71f, -2f);
+    {
+        rb2d.transform.position = new Vector3(-17.61f, -56.55f, 0);
 
         yield return new WaitForSeconds(0.4f);
-        houseCamera.transform.position = new Vector3(1.791583f, -53.71448f, -10f);
+        houseCamera.transform.position = new Vector3(-24.5f, -59.04f, -10);
         yield return null;
     }
 
     private IEnumerator ToDownstairs()
-    { // 2.48, 1.27, -10
-        rb2d.transform.position = new Vector3(5.553f, -41.489f, -2);
+    {
+        rb2d.transform.position = new Vector3(-18.86f, -38.32f, 0);
 
         yield return new WaitForSeconds(0.4f);
-        houseCamera.transform.position = new Vector3(1.791583f, -39.74448f, -10);
+        houseCamera.transform.position = new Vector3(-24.5f, -44.15f, -10f);
         yield return null;
     }
 
     private IEnumerator ExitHouse()
     {
         theCamera.GetComponent<CinemachineBrain>().enabled = true;
-        rb2d.transform.position = new Vector3(2.98f, 0.68f, -2);
-        _SceneManager.GetComponent<SoundManager>().PlayClipByName("Field Theme");
+        rb2d.transform.position = new Vector3(1.92f, 0.77f, 0);
 
         yield return new WaitForSeconds(0.4f);
         theCamera.SetActive(true);
@@ -565,9 +561,7 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator ExitBarn()
     {
         theCamera.GetComponent<CinemachineBrain>().enabled = true;
-        theCamera.transform.position = new Vector3(0f, 0f, -10);
-        rb2d.transform.position = new Vector3(-35.86f, -23.43f, -2);
-        //_SceneManager.GetComponent<SoundManager>().PlayClipByName("Field Theme");
+        rb2d.transform.position = new Vector3(-18.92f, -22.92f, 0);
 
         yield return new WaitForSeconds(0.4f);
         theCamera.SetActive(true);
@@ -580,9 +574,7 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator ExitShed()
     {
         theCamera.GetComponent<CinemachineBrain>().enabled = true;
-        theCamera.transform.position = new Vector3(0f, 0f, -10);
-        rb2d.transform.position = new Vector3(-49.55f, 0.07f, -2);
-        //_SceneManager.GetComponent<SoundManager>().PlayClipByName("Field Theme");
+        rb2d.transform.position = new Vector3(-20.39f, 13.54f, 0);
 
         yield return new WaitForSeconds(0.4f);
         theCamera.SetActive(true);
