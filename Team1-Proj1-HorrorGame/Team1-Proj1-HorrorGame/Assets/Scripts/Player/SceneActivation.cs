@@ -16,10 +16,11 @@ public class SceneActivation : MonoBehaviour
     [Header("Prologue")]
     [SerializeField] private GameObject pickupTutorial;
     [SerializeField] private GameObject MedBottle;
+    [SerializeField] private GameObject blockedHouseDialogue;
+    public GameObject houseTransition;
     
     [Header("Level 1")]
     [SerializeField] private GameObject flashlightTutorial;
-    [SerializeField] private GameObject blockedHouseDialogue;
     [SerializeField] private GameObject noFlashlighNoExit;
     [SerializeField] private GameObject LockedBarn;
     [SerializeField] private GameObject MorphCutscene;
@@ -95,12 +96,15 @@ public class SceneActivation : MonoBehaviour
             _GameSaveData._currentCutscene = 0;
             _GameSaveData.isPlayingCutscene = true;
             _GameSaveData._isHouseOpen = false;
-        } else if (SceneManager.GetActiveScene().buildIndex == 2) // Lvl 1
+            houseTransition.SetActive(false);
+        } 
+        else if (SceneManager.GetActiveScene().buildIndex == 2) // Lvl 1
         {
             _GameSaveData._currentCutscene = 1;
             _GameSaveData.isPlayingCutscene = true;
             minicrow2.GetComponent<Animator>().SetBool("Sludge1", true);
-        } else if (SceneManager.GetActiveScene().buildIndex == 3) // Lvl 2
+        } 
+        else if (SceneManager.GetActiveScene().buildIndex == 3) // Lvl 2
         {
             _GameSaveData._hasFlashlight = true;
             _GameSaveData._hasBarnKey = true;
@@ -111,7 +115,8 @@ public class SceneActivation : MonoBehaviour
             minicrow2.GetComponent<Animator>().SetBool("Sludge2", true);
             minicrow3.GetComponent<Animator>().SetBool("Sludge1", true);
             StartCoroutine(TimeCheck());
-        } else if (SceneManager.GetActiveScene().buildIndex == 4) // Lvl 3
+        } 
+        else if (SceneManager.GetActiveScene().buildIndex == 4) // Lvl 3
         {
             _GameSaveData._hasFlashlight = true;
             _GameSaveData._hasBarnKey = true;
@@ -130,6 +135,11 @@ public class SceneActivation : MonoBehaviour
 
     void Update()
     {
+        if (_GameSaveData._isHouseOpen == true)
+        {
+            houseTransition.SetActive(true);
+        }
+        
         if(SceneManager.GetActiveScene().buildIndex == 4)
         {
             if(_GameSaveData._numOfScarecrows == 0 || _GameSaveData._numOfScarecrows <= 0)

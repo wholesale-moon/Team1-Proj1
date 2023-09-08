@@ -53,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject FlameTool;
     [SerializeField] private GameObject flame;
     [SerializeField] private GameObject flameDamage;
+    private bool canDamage = true;
     #endregion
 
     // Start is called before the first frame update
@@ -120,6 +121,7 @@ public class PlayerMovement : MonoBehaviour
     }
     #endregion
 
+    #region Attack
     private void CheckAttack()
     {
         if (Input.GetMouseButtonDown(0) && _GameSaveData._hasFlameTool == true)
@@ -137,8 +139,19 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(1.11f);
 
         flameDamage.SetActive(false);
+        StartCoroutine(DamageCooldown());
         yield return null;
     }
+
+    private IEnumerator DamageCooldown()
+    {
+        canDamage = false;
+        yield return new WaitForSeconds(5);
+
+        canDamage = true;
+        yield return null;
+    }
+    #endregion
 
 
     private void CheckInteractables()
@@ -201,21 +214,24 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (interactable.tag == "FlameTool")
             {
-                _GameSaveData._hasFlameTool = true;
-                Destroy(interactable);
-                FlameTool.SetActive(true);
-                flameToolHold.SetActive(true);
-                flashlightHold.SetActive(false);
-                flashlight.SetActive(false);
-                transform.GetComponent<SceneActivation>().ProtectTheFarm();
-                UpdateActionTextp("FlameTool");
+                if (canDamage)
+                {
+                    _GameSaveData._hasFlameTool = true;
+                    Destroy(interactable);
+                    FlameTool.SetActive(true);
+                    flameToolHold.SetActive(true);
+                    flashlightHold.SetActive(false);
+                    flashlight.SetActive(false);
+                    transform.GetComponent<SceneActivation>().ProtectTheFarm();
+                    UpdateActionTextp("FlameTool");
+                }
             }
         }
     }
 
-    #region Travel On Collision
     private void OnCollisionEnter2D(Collision2D collision)
     {   
+        #region Travel
         if (collision.gameObject.tag == "House")
         {
             if (_GameSaveData._isHouseOpen == true)
@@ -273,8 +289,8 @@ public class PlayerMovement : MonoBehaviour
         {
             StartCoroutine(ToDownstairs());
         }
+        #endregion
     }
-    #endregion
 
     private void OnTriggerEnter2D(Collider2D obj)
     {
@@ -365,6 +381,7 @@ public class PlayerMovement : MonoBehaviour
         }
         #endregion
 
+        #region Level Specific
         if (obj.gameObject.tag == "HealthShow")
         {
             transform.GetComponent<PlayerHealth>().healthbar.SetActive(true);
@@ -404,6 +421,7 @@ public class PlayerMovement : MonoBehaviour
             sceneTransitioner.SetActive(true);
             sceneTransitioner.GetComponent<LevelTransition>().FadeToLevel(5);
         }
+        #endregion
         
         if (obj.gameObject.tag == "Sludge")
         {
@@ -413,6 +431,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D obj)
     {
+        #region Disable Interactable
         if (obj.gameObject.tag == "FlashlightPickup")
         {
             canInteract = false;
@@ -447,6 +466,7 @@ public class PlayerMovement : MonoBehaviour
         {
             canInteract = false;
         }
+        #endregion
     }
 
     #region Action Text
