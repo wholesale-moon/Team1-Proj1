@@ -48,6 +48,13 @@ public class CutsceneTrigger : MonoBehaviour
                 Skip();
             }
         }
+
+        if (_GameSaveData.isPlayingCutscene)
+        {
+            Cursor.visible = true;
+        } else {
+            Cursor.visible = false;
+        }
     }
 
     void OnEnable()

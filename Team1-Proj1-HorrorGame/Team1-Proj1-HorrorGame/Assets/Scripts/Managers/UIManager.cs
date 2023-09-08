@@ -10,12 +10,17 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject HelpScreen;
     [SerializeField] private GameObject OptionsScreen;
 
-    public bool isPaused = false;
-    public bool isHelp = false;
-    public bool isOptions = false;
+    [HideInInspector] public bool isPaused = false;
+    [HideInInspector] public bool isHelp = false;
+    [HideInInspector] public bool isOptions = false;
 
     [SerializeField] private GameObject sceneTransitioner;
 
+    private void Start()
+    {
+        Cursor.visible = false;
+    }
+    
     private void Update()
     {
         if(Input.GetKeyDown("escape"))
@@ -37,9 +42,12 @@ public class UIManager : MonoBehaviour
         if (isPaused || isHelp || isOptions)
         {
             Time.timeScale = 0.0f;
+            Cursor.visible = true;
         } else if (!isPaused && !isHelp && !isOptions){
             Time.timeScale = 1.0f;
+            Cursor.visible = false;
         }
+        
     }
 
     public void OnButtonHighlight()

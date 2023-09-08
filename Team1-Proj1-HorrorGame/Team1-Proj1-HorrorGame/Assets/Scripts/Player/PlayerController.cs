@@ -99,9 +99,8 @@ public class PlayerMovement : MonoBehaviour
 
                 if (isMoving)
                 {
-                    if (!walkSound.isPlaying)
+                    if (!walkSound.isPlaying && _GameSaveData.isPlayingCutscene == false)
                     {
-
                         walkSound.Play();
                     }
                 }

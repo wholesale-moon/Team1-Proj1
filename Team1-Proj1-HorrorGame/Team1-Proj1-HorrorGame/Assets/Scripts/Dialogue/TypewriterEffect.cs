@@ -18,6 +18,7 @@ public class TypewriterEffect : MonoBehaviour
 	[SerializeField] bool leadingCharBeforeDelay = false;
 	[Space(10)] [SerializeField] private bool startOnEnable = false;
 	[Space(10)] [SerializeField] private bool _isScreenText;
+	[SerializeField] private bool _noSkip;
 
 	[Space(10)]
 	[SerializeField] private GameObject SceneManager;
@@ -49,11 +50,11 @@ public class TypewriterEffect : MonoBehaviour
 	{
 		if(Input.GetKeyDown(KeyCode.Return))
 		{
-			if (!isWriting && !_isScreenText)
+			if (!isWriting & !_isScreenText & !_noSkip)
 			{
 				SceneManager.GetComponent<DialogueManager>().DisplayNextSentence();
 			}
-			else if (!isSkipCooldown && isWriting && !_isScreenText)
+			else if (!isSkipCooldown & isWriting & !_noSkip)
 			{
 				SkipDialogue();
 			}
@@ -103,7 +104,10 @@ public class TypewriterEffect : MonoBehaviour
 			}
 			tmpProText.text += c;
 			tmpProText.text += leadingChar;
-			SceneManager.GetComponent<SoundManager>().PlayClipByName("Typewriter");
+			if (_isScreenText)
+				SceneManager.GetComponent<SoundManager>().PlayClipByName("DialogueAlt");
+			else
+				SceneManager.GetComponent<SoundManager>().PlayClipByName("Typewriter");
 			yield return new WaitForSeconds(timeBtwChars);
 		}
 
