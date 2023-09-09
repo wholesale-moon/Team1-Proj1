@@ -15,6 +15,10 @@ public class UIManager : MonoBehaviour
     [HideInInspector] public bool isOptions = false;
 
     [SerializeField] private GameObject sceneTransitioner;
+    
+    [Space(10)]
+    [SerializeField] private GameObject Flashlight;
+    [SerializeField] private GameObject FlameTool;
 
     private void Start()
     {
@@ -43,9 +47,13 @@ public class UIManager : MonoBehaviour
         {
             Time.timeScale = 0.0f;
             Cursor.visible = true;
+            Flashlight.GetComponent<FollowMouse>().enabled = false;
+            FlameTool.GetComponent<FollowMouse>().enabled = false;
         } else if (!isPaused && !isHelp && !isOptions){
             Time.timeScale = 1.0f;
             Cursor.visible = false;
+            Flashlight.GetComponent<FollowMouse>().enabled = true;
+            FlameTool.GetComponent<FollowMouse>().enabled = true;
         }
         
     }

@@ -9,6 +9,7 @@ public class GameSaveData : ScriptableObject
     public bool _hasFlashlight;
     public bool _hasLantern;
     public bool _hasBarnKey;
+    public bool _hasTools;
     public bool _hasStringLights;
     public bool _hasFlameTool;
 

@@ -15,6 +15,7 @@ public class EnemyMovement : MonoBehaviour
 
     private Vector2 roamPosition;
     public bool IsInRange = false;
+    private bool isDead = false;
 
     [Header("Stun")]
     [SerializeField] private int stunTime;
@@ -41,6 +42,9 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
+        if (isDead)
+            return;
+        
         if (isStunned)
         {
             SceneManager.GetComponent<SoundManager>().PlayClipByName("EnemyGrowl");
@@ -116,6 +120,8 @@ public class EnemyMovement : MonoBehaviour
     private IEnumerator Death()
     {
         SceneManager.GetComponent<SoundManager>().PlayClipByName("EnemyDeath");
+        isDead = true;
+        transform.GetComponent<Collider2D>().enabled = false;
         yield return new WaitForSeconds(2.7f);
 
         _GameSaveData._numOfScarecrows -= 1;

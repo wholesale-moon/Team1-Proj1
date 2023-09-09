@@ -461,8 +461,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.014200002, y: 0.13645, z: 0}
-    m_Extent: {x: 0.5913, y: 0.77875, z: 0}
+    m_Center: {x: 0.023550004, y: 0.13745001, z: 0}
+    m_Extent: {x: 0.58465004, y: 0.78505003, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -543,8 +543,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.00009998679, y: 0.0045000017, z: 0}
-    m_Extent: {x: 0.69879997, y: 0.447, z: 0}
+    m_Center: {x: 0.0046000183, y: -0.006550014, z: 0}
+    m_Extent: {x: 0.6977, y: 0.44935, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -5636,8 +5636,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 1.47175, y: 0.30275, z: 0}
-    m_Extent: {x: 2.08475, y: 1.01835, z: 0}
+    m_Center: {x: 1.4695001, y: 0.30350003, z: 0}
+    m_Extent: {x: 2.0832, y: 1.0085, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -5662,6 +5662,7 @@ GameObject:
   - component: {fileID: 492208987}
   - component: {fileID: 492208989}
   - component: {fileID: 492208988}
+  - component: {fileID: 492208990}
   m_Layer: 5
   m_Name: Credit - Flynn
   m_TagString: Untagged
@@ -5704,7 +5705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -5735,7 +5736,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1234412806}
+      - m_Target: {fileID: 492208990}
         m_TargetAssemblyTypeName: Credits, Assembly-CSharp
         m_MethodName: ShowText
         m_Mode: 2
@@ -5755,6 +5756,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 492208986}
   m_CullTransparentMesh: 1
+--- !u!114 &492208990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492208986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8508c5eec1d3886478fceb2df978c3a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isShowing: 0
 --- !u!1 &502671226
 GameObject:
   m_ObjectHideFlags: 0
@@ -6428,8 +6442,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.0013000071, y: 0.005649984, z: 0}
-    m_Extent: {x: 0.99689996, y: 1.0020499, z: 0}
+    m_Center: {x: -0.0018000007, y: -0.0013999641, z: 0}
+    m_Extent: {x: 1.0081, y: 1.0005, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -6574,8 +6588,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.005550027, y: -0.0020500124, z: 0}
-    m_Extent: {x: 0.60165, y: 0.60144997, z: 0}
+    m_Center: {x: -0.0012499988, y: -0.0013999939, z: 0}
+    m_Extent: {x: 0.59365, y: 0.599, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -7197,7 +7211,6 @@ GameObject:
   - component: {fileID: 1234412804}
   - component: {fileID: 1234412803}
   - component: {fileID: 1234412802}
-  - component: {fileID: 1234412806}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -7294,18 +7307,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1234412806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1234412801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8508c5eec1d3886478fceb2df978c3a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1244354177
 GameObject:
   m_ObjectHideFlags: 0
@@ -7317,7 +7318,6 @@ GameObject:
   - component: {fileID: 1244354178}
   - component: {fileID: 1244354182}
   - component: {fileID: 1244354180}
-  - component: {fileID: 1244354179}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -7345,23 +7345,6 @@ RectTransform:
   m_AnchoredPosition: {x: 24, y: 26}
   m_SizeDelta: {x: 174.6566, y: 47.1912}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1244354179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244354177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c83ceac70a3f31a46bbf23d2902a747d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _SceneManager: {fileID: 0}
-  musicMixerGroup: {fileID: 0}
-  _GameSaveData: {fileID: 0}
-  optionsScreen: {fileID: 0}
-  skipPrologueOption: {fileID: 0}
 --- !u!114 &1244354180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7406,9 +7389,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1244354179}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: BackButton
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Credits, Assembly-CSharp
+        m_MethodName: Back
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7809,6 +7792,7 @@ GameObject:
   - component: {fileID: 1438735536}
   - component: {fileID: 1438735538}
   - component: {fileID: 1438735537}
+  - component: {fileID: 1438735539}
   m_Layer: 5
   m_Name: Credit - Ben
   m_TagString: Untagged
@@ -7851,7 +7835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -7882,7 +7866,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1234412806}
+      - m_Target: {fileID: 1438735539}
         m_TargetAssemblyTypeName: Credits, Assembly-CSharp
         m_MethodName: ShowText
         m_Mode: 2
@@ -7902,6 +7886,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1438735535}
   m_CullTransparentMesh: 1
+--- !u!114 &1438735539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438735535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8508c5eec1d3886478fceb2df978c3a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isShowing: 0
 --- !u!1 &1507400069
 GameObject:
   m_ObjectHideFlags: 0
@@ -8055,6 +8052,37 @@ Transform:
   - {fileID: 405687564}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1632623188
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1632623189}
+  m_Layer: 0
+  m_Name: FillerObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1632623189
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632623188}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 997.61304, y: 514.9352, z: 5.233396}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1673017515
 GameObject:
   m_ObjectHideFlags: 0
@@ -8066,6 +8094,7 @@ GameObject:
   - component: {fileID: 1673017516}
   - component: {fileID: 1673017518}
   - component: {fileID: 1673017517}
+  - component: {fileID: 1673017519}
   m_Layer: 5
   m_Name: Credit - Aidan
   m_TagString: Untagged
@@ -8108,7 +8137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -8139,7 +8168,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1234412806}
+      - m_Target: {fileID: 1673017519}
         m_TargetAssemblyTypeName: Credits, Assembly-CSharp
         m_MethodName: ShowText
         m_Mode: 2
@@ -8159,6 +8188,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1673017515}
   m_CullTransparentMesh: 1
+--- !u!114 &1673017519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673017515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8508c5eec1d3886478fceb2df978c3a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isShowing: 0
 --- !u!1 &1916539480
 GameObject:
   m_ObjectHideFlags: 0
@@ -8364,6 +8406,7 @@ GameObject:
   - component: {fileID: 1975003188}
   - component: {fileID: 1975003190}
   - component: {fileID: 1975003189}
+  - component: {fileID: 1975003191}
   m_Layer: 5
   m_Name: Credit - Seth
   m_TagString: Untagged
@@ -8406,7 +8449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -8437,7 +8480,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1234412806}
+      - m_Target: {fileID: 1975003191}
         m_TargetAssemblyTypeName: Credits, Assembly-CSharp
         m_MethodName: ShowText
         m_Mode: 2
@@ -8457,6 +8500,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1975003187}
   m_CullTransparentMesh: 1
+--- !u!114 &1975003191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975003187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8508c5eec1d3886478fceb2df978c3a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isShowing: 0
 --- !u!1 &1994539201
 GameObject:
   m_ObjectHideFlags: 0
@@ -8879,6 +8935,7 @@ GameObject:
   - component: {fileID: 2087311699}
   - component: {fileID: 2087311701}
   - component: {fileID: 2087311700}
+  - component: {fileID: 2087311702}
   m_Layer: 5
   m_Name: Credit - Evan
   m_TagString: Untagged
@@ -8921,7 +8978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -8952,7 +9009,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1234412806}
+      - m_Target: {fileID: 2087311702}
         m_TargetAssemblyTypeName: Credits, Assembly-CSharp
         m_MethodName: ShowText
         m_Mode: 2
@@ -8972,6 +9029,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2087311698}
   m_CullTransparentMesh: 1
+--- !u!114 &2087311702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087311698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8508c5eec1d3886478fceb2df978c3a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isShowing: 0
 --- !u!1 &2101533127
 GameObject:
   m_ObjectHideFlags: 0
@@ -9031,7 +9101,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: ed6310c316fffb344bef21161175318b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6298df8c572ba4143b7c501cb3532a03, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -9303,8 +9373,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.0853, y: 0.036850035, z: 0}
-    m_Extent: {x: 0.9348, y: 1.2297499, z: 0}
+    m_Center: {x: 0.095450014, y: 0.036300004, z: 0}
+    m_Extent: {x: 0.93565, y: 1.2362001, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -9329,3 +9399,4 @@ SceneRoots:
   - {fileID: 1234412805}
   - {fileID: 1538306108}
   - {fileID: 2101533129}
+  - {fileID: 1632623189}

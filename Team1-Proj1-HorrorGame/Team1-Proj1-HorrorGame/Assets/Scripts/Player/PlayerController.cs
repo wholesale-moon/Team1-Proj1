@@ -209,8 +209,13 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (interactable.tag == "Generator")
             {
-                Destroy(interactable);
-                transform.GetComponent<SceneActivation>().GeneratorOn();
+                if(_GameSaveData._hasTools)
+                {
+                    Destroy(interactable);
+                    transform.GetComponent<SceneActivation>().GeneratorOn();
+                } else {
+                    transform.GetComponent<SceneActivation>().GeneratorBrokenDialogue();
+                }
             }
             else if (interactable.tag == "FlameTool")
             {
@@ -225,6 +230,11 @@ public class PlayerMovement : MonoBehaviour
                     transform.GetComponent<SceneActivation>().ProtectTheFarm();
                     UpdateActionTextp("FlameTool");
                 }
+            }
+            else if (interactable.tag == "Tools")
+            {
+                Destroy(interactable);
+                _GameSaveData._hasTools = true;
             }
         }
     }
@@ -379,6 +389,12 @@ public class PlayerMovement : MonoBehaviour
             interactable = obj.gameObject;
             canInteract = true;
         }
+
+        if (obj.gameObject.tag == "Tools")
+        {
+            interactable = obj.gameObject;
+            canInteract = true;
+        }
         #endregion
 
         #region Level Specific
@@ -463,6 +479,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (obj.gameObject.tag == "Generator")
+        {
+            canInteract = false;
+        }
+
+        if (obj.gameObject.tag == "Tools")
         {
             canInteract = false;
         }
@@ -551,7 +572,7 @@ public class PlayerMovement : MonoBehaviour
         rb2d.transform.position = new Vector3(-17.61f, -56.55f, 0);
 
         yield return new WaitForSeconds(0.4f);
-        houseCamera.transform.position = new Vector3(-24.5f, -59.04f, -10);
+        houseCamera.transform.position = new Vector3(-24.66f, -58.42f, -10);
         yield return null;
     }
 
@@ -560,7 +581,7 @@ public class PlayerMovement : MonoBehaviour
         rb2d.transform.position = new Vector3(-18.86f, -38.32f, 0);
 
         yield return new WaitForSeconds(0.4f);
-        houseCamera.transform.position = new Vector3(-24.5f, -44.15f, -10f);
+        houseCamera.transform.position = new Vector3(-24.66f, -43.5f, -10f);
         yield return null;
     }
 

@@ -23,7 +23,11 @@ public class SceneActivation : MonoBehaviour
     [SerializeField] private GameObject flashlightTutorial;
     [SerializeField] private GameObject noFlashlighNoExit;
     [SerializeField] private GameObject LockedBarn;
+    [SerializeField] private GameObject GeneratorBroken;
+    [SerializeField] private GameObject ToolInteraction;
+    [SerializeField] private GameObject ToolsSprite;
     [SerializeField] private GameObject MorphCutscene;
+    [SerializeField] private GameObject MorphCutscene2;
     [SerializeField] private GameObject HeadHome;
     [SerializeField] private GameObject Lvl2Start;
 
@@ -102,6 +106,8 @@ public class SceneActivation : MonoBehaviour
         {
             _GameSaveData._currentCutscene = 1;
             _GameSaveData.isPlayingCutscene = true;
+            _GameSaveData._hasTools = false;
+            _GameSaveData._isHouseOpen = true;
             minicrow2.GetComponent<Animator>().SetBool("Sludge1", true);
         } 
         else if (SceneManager.GetActiveScene().buildIndex == 3) // Lvl 2
@@ -172,6 +178,20 @@ public class SceneActivation : MonoBehaviour
     {
         blockedHouseDialogue.SetActive(false);
     }
+
+    public void GeneratorBrokenDialogue()
+    {
+        GeneratorBroken.SetActive(true);
+        ToolInteraction.SetActive(true);
+        ToolsSprite.SetActive(false);
+        MorphCutscene2.SetActive(true);
+        Invoke("disableBlockedHouseDialogue", 0.1f);
+    }
+
+    private void disableGeneratorBroken()
+    {
+        GeneratorBroken.SetActive(false);
+    }
     
     public void GainFlashlight()
     {
@@ -205,7 +225,6 @@ public class SceneActivation : MonoBehaviour
         exteriorShedLight.SetActive(true);
         baseStringLights.SetActive(true);
         HeadHome.SetActive(true);
-        barnTransition.SetActive(true);
         Lvl2Start.SetActive(true);
         
         generator.GetComponent<Animator>().SetTrigger("isTurnedOn");
@@ -214,6 +233,7 @@ public class SceneActivation : MonoBehaviour
     public void GainKey()
     {
         _SceneManager.GetComponent<DialogueManager>().DialogueBox.SetActive(false);
+        barnTransition.SetActive(true);
         Destroy(LockedBarn);
     }
     
