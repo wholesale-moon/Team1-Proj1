@@ -50,6 +50,7 @@ public class SceneActivation : MonoBehaviour
     [SerializeField] private GameObject BurnCutsceneTrigger;
     [SerializeField] private GameObject StringLightSpecial;
     public GameObject StringLightBroken;
+    [SerializeField] private GameObject FixStringLightsDialogue;
     [SerializeField] private GameObject ExitQuest;
     [SerializeField] private GameObject FlameToolUpstairs;
     [SerializeField] private GameObject Lvl3Start;
@@ -73,6 +74,7 @@ public class SceneActivation : MonoBehaviour
     [Header("HUD")]
     [SerializeField] GameObject itemHold;
     public GameObject flashlight;
+    public GameObject Inventory;
 
     [Header("MiniCrows")]
     [SerializeField] private GameObject minicrowMorph;
@@ -82,7 +84,7 @@ public class SceneActivation : MonoBehaviour
     [SerializeField] private GameObject minicrow4;
 
     [HideInInspector] public bool hasMorphed = false;
-    [HideInInspector] public int stringLightInventory = 0;
+    public int stringLightInventory = 13;
     [HideInInspector] public bool clearLvl3 = false;
 
     void Start()
@@ -144,6 +146,14 @@ public class SceneActivation : MonoBehaviour
         if (_GameSaveData._isHouseOpen == true)
         {
             houseTransition.SetActive(true);
+        }
+
+        if(SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            if (stringLightInventory == 0)
+            {
+                RanOutOfStringLights();
+            }
         }
         
         if(SceneManager.GetActiveScene().buildIndex == 4)
@@ -254,6 +264,7 @@ public class SceneActivation : MonoBehaviour
     public void GainStringLights()
     {
         stringLightInventory = 12;
+        Inventory.SetActive(true);
         NeedStringLightsDialogue.SetActive(false);
         PutUpStringLights.SetActive(true);
     }
@@ -269,10 +280,15 @@ public class SceneActivation : MonoBehaviour
     {
         BurnCutsceneTrigger.SetActive(true);
         StringLightSpecial.SetActive(true);
-        ExitQuest.SetActive(true);
+        FixStringLightsDialogue.SetActive(true);
         FlameToolUpstairs.SetActive(true);
         Lvl3Start.SetActive(true);
         _SceneManager.GetComponent<DialogueManager>().DialogueBox.SetActive(false);
+    }
+
+    public void ExitQuestActive()
+    {
+        ExitQuest.SetActive(true);
     }
 
     public void ProtectTheFarm()

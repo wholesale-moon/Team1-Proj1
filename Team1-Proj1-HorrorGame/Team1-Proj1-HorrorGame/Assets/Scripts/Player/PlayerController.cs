@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("HUD")]
     public TMP_Text questLog;
+    [SerializeField] private TMP_Text StringLightCounter;
     [SerializeField] private GameObject itemHold;
     [SerializeField] private GameObject flashlightHold;
     [SerializeField] private GameObject lanternHold;
@@ -180,11 +181,12 @@ public class PlayerMovement : MonoBehaviour
                 {
                     _GameSaveData._hasStringLights = true;
                     transform.GetComponent<SceneActivation>().GainStringLights();
-                    UpdateActionTextp("x12 String Lights");
+                    transform.GetComponent<SceneActivation>().stringLightInventory = 13;
+                    UpdateActionTextp("x13 String Lights");
                 } else {
-                    transform.GetComponent<SceneActivation>().stringLightInventory = 2;
+                    transform.GetComponent<SceneActivation>().stringLightInventory = 1;
                     transform.GetComponent<SceneActivation>().Burn();
-                    UpdateActionTextp("x2 String Lights");
+                    UpdateActionTextp("x1 String Lights");
                 }
             }
             else if (interactable.tag == "PlaceStringLight")
@@ -192,18 +194,17 @@ public class PlayerMovement : MonoBehaviour
                 if(transform.GetComponent<SceneActivation>().stringLightInventory > 0)
                 {
                     transform.GetComponent<SceneActivation>().stringLightInventory -= 1;
+                    StringLightCounter.text = transform.GetComponent<SceneActivation>().stringLightInventory.ToString();
                     interactable.GetComponent<StringLights>().stringLight.SetActive(true);
                     Destroy(interactable);
-                } else if (transform.GetComponent<SceneActivation>().stringLightInventory == 0)
-                {
-                    transform.GetComponent<SceneActivation>().RanOutOfStringLights();
                 }
             }
             else if (interactable.tag == "PlaceSpecialSL")
             {
-                transform.GetComponent<SceneActivation>().stringLightInventory -= 1;
+                transform.GetComponent<SceneActivation>().Inventory.SetActive(false);
                 interactable.GetComponent<StringLights>().stringLight.SetActive(true);
                 transform.GetComponent<SceneActivation>().StringLightBroken.GetComponent<BreakLights>().FixStringLights();
+                transform.GetComponent<SceneActivation>().ExitQuestActive();
                 Destroy(interactable);
                 Destroy(transform.GetComponent<SceneActivation>().StringLightBroken);
             }
