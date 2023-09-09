@@ -185,6 +185,7 @@ public class PlayerMovement : MonoBehaviour
                     UpdateActionTextp("x13 String Lights");
                 } else {
                     transform.GetComponent<SceneActivation>().stringLightInventory = 1;
+                    StringLightCounter.text = transform.GetComponent<SceneActivation>().stringLightInventory.ToString();
                     transform.GetComponent<SceneActivation>().Burn();
                     UpdateActionTextp("x1 String Lights");
                 }
@@ -557,7 +558,7 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator ToShed()
     {
         theCamera.GetComponent<CinemachineBrain>().enabled = false;
-        rb2d.transform.position = new Vector3(6.57f, -60.56f, 0);
+        rb2d.transform.position = new Vector3(4.05f, -62.06f, 0);
         walkSound.clip = sounds[3];
 
         yield return new WaitForSeconds(0.4f);
