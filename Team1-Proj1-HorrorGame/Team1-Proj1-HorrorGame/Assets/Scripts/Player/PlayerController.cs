@@ -28,9 +28,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject flashlightHold;
     [SerializeField] private GameObject lanternHold;
     [SerializeField] private GameObject flameToolHold;
+    [SerializeField] private Slider flameCooldown;
+    [SerializeField] private Slider flashCooldown;
 
     [Space(10)]
     [SerializeField] private TMP_Text actionText;
+    public float flameCooldownTime = 3.0f;
+    private bool stopFlameCooldown = false;
+    public float flashCooldownTime = 5.0f;
+    private bool stopFlashCooldown = false;
 
     [Header("Cameras")]
     public GameObject theCamera;
@@ -51,10 +57,18 @@ public class PlayerMovement : MonoBehaviour
 
     [Space(10)]
     public GameObject flashlight;
+    [SerializeField] private GameObject LightCast;
     [SerializeField] private GameObject FlameTool;
     [SerializeField] private GameObject flame;
     [SerializeField] private GameObject flameDamage;
-    private bool canDamage = true;
+    private bool isFlashOn;
+    public float fadeDuration = 1;
+    public float fadeAmount = 0;
+    public bool stopFade;
+    private Color flashBaseColor = new Color(1, 1, 1, 0.08627451f);
+    private Color fadeColor = new Color(0.7843137f, 0.4588235f, 1, 0.08627451f);
+    public bool canFlash;
+    private bool canDamage;
     #endregion
 
     // Start is called before the first frame update
@@ -62,7 +76,16 @@ public class PlayerMovement : MonoBehaviour
     {
         walkSound = gameObject.GetComponent<AudioSource>();
         walkSound.outputAudioMixerGroup = soundEffectsMixerGroup;
-        canDamage = true; // Remove when finished testing
+        canDamage = true; // Change this to be only in level 3
+        isFlashOn = true;
+        canFlash = true;
+        stopFade = false;
+
+        LightCast.GetComponent<SpriteRenderer>().color = flashBaseColor;
+        flameCooldown.maxValue = flameCooldownTime;
+        flameCooldown.value = 0;
+        flashCooldown.maxValue = flashCooldownTime;
+        flashCooldown.value = 0;
     }
 
     // Update is called once per frame
@@ -70,6 +93,7 @@ public class PlayerMovement : MonoBehaviour
     {
         OnMove();
         CheckSwap();
+        CheckFlashlight();
         CheckAttack();
         CheckInteractables();
     }
@@ -140,15 +164,102 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void CheckFlashlight()
+    {
+        if (_GameSaveData._hasFlashlight == false || FlameTool.activeSelf)
+            return;
+        
+        if (Input.GetMouseButtonDown(0) && canFlash)
+        {
+            isFlashOn = !isFlashOn;
+            flashlight.SetActive(isFlashOn);
+        }
+    }
+
+    public IEnumerator FlashlightCooldown()
+    {
+        flashCooldownTime = 5.0f;
+        stopFlashCooldown = false;
+        canFlash = false;
+        StartCoroutine(FlashlightFadeToPurple());
+        yield return null;
+    }
+
+    private IEnumerator FlashlightFadeToPurple()
+    {
+        while (stopFade == false)
+        {
+            fadeAmount += Time.deltaTime;
+            yield return new WaitForSeconds(0.001f);
+
+            if (fadeAmount >= fadeDuration)
+            {
+                stopFade = true;
+            }
+
+            if (stopFade == false)
+            {
+                LightCast.GetComponent<SpriteRenderer>().color = Color.Lerp(flashBaseColor, fadeColor, fadeAmount/fadeDuration);
+            }
+        }
+
+        StartCoroutine(StartFlashCooldown());
+        yield return null;
+    }
+
+    private IEnumerator FlashlightFadeToBase()
+    {
+        while (stopFade == true)
+        {
+            fadeAmount -= Time.deltaTime;
+            yield return new WaitForSeconds(0.001f);
+
+            if (fadeAmount <= 0)
+            {
+                stopFade = false;
+            }
+
+            if (stopFade == true)
+            {
+                LightCast.GetComponent<SpriteRenderer>().color = Color.Lerp(flashBaseColor, fadeColor, fadeAmount/fadeDuration);
+            }
+        }
+
+        StartCoroutine(StartFlashCooldown());
+        yield return null;
+    }
+
+    private IEnumerator StartFlashCooldown()
+    {
+        while (stopFlashCooldown == false)
+        {
+            flashCooldownTime -= Time.deltaTime;
+            yield return new WaitForSeconds(0.001f);
+
+            if (flashCooldownTime <= 0)
+            {
+                stopFlashCooldown = true;
+                canFlash = true;
+                StartCoroutine(FlashlightFadeToBase());
+            }
+
+            if (stopFlashCooldown == false)
+            {
+                flashCooldown.value = flashCooldownTime;
+            }
+        }
+    }
+    
     #region Attack
     private void CheckAttack()
     {
-        if (_GameSaveData._hasFlameTool == false)
+        if (_GameSaveData._hasFlameTool == false || FlameTool.activeSelf == false)
             return;
         
-        if (Input.GetMouseButtonDown(0) && FlameTool.activeSelf && canDamage)
+        if (Input.GetMouseButtonDown(0) && canDamage)
         {
             flame.GetComponent<Animator>().SetTrigger("Blast");
+            flameCooldown.value = flameCooldown.maxValue;
             StartCoroutine(DealDamage());
         }
     }
@@ -167,11 +278,34 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator DamageCooldown()
     {
+        flameCooldownTime = 3.0f;
+        stopFlameCooldown = false;
+        StartCoroutine(StartFlameCooldown());
+
         canDamage = false;
-        yield return new WaitForSeconds(7);
+        yield return new WaitForSeconds(3.0f);
 
         canDamage = true;
         yield return null;
+    }
+
+    private IEnumerator StartFlameCooldown()
+    {
+        while (stopFlameCooldown == false)
+        {
+            flameCooldownTime -= Time.deltaTime;
+            yield return new WaitForSeconds(0.001f);
+
+            if (flameCooldownTime <= 0)
+            {
+                stopFlameCooldown = true;
+            }
+
+            if (stopFlameCooldown == false)
+            {
+                flameCooldown.value = flameCooldownTime;
+            }
+        }
     }
     #endregion
 

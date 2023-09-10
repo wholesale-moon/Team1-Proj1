@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Flashlight : MonoBehaviour
 {
+    [SerializeField] private GameObject player;
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Scarecrow")
@@ -12,6 +14,7 @@ public class Flashlight : MonoBehaviour
             {
                 collision.gameObject.GetComponent<EnemyMovement>().Stunned();
                 StartCoroutine(collision.gameObject.GetComponent<EnemyMovement>().HandleStunTime());
+                StartCoroutine(player.GetComponent<PlayerMovement>().FlashlightCooldown());
             }
         }
     }
