@@ -16,6 +16,8 @@ public class EnemyMovement : MonoBehaviour
     private Vector2 roamPosition;
     public bool IsInRange = false;
     private bool isDead = false;
+    public bool isRoaming = true;
+    public bool isChasing = false;
 
     [Header("Stun")]
     [SerializeField] private int stunTime;
@@ -27,6 +29,10 @@ public class EnemyMovement : MonoBehaviour
 
     [Header("Audio")]
     [SerializeField] private GameObject SceneManager;
+    public AudioSource EnemySound;
+    public AudioClip ChaseSound;
+    public AudioClip[] RoamSound;
+
 
     private void Awake()
     {
@@ -34,14 +40,14 @@ public class EnemyMovement : MonoBehaviour
     }
     
     private void Start()
-    {
+    {        
         rb = GetComponent<Rigidbody2D>();
         
         roamPosition = GetRandomRoamPosition();
     }
 
     private void Update()
-    {
+    {        
         if (isDead)
             return;
         
@@ -68,35 +74,41 @@ public class EnemyMovement : MonoBehaviour
                 animatorTop.SetBool("isHostile", false);
                 animatorBottom.SetBool("isHostile", false);
                 Roam();
+                isChasing = false;
             }
-        } 
+        }         
     }
-    
+
+    AudioClip RandomClip()
+    {
+        return RoamSound[Random.Range(0, RoamSound.Length)];
+    }
+
     public void AnimateMovement(Vector3 direction)
     {
         animatorTop.SetFloat("Horizontal", direction.x);
         animatorTop.SetFloat("Vertical", direction.y);
         animatorBottom.SetFloat("Horizontal", direction.x);
         animatorBottom.SetFloat("Vertical", direction.y);
+
         
     }
     
     public void Roam()
-    {
-        
+    {        
         if (Vector2.Distance(transform.position, roamPosition) > 0.1f)
         {
             Vector2 direction = roamPosition - (Vector2)transform.position;
             direction.Normalize();
             rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));
             AnimateMovement(direction);
+            isRoaming = true;
         }
         else
         {
             roamPosition = GetRandomRoamPosition();
         }
     }
-
     public void ChasePlayer()
     {
         //SceneManager.GetComponent<SoundManager>().PlayClipByName("EnemyBreath");
@@ -104,6 +116,9 @@ public class EnemyMovement : MonoBehaviour
         direction.Normalize();
         rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));
         AnimateMovement(direction);
+        isChasing = true;
+        isRoaming = false;
+        
     }
 
     void OnTriggerEnter2D(Collider2D obj)
@@ -114,7 +129,7 @@ public class EnemyMovement : MonoBehaviour
             animatorBottom.SetTrigger("isBurn");
             
             StartCoroutine(Death());
-        }
+        }     
     }
 
     private IEnumerator Death()
@@ -141,7 +156,6 @@ public class EnemyMovement : MonoBehaviour
             roamPosition = GetRandomRoamPosition();
         }
     }
-    
     public void Stunned()
     {
         
@@ -162,5 +176,10 @@ public class EnemyMovement : MonoBehaviour
     {
         Vector3 randomDirection = Random.insideUnitCircle.normalized;
         return transform.position + randomDirection * roamRadius;
+    }
+    public IEnumerator EnemyRoam()
+    {
+        EnemySound.PlayOneShot(RandomClip());
+        yield return new WaitForSeconds(5);
     }
 }

@@ -66,8 +66,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.0033500195, y: 0.00065004826, z: 0}
-    m_Extent: {x: 2.25165, y: 2.2572498, z: 0}
+    m_Center: {x: -0.005249977, y: 0.0020999908, z: 0}
+    m_Extent: {x: 2.25345, y: 2.2487, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -158,6 +158,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneManager: {fileID: 0}
   scarecrow: {fileID: 3158944368944950773}
+  ChaseSound: {fileID: 8300000, guid: 72067b5f18ed2aa4aa0de70dbe650ab1, type: 3}
+  EnemySound: {fileID: 6211107815038619409}
 --- !u!58 &7908284517433114311
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -248,7 +250,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3158944368944950773}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -32.002415, y: -22.964481, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -347,13 +349,21 @@ MonoBehaviour:
   moveSpeed: 5
   roamRadius: 5
   player: {fileID: 0}
-  rb: {fileID: 0}
+  rb: {fileID: 8155744040824940391}
   IsInRange: 0
+  isRoaming: 1
+  isChasing: 0
   stunTime: 4
   isStunned: 0
   animatorTop: {fileID: 5521587957524862918}
   animatorBottom: {fileID: 2414068521016886053}
   SceneManager: {fileID: 0}
+  EnemySound: {fileID: 6211107815038619409}
+  ChaseSound: {fileID: 8300000, guid: 72067b5f18ed2aa4aa0de70dbe650ab1, type: 3}
+  RoamSound:
+  - {fileID: 8300000, guid: 0749bb3db18c88f41915217c81f4e737, type: 3}
+  - {fileID: 8300000, guid: ca7e7b66310229d488bd5f4156713d0a, type: 3}
+  - {fileID: 8300000, guid: 5043c93bb8c3c8745aba26da9a25f035, type: 3}
 --- !u!82 &6211107815038619409
 AudioSource:
   m_ObjectHideFlags: 0
@@ -365,19 +375,19 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 5
+  MaxDistance: 30
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0

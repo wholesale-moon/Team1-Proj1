@@ -6,13 +6,16 @@ public class VisionScript : MonoBehaviour
 {
     [SerializeField] private GameObject SceneManager;
     [SerializeField] private GameObject scarecrow;
+    public AudioClip ChaseSound;
+    public AudioSource EnemySound;
 
     void OnTriggerEnter2D(Collider2D obj)
     {
         if (obj.gameObject.tag == "Player")
         {
             scarecrow.GetComponent<EnemyMovement>().IsInRange = true;
-            SceneManager.GetComponent<SoundManager>().PlayClipByName("EnemyBreath");
+            //SceneManager.GetComponent<SoundManager>().PlayClipByName("EnemyBreath");
+            EnemySound.PlayOneShot(ChaseSound);
         }
     }
 
@@ -24,5 +27,4 @@ public class VisionScript : MonoBehaviour
             SceneManager.GetComponent<SoundManager>().StopClipByName("EnemyBreath");
         }
     }
-
 }
