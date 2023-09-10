@@ -62,13 +62,14 @@ public class PlayerMovement : MonoBehaviour
     {
         walkSound = gameObject.GetComponent<AudioSource>();
         walkSound.outputAudioMixerGroup = soundEffectsMixerGroup;
-        // Cursor.visible = false;
+        canDamage = true; // Remove when finished testing
     }
 
     // Update is called once per frame
     void Update()
     {
         OnMove();
+        CheckSwap();
         CheckAttack();
         CheckInteractables();
     }
@@ -122,10 +123,30 @@ public class PlayerMovement : MonoBehaviour
     }
     #endregion
 
+    private void CheckSwap()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            flashlight.SetActive(true);
+            flashlightHold.SetActive(true);
+            FlameTool.SetActive(false);
+            flameToolHold.SetActive(false);
+        } else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            flashlight.SetActive(false);
+            flashlightHold.SetActive(false);
+            FlameTool.SetActive(true);
+            flameToolHold.SetActive(true);
+        }
+    }
+
     #region Attack
     private void CheckAttack()
     {
-        if (Input.GetMouseButtonDown(0) && _GameSaveData._hasFlameTool == true)
+        if (_GameSaveData._hasFlameTool == false)
+            return;
+        
+        if (Input.GetMouseButtonDown(0) && FlameTool.activeSelf && canDamage)
         {
             flame.GetComponent<Animator>().SetTrigger("Blast");
             StartCoroutine(DealDamage());
@@ -134,20 +155,20 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator DealDamage()
     {
+        StartCoroutine(DamageCooldown());
         yield return new WaitForSeconds(0.09f);
 
         flameDamage.SetActive(true);
         yield return new WaitForSeconds(1.11f);
 
         flameDamage.SetActive(false);
-        StartCoroutine(DamageCooldown());
         yield return null;
     }
 
     private IEnumerator DamageCooldown()
     {
         canDamage = false;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(7);
 
         canDamage = true;
         yield return null;
