@@ -12,7 +12,7 @@ public class PlayerHealth : MonoBehaviour
     public PlayerMovement movement;
 
     [Space(10)]
-    [SerializeField] private GameObject medBottle;
+    [SerializeField] private GameObject[] medBox;
     
     [Space(10)]
     public GameObject healthbar;
@@ -65,19 +65,20 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    public void Heal()
+    public void Heal(int caseNum)
     {
-        medBottle.SetActive(false);
+        medBox[caseNum].SetActive(false);
         _SceneManager.GetComponent<SoundManager>().PlayClipByName("Healing");
         hearts[currentHealth].GetComponent<Animator>().SetBool("isFull", true);
         currentHealth += 1;
+        StartCoroutine(MedicineSpawn(caseNum));
     }
 
-    public IEnumerator MedicineSpawn()
+    public IEnumerator MedicineSpawn(int caseNum)
     {
         yield return new WaitForSeconds(5);
 
-        medBottle.SetActive(true);
+        medBox[caseNum].SetActive(true);
         yield return null;
     }
     public IEnumerator RestartScreen()

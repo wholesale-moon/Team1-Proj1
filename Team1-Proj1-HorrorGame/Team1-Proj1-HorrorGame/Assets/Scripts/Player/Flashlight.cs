@@ -5,6 +5,7 @@ using UnityEngine;
 public class Flashlight : MonoBehaviour
 {
     [SerializeField] private GameObject player;
+    [SerializeField] private bool isLantern;
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,7 +15,11 @@ public class Flashlight : MonoBehaviour
             {
                 collision.gameObject.GetComponent<EnemyMovement>().Stunned();
                 StartCoroutine(collision.gameObject.GetComponent<EnemyMovement>().HandleStunTime());
-                StartCoroutine(player.GetComponent<PlayerMovement>().FlashlightCooldown());
+                
+                if (!isLantern)
+                {
+                    StartCoroutine(player.GetComponent<PlayerMovement>().FlashlightCooldown());
+                }
             }
         }
     }

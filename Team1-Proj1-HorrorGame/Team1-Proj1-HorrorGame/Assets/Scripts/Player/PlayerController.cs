@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator topAnimator;
     [SerializeField] private Animator bottomAnimator;
 
-    private bool canInteract;
+    public bool canInteract;
     private GameObject interactable;
 
     [Header("HUD")]
@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject PlacedGasCan;
     [SerializeField] Transform LanternPlacePosition;
     [SerializeField] Transform GasCanPlacePosition;
-    private bool canPlace;
+    public bool canPlace;
     private string previousHold;
     #endregion
 
@@ -86,10 +86,14 @@ public class PlayerMovement : MonoBehaviour
     {
         walkSound = gameObject.GetComponent<AudioSource>();
         walkSound.outputAudioMixerGroup = soundEffectsMixerGroup;
-        canDamage = true; // Change this to be only in level 3
+        if (SceneManager.GetActiveScene().buildIndex == 4)
+            canDamage = true;
         isFlashOn = true;
         canFlash = true;
         stopFade = false;
+
+        _GameSaveData._hasLantern = false;
+        _GameSaveData._hasGasCan = false;
 
         LightCast.GetComponent<SpriteRenderer>().color = flashBaseColor;
         flameCooldown.maxValue = flameCooldownTime;
@@ -105,11 +109,20 @@ public class PlayerMovement : MonoBehaviour
         CheckPlacement();
 
         if (_GameSaveData._hasLantern == true || _GameSaveData._hasGasCan == true)
+        {
+            if(Input.GetKeyDown(KeyCode.E) & canInteract)
+            {
+                UpdateActionTexto("interact while holding an item");
+            }
+            
             return;
+        }
 
-        CheckSwap();
+        if (SceneManager.GetActiveScene().buildIndex == 4)
+            CheckSwap();
+            CheckAttack();
+        
         CheckFlashlight();
-        CheckAttack();
         CheckInteractables();
     }
 
@@ -203,6 +216,10 @@ public class PlayerMovement : MonoBehaviour
                     flameToolHold.SetActive(true);
                 }
             }
+        } 
+        else if (Input.GetMouseButtonDown(0) & !canPlace)
+        {
+            UpdateActionTexto("place an item here");
         }
     }
 
@@ -600,12 +617,29 @@ public class PlayerMovement : MonoBehaviour
             _SceneManager.GetComponent<SoundManager>().PlayClipByName("KeyPick");
         }
 
-        if (obj.gameObject.tag == "Medicine")
+        if (obj.gameObject.tag == "MedBox0")
         {
             if (transform.GetComponent<PlayerHealth>().currentHealth != transform.GetComponent<PlayerHealth>().maxHealth)
             {
-                transform.GetComponent<PlayerHealth>().Heal();
-                StartCoroutine(transform.GetComponent<PlayerHealth>().MedicineSpawn());
+                transform.GetComponent<PlayerHealth>().Heal(0);
+                UpdateActionTextp("Medicine");
+            }
+        }
+
+        if (obj.gameObject.tag == "MedBox1")
+        {
+            if (transform.GetComponent<PlayerHealth>().currentHealth != transform.GetComponent<PlayerHealth>().maxHealth)
+            {
+                transform.GetComponent<PlayerHealth>().Heal(1);
+                UpdateActionTextp("Medicine");
+            }
+        }
+
+        if (obj.gameObject.tag == "MedBox2")
+        {
+            if (transform.GetComponent<PlayerHealth>().currentHealth != transform.GetComponent<PlayerHealth>().maxHealth)
+            {
+                transform.GetComponent<PlayerHealth>().Heal(2);
                 UpdateActionTextp("Medicine");
             }
         }
@@ -811,7 +845,15 @@ public class PlayerMovement : MonoBehaviour
         actionText.color = new Color(1, 1, 1, 1);
         StartCoroutine(Wait(10));
         StartCoroutine(FadeText(5));
-    }    
+    }
+
+    private void UpdateActionTexto(string problem) //Update other
+    {
+        actionText.text = "You cannot <color=red>" + problem + "</color>.";
+        actionText.color = new Color(1, 1, 1, 1);
+        StartCoroutine(Wait(10));
+        StartCoroutine(FadeText(5));
+    }
 
     public IEnumerator FadeText(float t)
     {
