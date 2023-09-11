@@ -194,7 +194,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 11.149994
+  m_Radius: 8
 --- !u!50 &7064758773772445501
 Rigidbody2D:
   serializedVersion: 4
@@ -359,7 +359,12 @@ MonoBehaviour:
   animatorBottom: {fileID: 2414068521016886053}
   SceneManager: {fileID: 0}
   EnemySound: {fileID: 6211107815038619409}
-  ChaseSound: {fileID: 8300000, guid: 72067b5f18ed2aa4aa0de70dbe650ab1, type: 3}
+  DeathSound: {fileID: 8300000, guid: 720ca030af7a12b40bc8bd5ea76d5ffe, type: 3}
+  StunSound: {fileID: 8300000, guid: bf84461296ecdcf4882db5f2c661a037, type: 3}
+  ChaseSound:
+  - {fileID: 8300000, guid: 72067b5f18ed2aa4aa0de70dbe650ab1, type: 3}
+  - {fileID: 8300000, guid: 1ca88b85a6ce69047ae3cb504f629053, type: 3}
+  - {fileID: 8300000, guid: 3fde7585d5ef87c49b788ccc67d3752a, type: 3}
   RoamSound:
   - {fileID: 8300000, guid: 0749bb3db18c88f41915217c81f4e737, type: 3}
   - {fileID: 8300000, guid: ca7e7b66310229d488bd5f4156713d0a, type: 3}
@@ -384,8 +389,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 5
-  MaxDistance: 30
+  MinDistance: 1
+  MaxDistance: 17
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -435,7 +440,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.5555556
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0

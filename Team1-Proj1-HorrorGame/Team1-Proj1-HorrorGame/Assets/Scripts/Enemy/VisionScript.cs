@@ -14,8 +14,7 @@ public class VisionScript : MonoBehaviour
         if (obj.gameObject.tag == "Player")
         {
             scarecrow.GetComponent<EnemyMovement>().IsInRange = true;
-            //SceneManager.GetComponent<SoundManager>().PlayClipByName("EnemyBreath");
-            EnemySound.PlayOneShot(ChaseSound);
+            scarecrow.GetComponent<EnemyMovement>().EnemySound.Stop();
         }
     }
 
@@ -24,7 +23,7 @@ public class VisionScript : MonoBehaviour
         if (obj.gameObject.tag == "Player")
         {
             scarecrow.GetComponent<EnemyMovement>().IsInRange = false;
-            SceneManager.GetComponent<SoundManager>().StopClipByName("EnemyBreath");
+            StartCoroutine(scarecrow.GetComponent<EnemyMovement>().ExitChaseCooldown());
         }
     }
 }

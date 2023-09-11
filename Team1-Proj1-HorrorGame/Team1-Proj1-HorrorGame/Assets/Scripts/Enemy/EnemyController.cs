@@ -30,7 +30,9 @@ public class EnemyMovement : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private GameObject SceneManager;
     public AudioSource EnemySound;
-    public AudioClip ChaseSound;
+    public AudioClip DeathSound;
+    public AudioClip StunSound;
+    public AudioClip[] ChaseSound;
     public AudioClip[] RoamSound;
 
 
@@ -53,7 +55,6 @@ public class EnemyMovement : MonoBehaviour
         
         if (isStunned)
         {
-            SceneManager.GetComponent<SoundManager>().PlayClipByName("EnemyGrowl");
             animatorTop.SetFloat("Speed", 0);
             animatorBottom.SetFloat("Speed", 0);
             rb.velocity = Vector2.zero;
@@ -74,14 +75,57 @@ public class EnemyMovement : MonoBehaviour
                 animatorTop.SetBool("isHostile", false);
                 animatorBottom.SetBool("isHostile", false);
                 Roam();
-                isChasing = false;
             }
-        }         
+        }
     }
 
-    AudioClip RandomClip()
+    void LateUpdate()
     {
-        return RoamSound[Random.Range(0, RoamSound.Length)];
+        if (SceneManager.GetComponent<UIManager>().isPaused || SceneManager.GetComponent<UIManager>().isHelp || SceneManager.GetComponent<UIManager>().isOptions)
+        {
+            EnemySound.Pause();
+            return;
+        } else if (SceneManager.GetComponent<UIManager>().isPaused == false & SceneManager.GetComponent<UIManager>().isHelp == false & SceneManager.GetComponent<UIManager>().isOptions == false)
+        {
+            EnemySound.UnPause(); 
+        }
+        
+        if (!EnemySound.isPlaying)
+        {
+            if (isChasing)
+            {
+                EnemySound.clip = RandomClip(1);
+                EnemySound.Play();
+            } 
+            else if (isRoaming)
+            {
+                EnemySound.clip = RandomClip(0);
+                EnemySound.Play();
+            }
+            else if (isStunned)
+            {
+                EnemySound.Stop();
+                EnemySound.clip = StunSound;
+                EnemySound.Play();
+            }
+        }
+    }
+
+    AudioClip RandomClip(int num)
+    {
+        switch (num)
+        {
+            case 0:
+                return RoamSound[Random.Range(0, RoamSound.Length)];
+                break;
+            case 1:
+                return ChaseSound[Random.Range(0, RoamSound.Length)];
+                break;
+            default:
+                Debug.Log(num + " is not a valid case number.");
+                return null;
+                break;
+        }
     }
 
     public void AnimateMovement(Vector3 direction)
@@ -109,6 +153,7 @@ public class EnemyMovement : MonoBehaviour
             roamPosition = GetRandomRoamPosition();
         }
     }
+    
     public void ChasePlayer()
     {
         //SceneManager.GetComponent<SoundManager>().PlayClipByName("EnemyBreath");
@@ -134,7 +179,9 @@ public class EnemyMovement : MonoBehaviour
 
     private IEnumerator Death()
     {
-        SceneManager.GetComponent<SoundManager>().PlayClipByName("EnemyDeath");
+        EnemySound.Stop();
+        EnemySound.clip = DeathSound;
+        EnemySound.Play();
         isDead = true;
         transform.GetComponent<Collider2D>().enabled = false;
         yield return new WaitForSeconds(2.7f);
@@ -172,14 +219,17 @@ public class EnemyMovement : MonoBehaviour
         roamPosition = GetRandomRoamPosition();
     }
 
+    public IEnumerator ExitChaseCooldown()
+    {
+        yield return new WaitForSeconds(1);
+
+        isChasing = false;
+        yield return null;
+    }
+
     private Vector3 GetRandomRoamPosition()
     {
         Vector3 randomDirection = Random.insideUnitCircle.normalized;
         return transform.position + randomDirection * roamRadius;
-    }
-    public IEnumerator EnemyRoam()
-    {
-        EnemySound.PlayOneShot(RandomClip());
-        yield return new WaitForSeconds(5);
     }
 }

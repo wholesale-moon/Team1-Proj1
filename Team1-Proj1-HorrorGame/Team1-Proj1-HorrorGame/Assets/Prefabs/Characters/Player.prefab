@@ -375,9 +375,13 @@ MonoBehaviour:
   _SceneManager: {fileID: 0}
   sceneTransitioner: {fileID: 0}
   flashlight: {fileID: 5993422211354082255}
+  LightCast: {fileID: 0}
   FlameTool: {fileID: 0}
   flame: {fileID: 0}
   flameDamage: {fileID: 0}
+  fadeDuration: 1
+  fadeAmount: 0
+  stopFade: 0
   canFlash: 0
 --- !u!114 &4788035796803891172
 MonoBehaviour:
@@ -941,7 +945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f64b68938ebc8d44ca48bfda524e629f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 3599661399554378357}
 --- !u!1 &7679961008783022906
 GameObject:
   m_ObjectHideFlags: 0
