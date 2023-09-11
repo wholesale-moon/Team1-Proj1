@@ -84,6 +84,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1792195510808446191
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3196739389684838329}
+  m_Layer: 9
+  m_Name: GasCanPlaceTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3196739389684838329
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792195510808446191}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.59, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 379132889861459278}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1935779373335226598
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,6 +362,8 @@ Transform:
   - {fileID: 1285712167245187576}
   - {fileID: 888868623912851277}
   - {fileID: 7711221726909468266}
+  - {fileID: 6799661695878221153}
+  - {fileID: 3196739389684838329}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6163812994595470745
@@ -353,8 +386,9 @@ MonoBehaviour:
   StringLightCounter: {fileID: 0}
   itemHold: {fileID: 0}
   flashlightHold: {fileID: 0}
-  lanternHold: {fileID: 0}
   flameToolHold: {fileID: 0}
+  lanternHold: {fileID: 0}
+  gasCanHold: {fileID: 0}
   flameCooldown: {fileID: 0}
   flashCooldown: {fileID: 0}
   actionText: {fileID: 0}
@@ -375,14 +409,15 @@ MonoBehaviour:
   _SceneManager: {fileID: 0}
   sceneTransitioner: {fileID: 0}
   flashlight: {fileID: 5993422211354082255}
+  FlashlightCollider: {fileID: 0}
   LightCast: {fileID: 0}
   FlameTool: {fileID: 0}
   flame: {fileID: 0}
   flameDamage: {fileID: 0}
-  fadeDuration: 1
-  fadeAmount: 0
-  stopFade: 0
-  canFlash: 0
+  PlacedLantern: {fileID: 8547245619509631775, guid: cbc9beaea057c6f48a7f87815ba061a5, type: 3}
+  PlacedGasCan: {fileID: 0}
+  LanternPlacePosition: {fileID: 0}
+  GasCanPlacePosition: {fileID: 3196739389684838329}
 --- !u!114 &4788035796803891172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -946,6 +981,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 3599661399554378357}
+--- !u!1 &7492755882838992639
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6799661695878221153}
+  m_Layer: 9
+  m_Name: LanternPlaceTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6799661695878221153
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7492755882838992639}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5100002, y: -2.9300008, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 379132889861459278}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7679961008783022906
 GameObject:
   m_ObjectHideFlags: 0

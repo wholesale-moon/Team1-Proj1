@@ -7,11 +7,14 @@ public class GameSaveData : ScriptableObject
 {
     [Header("Player Data")]
     public bool _hasFlashlight;
-    public bool _hasLantern;
     public bool _hasBarnKey;
     public bool _hasTools;
     public bool _hasStringLights;
     public bool _hasFlameTool;
+
+    [Space(10)]
+    public bool _hasLantern;
+    public bool _hasGasCan;
 
     [Space(10)]
     public bool _isHouseOpen;

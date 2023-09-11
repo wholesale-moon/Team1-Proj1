@@ -26,8 +26,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private TMP_Text StringLightCounter;
     [SerializeField] private GameObject itemHold;
     [SerializeField] private GameObject flashlightHold;
-    [SerializeField] private GameObject lanternHold;
     [SerializeField] private GameObject flameToolHold;
+    [SerializeField] private GameObject lanternHold;
+    [SerializeField] private GameObject gasCanHold;
     [SerializeField] private Slider flameCooldown;
     [SerializeField] private Slider flashCooldown;
 
@@ -57,18 +58,27 @@ public class PlayerMovement : MonoBehaviour
 
     [Space(10)]
     public GameObject flashlight;
+    [SerializeField] private GameObject FlashlightCollider;
     [SerializeField] private GameObject LightCast;
     [SerializeField] private GameObject FlameTool;
     [SerializeField] private GameObject flame;
     [SerializeField] private GameObject flameDamage;
     private bool isFlashOn;
-    public float fadeDuration = 1;
-    public float fadeAmount = 0;
-    public bool stopFade;
+    private float fadeDuration = 1;
+    private float fadeAmount = 0;
+    private bool stopFade;
     private Color flashBaseColor = new Color(1, 1, 1, 0.08627451f);
     private Color fadeColor = new Color(0.7843137f, 0.4588235f, 1, 0.08627451f);
-    public bool canFlash;
+    private bool canFlash;
     private bool canDamage;
+
+    [Space(10)]
+    public GameObject PlacedLantern;
+    public GameObject PlacedGasCan;
+    [SerializeField] Transform LanternPlacePosition;
+    [SerializeField] Transform GasCanPlacePosition;
+    private bool canPlace;
+    private string previousHold;
     #endregion
 
     // Start is called before the first frame update
@@ -92,6 +102,11 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         OnMove();
+        CheckPlacement();
+
+        if (_GameSaveData._hasLantern == true || _GameSaveData._hasGasCan == true)
+            return;
+
         CheckSwap();
         CheckFlashlight();
         CheckAttack();
@@ -147,15 +162,59 @@ public class PlayerMovement : MonoBehaviour
     }
     #endregion
 
+    private void CheckPlacement()
+    {
+        if (Input.GetMouseButtonDown(0) & canPlace)
+        {
+            if (_GameSaveData._hasLantern)
+            {
+                Instantiate(PlacedLantern, LanternPlacePosition.position, Quaternion.identity);
+                lanternHold.SetActive(false);
+
+                _GameSaveData._hasLantern = false;
+
+                if (previousHold == "Flashlight")
+                {
+                    flashlight.SetActive(true);
+                    flashlightHold.SetActive(true);
+                }
+                else if (previousHold == "FlameTool")
+                {
+                    FlameTool.SetActive(true);
+                    flameToolHold.SetActive(true);
+                }
+            }
+
+            if (_GameSaveData._hasGasCan)
+            {
+                Instantiate(PlacedGasCan, GasCanPlacePosition.position, Quaternion.identity);
+                gasCanHold.SetActive(false);
+
+                _GameSaveData._hasGasCan = false;
+
+                if (previousHold == "Flashlight")
+                {
+                    flashlight.SetActive(true);
+                    flashlightHold.SetActive(true);
+                }
+                else if (previousHold == "FlameTool")
+                {
+                    FlameTool.SetActive(true);
+                    flameToolHold.SetActive(true);
+                }
+            }
+        }
+    }
+
     private void CheckSwap()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.F) & FlameTool.activeSelf)
         {
             flashlight.SetActive(true);
             flashlightHold.SetActive(true);
             FlameTool.SetActive(false);
             flameToolHold.SetActive(false);
-        } else if (Input.GetKeyDown(KeyCode.Alpha2))
+        } else if (Input.GetKeyDown(KeyCode.F) & flashlight.activeSelf)
         {
             flashlight.SetActive(false);
             flashlightHold.SetActive(false);
@@ -164,6 +223,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    #region Flashlight
     private void CheckFlashlight()
     {
         if (_GameSaveData._hasFlashlight == false || FlameTool.activeSelf)
@@ -181,12 +241,14 @@ public class PlayerMovement : MonoBehaviour
         flashCooldownTime = 5.0f;
         stopFlashCooldown = false;
         canFlash = false;
+        FlashlightCollider.GetComponent<Collider2D>().enabled = false;
         StartCoroutine(FlashlightFadeToPurple());
         yield return null;
     }
 
     private IEnumerator FlashlightFadeToPurple()
     {
+        StartCoroutine(StartFlashCooldown());
         while (stopFade == false)
         {
             fadeAmount += Time.deltaTime;
@@ -202,8 +264,6 @@ public class PlayerMovement : MonoBehaviour
                 LightCast.GetComponent<SpriteRenderer>().color = Color.Lerp(flashBaseColor, fadeColor, fadeAmount/fadeDuration);
             }
         }
-
-        StartCoroutine(StartFlashCooldown());
         yield return null;
     }
 
@@ -224,8 +284,8 @@ public class PlayerMovement : MonoBehaviour
                 LightCast.GetComponent<SpriteRenderer>().color = Color.Lerp(flashBaseColor, fadeColor, fadeAmount/fadeDuration);
             }
         }
-
-        StartCoroutine(StartFlashCooldown());
+        
+        FlashlightCollider.GetComponent<Collider2D>().enabled = true;
         yield return null;
     }
 
@@ -249,6 +309,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+    #endregion
     
     #region Attack
     private void CheckAttack()
@@ -325,9 +386,46 @@ public class PlayerMovement : MonoBehaviour
             else if (interactable.tag == "LanternStash") 
             {
                 _GameSaveData._hasLantern = true;
+                
+                if(flashlight.activeSelf)
+                {
+                    previousHold = "Flashlight";
+                } 
+                else if (FlameTool.activeSelf)
+                {
+                    previousHold = "FlameTool";
+                }
+                
                 flashlightHold.SetActive(false);
+                flameToolHold.SetActive(false);
                 lanternHold.SetActive(true);
+
+                flashlight.SetActive(false);
+                FlameTool.SetActive(false);
+
                 UpdateActionTextp("Lantern");
+            }
+            else if (interactable.tag == "GasCanStash") 
+            {
+                _GameSaveData._hasGasCan = true;
+                
+                if(flashlight.activeSelf)
+                {
+                    previousHold = "Flashlight";
+                } 
+                else if (FlameTool.activeSelf)
+                {
+                    previousHold = "FlameTool";
+                }
+                
+                flashlightHold.SetActive(false);
+                flameToolHold.SetActive(false);
+                gasCanHold.SetActive(true);
+
+                flashlight.SetActive(false);
+                FlameTool.SetActive(false);
+
+                UpdateActionTextp("Gas Can");
             }
             else if (interactable.tag == "StringLightsPickup")
             {
@@ -529,6 +627,18 @@ public class PlayerMovement : MonoBehaviour
             canInteract = true;
         }
 
+        if (obj.gameObject.tag == "LanternStash")
+        {
+            interactable = obj.gameObject;
+            canInteract = true;
+        }
+
+        if (obj.gameObject.tag == "GasCanStash")
+        {
+            interactable = obj.gameObject;
+            canInteract = true;
+        }
+
         if (obj.gameObject.tag == "Lantern")
         {
             interactable = obj.gameObject;
@@ -600,6 +710,11 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.GetComponent<PlayerHealth>().TakeDamage();
         }
+
+        if (obj.gameObject.tag == "NoDropZone")
+        {
+            canPlace = false;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D obj)
@@ -625,6 +740,16 @@ public class PlayerMovement : MonoBehaviour
             canInteract = false;
         }
 
+        if (obj.gameObject.tag == "LanternStash")
+        {
+            canInteract = false;
+        }
+
+        if (obj.gameObject.tag == "GasCanStash")
+        {
+            canInteract = false;
+        }
+
         if (obj.gameObject.tag == "Lantern")
         {
             canInteract = false;
@@ -645,6 +770,11 @@ public class PlayerMovement : MonoBehaviour
             canInteract = false;
         }
         #endregion
+
+        if (obj.gameObject.tag == "NoDropZone")
+        {
+            canPlace = true;
+        }
     }
 
     #region Action Text
