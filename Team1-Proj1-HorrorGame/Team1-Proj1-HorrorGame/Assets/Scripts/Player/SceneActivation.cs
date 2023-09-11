@@ -238,6 +238,7 @@ public class SceneActivation : MonoBehaviour
         Lvl2Start.SetActive(true);
         
         generator.GetComponent<Animator>().SetTrigger("isTurnedOn");
+        generator.GetComponent<AudioSource>().enabled = true;
     }
 
     public void GainKey()

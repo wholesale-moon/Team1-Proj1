@@ -214,12 +214,14 @@ public class PlayerMovement : MonoBehaviour
             flashlightHold.SetActive(true);
             FlameTool.SetActive(false);
             flameToolHold.SetActive(false);
+            _SceneManager.GetComponent<SoundManager>().PlayClipByName("ItemSwap");
         } else if (Input.GetKeyDown(KeyCode.F) & flashlight.activeSelf)
         {
             flashlight.SetActive(false);
             flashlightHold.SetActive(false);
             FlameTool.SetActive(true);
             flameToolHold.SetActive(true);
+            _SceneManager.GetComponent<SoundManager>().PlayClipByName("ItemSwap");
         }
     }
 
@@ -233,6 +235,7 @@ public class PlayerMovement : MonoBehaviour
         {
             isFlashOn = !isFlashOn;
             flashlight.SetActive(isFlashOn);
+            _SceneManager.GetComponent<SoundManager>().PlayClipByName("FlashlightClick");
         }
     }
 
@@ -322,6 +325,7 @@ public class PlayerMovement : MonoBehaviour
             flame.GetComponent<Animator>().SetTrigger("Blast");
             flameCooldown.value = flameCooldown.maxValue;
             StartCoroutine(DealDamage());
+            _SceneManager.GetComponent<SoundManager>().PlayClipByName("FlameBurst");
         }
     }
 
@@ -382,6 +386,7 @@ public class PlayerMovement : MonoBehaviour
                 flashlightHold.SetActive(true);
                 UpdateActionTextp("Flashlight");
                 canInteract = false;
+                _SceneManager.GetComponent<SoundManager>().PlayClipByName("ItemPickup");
             } 
             else if (interactable.tag == "LanternStash") 
             {
@@ -404,6 +409,7 @@ public class PlayerMovement : MonoBehaviour
                 FlameTool.SetActive(false);
 
                 UpdateActionTextp("Lantern");
+                _SceneManager.GetComponent<SoundManager>().PlayClipByName("ItemPickup");
             }
             else if (interactable.tag == "GasCanStash") 
             {
@@ -436,11 +442,13 @@ public class PlayerMovement : MonoBehaviour
                     transform.GetComponent<SceneActivation>().GainStringLights();
                     transform.GetComponent<SceneActivation>().stringLightInventory = 13;
                     UpdateActionTextp("x13 String Lights");
+                    _SceneManager.GetComponent<SoundManager>().PlayClipByName("ItemPickup");
                 } else {
                     transform.GetComponent<SceneActivation>().stringLightInventory = 1;
                     StringLightCounter.text = transform.GetComponent<SceneActivation>().stringLightInventory.ToString();
                     transform.GetComponent<SceneActivation>().Burn();
                     UpdateActionTextp("x1 String Lights");
+                    _SceneManager.GetComponent<SoundManager>().PlayClipByName("ItemPickup");
                 }
             }
             else if (interactable.tag == "PlaceStringLight")
@@ -451,6 +459,7 @@ public class PlayerMovement : MonoBehaviour
                     StringLightCounter.text = transform.GetComponent<SceneActivation>().stringLightInventory.ToString();
                     interactable.GetComponent<StringLights>().stringLight.SetActive(true);
                     Destroy(interactable);
+                    _SceneManager.GetComponent<SoundManager>().PlayClipByName("WirePlacement");
                 }
             }
             else if (interactable.tag == "PlaceSpecialSL")
@@ -461,6 +470,7 @@ public class PlayerMovement : MonoBehaviour
                 transform.GetComponent<SceneActivation>().ExitQuestActive();
                 Destroy(interactable);
                 Destroy(transform.GetComponent<SceneActivation>().StringLightBroken);
+                _SceneManager.GetComponent<SoundManager>().PlayClipByName("WirePlacement");
             }
             else if (interactable.tag == "Generator")
             {
@@ -468,6 +478,8 @@ public class PlayerMovement : MonoBehaviour
                 {
                     Destroy(interactable);
                     transform.GetComponent<SceneActivation>().GeneratorOn();
+                    _SceneManager.GetComponent<SoundManager>().PlayClipByName("Success");
+
                 } else {
                     transform.GetComponent<SceneActivation>().GeneratorBrokenDialogue();
                 }
@@ -484,12 +496,14 @@ public class PlayerMovement : MonoBehaviour
                     flashlight.SetActive(false);
                     transform.GetComponent<SceneActivation>().ProtectTheFarm();
                     UpdateActionTextp("FlameTool");
+                    _SceneManager.GetComponent<SoundManager>().PlayClipByName("ItemPickup");
                 }
             }
             else if (interactable.tag == "Tools")
             {
                 Destroy(interactable);
                 _GameSaveData._hasTools = true;
+                _SceneManager.GetComponent<SoundManager>().PlayClipByName("ItemPickup");
             }
         }
     }
@@ -583,6 +597,7 @@ public class PlayerMovement : MonoBehaviour
             Destroy(obj.gameObject);
             transform.GetComponent<SceneActivation>().GainKey();
             UpdateActionTextp("Barn Key");
+            _SceneManager.GetComponent<SoundManager>().PlayClipByName("KeyPick");
         }
 
         if (obj.gameObject.tag == "Medicine")
@@ -607,24 +622,27 @@ public class PlayerMovement : MonoBehaviour
         {
             interactable = obj.gameObject;
             canInteract = true;
+            _SceneManager.GetComponent<SoundManager>().PlayClipByName("ItemPickup");
         }
 
         if (obj.gameObject.tag == "StringLightsPickup")
         {
             interactable = obj.gameObject;
             canInteract = true;
+            
         }
 
         if (obj.gameObject.tag == "PlaceStringLight")
         {
             interactable = obj.gameObject;
-            canInteract = true;
+            canInteract = true;            
         }
 
         if (obj.gameObject.tag == "PlaceSpecialSL")
         {
             interactable = obj.gameObject;
             canInteract = true;
+            
         }
 
         if (obj.gameObject.tag == "LanternStash")
@@ -661,6 +679,7 @@ public class PlayerMovement : MonoBehaviour
         {
             interactable = obj.gameObject;
             canInteract = true;
+            _SceneManager.GetComponent<SoundManager>().PlayClipByName("ItemPickup");
         }
         #endregion
 
