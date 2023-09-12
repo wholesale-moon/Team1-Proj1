@@ -201,6 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 869393591b8882644bb542eba0a05ea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _GameSaveData: {fileID: 11400000, guid: 4b3d4dca943ebc54aac5379ca92a9107, type: 2}
   PauseScreen: {fileID: 4735074970617343922}
   HelpScreen: {fileID: 12425841254708416}
   OptionsScreen: {fileID: 965034645164881667}
@@ -208,6 +209,8 @@ MonoBehaviour:
   isHelp: 0
   isOptions: 0
   sceneTransitioner: {fileID: 0}
+  Flashlight: {fileID: 0}
+  FlameTool: {fileID: 0}
 --- !u!114 &10109155785928262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,7 +256,7 @@ MonoBehaviour:
     source: {fileID: 0}
     clip: {fileID: 8300000, guid: 285bff857e47ba0458de2024eff93340, type: 3}
     clipName: Field Theme 3
-    isLoop: 0
+    isLoop: 1
     playOnAwake: 0
     volume: 1
   - audioType: 1
@@ -342,8 +345,50 @@ MonoBehaviour:
     volume: 1
   - audioType: 0
     source: {fileID: 0}
-    clip: {fileID: 8300000, guid: 72067b5f18ed2aa4aa0de70dbe650ab1, type: 3}
-    clipName: EnemyGrowl
+    clip: {fileID: 8300000, guid: d0005e2b92e20b24ab5755914081caad, type: 3}
+    clipName: DialogueAlt
+    isLoop: 0
+    playOnAwake: 0
+    volume: 1
+  - audioType: 0
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 5f63c8ba10453234aa0a41f498b3c0e5, type: 3}
+    clipName: ItemPickup
+    isLoop: 0
+    playOnAwake: 0
+    volume: 1
+  - audioType: 0
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 9e9ab93e8295e6d41b213f3767c254a4, type: 3}
+    clipName: WirePlace
+    isLoop: 0
+    playOnAwake: 0
+    volume: 1
+  - audioType: 0
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 9e5e1adf10b374b40a5a5eb6d051a4e1, type: 3}
+    clipName: Success
+    isLoop: 0
+    playOnAwake: 0
+    volume: 1
+  - audioType: 0
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: f27d086af624dd34682096adb542add2, type: 3}
+    clipName: Generator
+    isLoop: 0
+    playOnAwake: 0
+    volume: 1
+  - audioType: 0
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 180fd02a30f3ee64b9956be61eee0a34, type: 3}
+    clipName: KeyPick
+    isLoop: 0
+    playOnAwake: 0
+    volume: 1
+  - audioType: 0
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 980df048fadee824d812e5f62ce1353c, type: 3}
+    clipName: FlashlightClick
     isLoop: 0
     playOnAwake: 0
     volume: 1

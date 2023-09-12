@@ -18,6 +18,9 @@ public class GameSaveData : ScriptableObject
 
     [Space(10)]
     public bool _isHouseOpen;
+
+    [Header("Pause")]
+    public bool _gamePause;
     
     [Header("Settings Data")]
     public float _masterVolume;
@@ -25,7 +28,6 @@ public class GameSaveData : ScriptableObject
     public float _sfxVolume;
 
     [Space(10)]
-    //public bool _isClown;
     public bool _skipPrologue;
     public bool _hasCompletedPrologue;
     

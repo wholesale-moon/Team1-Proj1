@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
     private float fadeAmount = 0;
     private bool stopFade;
     private Color flashBaseColor = new Color(1, 1, 1, 0.08627451f);
-    private Color fadeColor = new Color(0.7843137f, 0.4588235f, 1, 0.08627451f);
+    private Color fadeColor = new Color(0.3937721f, 0, 1, 0.4627451f);
     private bool canFlash;
     private bool canDamage;
 
@@ -105,6 +105,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_GameSaveData._gamePause)
+            return;
+        
         OnMove();
         CheckPlacement();
 
@@ -177,7 +180,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckPlacement()
     {
-        if (Input.GetMouseButtonDown(0) & canPlace)
+        if (Input.GetMouseButtonDown(0) & canPlace || Input.GetButton("Controller B") & canPlace)
         {
             if (_GameSaveData._hasLantern)
             {
@@ -217,7 +220,11 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         } 
-        else if (Input.GetMouseButtonDown(0) & !canPlace)
+        else if (Input.GetMouseButtonDown(0) & !canPlace & _GameSaveData._hasLantern || Input.GetMouseButtonDown(0) & !canPlace & _GameSaveData._hasGasCan)
+        {
+            UpdateActionTexto("place an item here");
+        }
+        else if (Input.GetButton("Controller B") & !canPlace & _GameSaveData._hasLantern || Input.GetButton("Controller B") & !canPlace & _GameSaveData._hasGasCan)
         {
             UpdateActionTexto("place an item here");
         }
@@ -225,14 +232,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckSwap()
     {
-        if (Input.GetKeyDown(KeyCode.F) & FlameTool.activeSelf)
+        if (Input.GetKeyDown(KeyCode.F) & FlameTool.activeSelf || Input.GetButton("Controller Y") & FlameTool.activeSelf)
         {
             flashlight.SetActive(true);
             flashlightHold.SetActive(true);
             FlameTool.SetActive(false);
             flameToolHold.SetActive(false);
             _SceneManager.GetComponent<SoundManager>().PlayClipByName("ItemSwap");
-        } else if (Input.GetKeyDown(KeyCode.F) & flashlight.activeSelf)
+        } else if (Input.GetKeyDown(KeyCode.F) & flashlight.activeSelf || Input.GetButton("Controller Y") & flashlight.activeSelf)
         {
             flashlight.SetActive(false);
             flashlightHold.SetActive(false);
@@ -394,7 +401,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckInteractables()
     {
-        if (Input.GetKeyDown(KeyCode.E) & canInteract)
+        if (Input.GetKeyDown(KeyCode.E) & canInteract || Input.GetButton("Controller X") & canInteract)
         {
             if (_GameSaveData._hasFlashlight == false)
             {
@@ -656,7 +663,6 @@ public class PlayerMovement : MonoBehaviour
         {
             interactable = obj.gameObject;
             canInteract = true;
-            _SceneManager.GetComponent<SoundManager>().PlayClipByName("ItemPickup");
         }
 
         if (obj.gameObject.tag == "StringLightsPickup")
@@ -713,7 +719,6 @@ public class PlayerMovement : MonoBehaviour
         {
             interactable = obj.gameObject;
             canInteract = true;
-            _SceneManager.GetComponent<SoundManager>().PlayClipByName("ItemPickup");
         }
         #endregion
 

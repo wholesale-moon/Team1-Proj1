@@ -5,8 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Credits : MonoBehaviour
 {
-    [SerializeField] private bool isShowing = false;
+    private bool isShowing = false;
     
+    void Start()
+    {
+        Cursor.visible = true;
+    }
+
     public void ShowText(GameObject credit)
     {
         if (isShowing == false)

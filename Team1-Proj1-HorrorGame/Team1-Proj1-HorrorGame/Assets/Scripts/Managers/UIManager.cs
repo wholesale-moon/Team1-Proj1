@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    [SerializeField] private GameSaveData _GameSaveData;
+    
     [Header("Menu Objects")]
     [SerializeField] private GameObject PauseScreen;
     [SerializeField] private GameObject HelpScreen;
@@ -22,39 +24,79 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        Cursor.visible = false;
+        _GameSaveData._gamePause = false;
     }
     
     private void Update()
     {
-        if(Input.GetKeyDown("escape"))
+        if (_GameSaveData._gamePause)
         {
-            isPaused = !isPaused;
-            if(isHelp & isPaused)
-            {
-                isHelp = false;
-                HelpScreen.SetActive(isHelp);
-            } else if (isOptions & isPaused)
-            {
-                isOptions = false;
-                OptionsScreen.SetActive(isOptions);
-            }
-
-            PauseScreen.SetActive(isPaused);
-        }
-
-        if (isPaused || isHelp || isOptions)
-        {
-            Time.timeScale = 0.0f;
             Cursor.visible = true;
-            Flashlight.GetComponent<FollowMouse>().enabled = false;
-            FlameTool.GetComponent<FollowMouse>().enabled = false;
-        } else if (!isPaused && !isHelp && !isOptions){
-            Time.timeScale = 1.0f;
-            Cursor.visible = false;
-            Flashlight.GetComponent<FollowMouse>().enabled = true;
-            FlameTool.GetComponent<FollowMouse>().enabled = true;
         }
+        else
+        {
+            Cursor.visible = false;
+        }
+
+        
+        if(Input.GetKeyDown("escape") || Input.GetButtonDown("Controller Start"))
+        {
+            if (_GameSaveData._gamePause == false)
+            {
+                PauseScreen.SetActive(true);
+                isPaused = true;
+                Time.timeScale = 0.0f;
+                Flashlight.GetComponent<FollowMouse>().enabled = false;
+                FlameTool.GetComponent<FollowMouse>().enabled = false;
+
+                _GameSaveData._gamePause = true;
+            } else if (_GameSaveData._gamePause == true)
+            {
+                PauseScreen.SetActive(false);
+                isPaused = false;
+
+                OptionsScreen.SetActive(false);
+                isOptions = false;
+
+                HelpScreen.SetActive(false);
+                isHelp = false;
+
+                Time.timeScale = 1.0f;
+                Flashlight.GetComponent<FollowMouse>().enabled = true;
+                FlameTool.GetComponent<FollowMouse>().enabled = true;
+                _GameSaveData._gamePause = false;
+            }
+        }
+        
+        
+        // if(Input.GetKeyDown("escape") || Input.GetButtonDown("Controller Start"))
+        // {
+        //     isPaused = !isPaused;
+
+        //     if(isHelp & isPaused)
+        //     {
+        //         isHelp = false;
+        //         HelpScreen.SetActive(isHelp);
+        //     } else if (isOptions & isPaused)
+        //     {
+        //         isOptions = false;
+        //         OptionsScreen.SetActive(isOptions);
+        //     }
+
+        //     PauseScreen.SetActive(isPaused);
+        // }
+
+        // if (isPaused || isHelp || isOptions)
+        // {
+        //     Time.timeScale = 0.0f;
+        //     Flashlight.GetComponent<FollowMouse>().enabled = false;
+        //     FlameTool.GetComponent<FollowMouse>().enabled = false;
+        // } else if (!isPaused && !isHelp && !isOptions){
+            // Time.timeScale = 1.0f;
+            // Cursor.visible = false;
+            // Flashlight.GetComponent<FollowMouse>().enabled = true;
+            // FlameTool.GetComponent<FollowMouse>().enabled = true;
+        // }
         
     }
 
@@ -72,6 +114,10 @@ public class UIManager : MonoBehaviour
     {
         isPaused = false;
         PauseScreen.SetActive(isPaused);
+        Time.timeScale = 1.0f;
+        Flashlight.GetComponent<FollowMouse>().enabled = true;
+        FlameTool.GetComponent<FollowMouse>().enabled = true;
+        _GameSaveData._gamePause = false;
     }
 
     public void Restart()
@@ -90,6 +136,8 @@ public class UIManager : MonoBehaviour
 
         isOptions = false;
         OptionsScreen.SetActive(isOptions);
+
+        Cursor.visible = true;
     }
 
     public void Options()
@@ -102,6 +150,8 @@ public class UIManager : MonoBehaviour
         
         isOptions = true;
         OptionsScreen.SetActive(isOptions);
+
+        Cursor.visible = true;
     }
 
     public void Back()
@@ -111,6 +161,9 @@ public class UIManager : MonoBehaviour
         
         isHelp = false;
         HelpScreen.SetActive(isHelp);
+
+        isOptions = false;
+        OptionsScreen.SetActive(isOptions);
     }
 
     public void Quit()

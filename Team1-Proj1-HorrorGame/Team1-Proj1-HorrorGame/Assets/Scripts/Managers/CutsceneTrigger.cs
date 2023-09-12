@@ -41,7 +41,7 @@ public class CutsceneTrigger : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Return))
+        if(Input.GetKeyDown(KeyCode.Return) || Input.GetButton("Controller A"))
         {
             if(_GameSaveData.isPlayingCutscene)
             {
@@ -52,8 +52,6 @@ public class CutsceneTrigger : MonoBehaviour
         if (_GameSaveData.isPlayingCutscene)
         {
             Cursor.visible = true;
-        } else {
-            Cursor.visible = false;
         }
     }
 

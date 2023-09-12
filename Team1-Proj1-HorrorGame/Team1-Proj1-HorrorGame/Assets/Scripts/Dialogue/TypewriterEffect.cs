@@ -48,7 +48,7 @@ public class TypewriterEffect : MonoBehaviour
 
 	void Update()
 	{
-		if(Input.GetKeyDown(KeyCode.Return))
+		if(Input.GetKeyDown(KeyCode.Return) || Input.GetButton("Controller A"))
 		{
 			if (!isWriting & !_isScreenText & !_noSkip)
 			{
