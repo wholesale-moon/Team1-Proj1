@@ -9880,8 +9880,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.0023500025, y: 0.0035000145, z: 0}
-    m_Extent: {x: 0.75405, y: 0.74759996, z: 0}
+    m_Center: {x: 0.0029499829, y: 0.002000004, z: 0}
+    m_Extent: {x: 0.75635004, y: 0.74960005, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -14772,6 +14772,7 @@ GameObject:
   - component: {fileID: 282980231}
   - component: {fileID: 282980233}
   - component: {fileID: 282980232}
+  - component: {fileID: 282980234}
   m_Layer: 0
   m_Name: MiniScarecrow (5)
   m_TagString: Untagged
@@ -14867,6 +14868,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &282980234
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282980230}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.02320671, y: 1.0224743}
+  m_Size: {x: 0.6835022, y: 0.6835022}
+  m_Direction: 0
 --- !u!1 &285218563
 GameObject:
   m_ObjectHideFlags: 0
@@ -16496,6 +16532,7 @@ GameObject:
   - component: {fileID: 354939877}
   - component: {fileID: 354939879}
   - component: {fileID: 354939878}
+  - component: {fileID: 354939880}
   m_Layer: 0
   m_Name: MiniScarecrow (1)
   m_TagString: Untagged
@@ -16591,6 +16628,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &354939880
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354939876}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.02320671, y: 1.0224743}
+  m_Size: {x: 0.6835022, y: 0.6835022}
+  m_Direction: 0
 --- !u!1 &359782588
 GameObject:
   m_ObjectHideFlags: 0
@@ -30098,6 +30170,7 @@ GameObject:
   - component: {fileID: 483689861}
   - component: {fileID: 483689863}
   - component: {fileID: 483689862}
+  - component: {fileID: 483689864}
   m_Layer: 0
   m_Name: MiniScarecrow (3)
   m_TagString: Untagged
@@ -30193,6 +30266,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &483689864
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483689860}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.02320671, y: 1.0224743}
+  m_Size: {x: 0.6835022, y: 0.6835022}
+  m_Direction: 0
 --- !u!1 &483766967
 GameObject:
   m_ObjectHideFlags: 0
@@ -38566,8 +38674,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.0060499907, y: -0.001850009, z: 0}
-    m_Extent: {x: 2.25315, y: 2.2508502, z: 0}
+    m_Center: {x: 0.0028500557, y: -0.00055003166, z: 0}
+    m_Extent: {x: 2.25545, y: 2.24775, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -49801,6 +49909,7 @@ GameObject:
   - component: {fileID: 1006619099}
   - component: {fileID: 1006619101}
   - component: {fileID: 1006619100}
+  - component: {fileID: 1006619102}
   m_Layer: 0
   m_Name: MiniScarecrow (4)
   m_TagString: Untagged
@@ -49896,6 +50005,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &1006619102
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006619098}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.02320671, y: 1.0224743}
+  m_Size: {x: 0.6835022, y: 0.6835022}
+  m_Direction: 0
 --- !u!1 &1021416371
 GameObject:
   m_ObjectHideFlags: 0
@@ -54723,6 +54867,7 @@ GameObject:
   - component: {fileID: 1148601762}
   - component: {fileID: 1148601764}
   - component: {fileID: 1148601763}
+  - component: {fileID: 1148601765}
   m_Layer: 0
   m_Name: MiniScarecrow (6)
   m_TagString: Untagged
@@ -54818,6 +54963,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &1148601765
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148601761}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.02320671, y: 1.0224743}
+  m_Size: {x: 0.6835022, y: 0.6835022}
+  m_Direction: 0
 --- !u!1 &1153064025
 GameObject:
   m_ObjectHideFlags: 0
@@ -91897,8 +92077,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.060150027, y: 0.30440003, z: 0}
-    m_Extent: {x: 1.24255, y: 1.0716, z: 0}
+    m_Center: {x: 0.057250023, y: 0.30894998, z: 0}
+    m_Extent: {x: 1.24395, y: 1.07455, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -97416,8 +97596,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.02850002, y: -0.15040004, z: 0}
-    m_Extent: {x: 1.1201, y: 1.5308, z: 0}
+    m_Center: {x: -0.025299966, y: -0.1491, z: 0}
+    m_Extent: {x: 1.1317, y: 1.5311, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -110454,6 +110634,7 @@ GameObject:
   - component: {fileID: 1786351859}
   - component: {fileID: 1786351861}
   - component: {fileID: 1786351860}
+  - component: {fileID: 1786351862}
   m_Layer: 0
   m_Name: MiniScarecrow (2)
   m_TagString: Untagged
@@ -110549,6 +110730,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &1786351862
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786351858}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.02320671, y: 1.0224743}
+  m_Size: {x: 0.6835022, y: 0.6835022}
+  m_Direction: 0
 --- !u!1 &1788768138
 GameObject:
   m_ObjectHideFlags: 0
@@ -114054,17 +114270,6 @@ MonoBehaviour:
   - {x: 0.79857254, y: -0.22749329, z: 0}
   - {x: 0.36652565, y: 0.87540054, z: 0}
   - {x: -0.34149742, y: 0.87540054, z: 0}
---- !u!114 &1908987464 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4515072659539529283, guid: e4acb4100d5d3324db88996267c0cc02, type: 3}
-  m_PrefabInstance: {fileID: 1042282897}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1910032182
 GameObject:
   m_ObjectHideFlags: 0
@@ -116086,8 +116291,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.0012499988, y: 0.006850004, z: 0}
-    m_Extent: {x: 0.99805, y: 0.99735, z: 0}
+    m_Center: {x: -0.0017499924, y: 0.00025001168, z: 0}
+    m_Extent: {x: 0.99325, y: 0.99905, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -121956,7 +122161,7 @@ PrefabInstance:
     - target: {fileID: 6163812994595470745, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
       propertyPath: flashCooldown
       value: 
-      objectReference: {fileID: 1908987464}
+      objectReference: {fileID: 1706397417}
     - target: {fileID: 6163812994595470745, guid: 8d710dad07e4fd241931f85fe1ed6d65, type: 3}
       propertyPath: flashlightHold
       value: 

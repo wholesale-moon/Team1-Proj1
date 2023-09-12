@@ -239,7 +239,7 @@ public class PlayerMovement : MonoBehaviour
             FlameTool.SetActive(false);
             flameToolHold.SetActive(false);
             _SceneManager.GetComponent<SoundManager>().PlayClipByName("ItemSwap");
-        } else if (Input.GetKeyDown(KeyCode.F) & flashlight.activeSelf || Input.GetButton("Controller Y") & flashlight.activeSelf)
+        } else if (Input.GetKeyDown(KeyCode.F) & flashlightHold.activeSelf || Input.GetButton("Controller Y") & flashlightHold.activeSelf)
         {
             flashlight.SetActive(false);
             flashlightHold.SetActive(false);

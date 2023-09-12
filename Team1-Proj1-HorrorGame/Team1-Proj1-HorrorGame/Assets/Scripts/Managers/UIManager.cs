@@ -168,6 +168,7 @@ public class UIManager : MonoBehaviour
 
     public void Quit()
     {
-        Application.Quit();
+        _GameSaveData._gamePause = false;
+        SceneManager.LoadScene(0);
     }
 }
