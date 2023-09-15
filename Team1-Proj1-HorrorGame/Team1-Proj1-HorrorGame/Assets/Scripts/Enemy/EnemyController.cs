@@ -48,7 +48,7 @@ public class EnemyMovement : MonoBehaviour
         roamPosition = GetRandomRoamPosition();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {        
         if (isDead)
             return;
